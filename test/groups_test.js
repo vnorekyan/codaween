@@ -36,7 +36,15 @@ describe('GET /groups/:id', function() {
     .expect(200, done);
   });
   it('should return a group associated with multiple users with an id, name, description, and picture', function(done) {
-
+    api.get('/groups/1')
+    .set('Accept', 'application/json')
+    .end(function(error, response) {
+      assert.property(response.body, 'id');
+      assert.property(response.body, 'name');
+      assert.property(response.body, 'description');
+      assert.property(response.body, 'picture');
+      done();
+    });
   });
 });
 

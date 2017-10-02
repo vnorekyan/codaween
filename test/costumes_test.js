@@ -36,7 +36,16 @@ describe('GET /costumes/:id', function() {
     .expect(200, done);
   });
   it('should return a costume associated with a user with an id, name, description, picture, and amazon link', function(done) {
-
+    api.get('/costumes/1')
+    .set('Accept', 'application/json')
+    .end(function(error, response) {
+      assert.property(response.body, 'id');
+      assert.property(response.body, 'name');
+      assert.property(response.body, 'description');
+      assert.property(response.body, 'picture');
+      assert.property(response.body, 'link');
+      done();
+    });
   });
 });
 
