@@ -23,20 +23,33 @@ describe('GET /users', function() {
 
 // POST /users
 describe('POST /users', function() {
+  it('should create a new user with an id, name, picture, and email', function(done) {
 
+  });
 });
 
 // GET /users/:id
 describe('GET /users/:id', function() {
+  it('should return a 200 response', function(done) {
+    api.get('/users/1')
+    .set('Accept', 'application/json')
+    .expect(200, done);
+  });
+  it('should return a user with an id, name, picture, and email', function(done) {
 
+  });
 });
 
 // PUT /users/:id
 describe('PUT /users/:id', function() {
+  it('should update a users name, picture, and email to "NEW NAME", "NEW PICTURE", and "NEW EMAIL", respectively', function(done) {
 
+  });
 });
 
 // DELETE /users/:id
 describe('DELETE /users/:id', function() {
+  it('should delete a user', function(done) {
 
+  });
 });

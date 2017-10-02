@@ -23,20 +23,33 @@ describe('GET /costumes', function() {
 
 // POST /costumes
 describe('POST /costumes', function() {
+  it('should create a new costume associated with a user with an id, name, description, picture, and amazon link', function(done) {
 
+  });
 });
 
 // GET /costumes/:id
 describe('GET /costumes/:id', function() {
+  it('should return a 200 response', function(done) {
+    api.get('/costumes/1')
+    .set('Accept', 'application/json')
+    .expect(200, done);
+  });
+  it('should return a costume associated with a user with an id, name, description, picture, and amazon link', function(done) {
 
+  });
 });
 
 // PUT /costumes/:id
 describe('PUT /costumes/:id', function() {
+  it('should update a costumes name, description, picture, and link to "NEW NAME", "NEW DESCRIPTION", "NEW PICTURE", and "NEW LINK", respectively', function(done) {
 
+  });
 });
 
 // DELETE /costumes/:id
 describe('DELETE /costumes/:id', function() {
+  it('should delete a costume', function(done) {
 
+  });
 });

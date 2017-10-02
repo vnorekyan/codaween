@@ -23,20 +23,33 @@ describe('GET /groups', function() {
 
 // POST /groups
 describe('POST /groups', function() {
+  it('should create a new group associated with multiple users with an id, name, description, and picture', function(done) {
 
+  });
 });
 
 // GET /groups/:id
 describe('GET /groups/:id', function() {
+  it('should return a 200 response', function(done) {
+    api.get('/groups/1')
+    .set('Accept', 'application/json')
+    .expect(200, done);
+  });
+  it('should return a group associated with multiple users with an id, name, description, and picture', function(done) {
 
+  });
 });
 
 // PUT /groups/:id
 describe('PUT /groups/:id', function() {
+  it('should update a groups name, description, and picture to "NEW NAME", "NEW DESCRIPTION", and "NEW PICTURE", respectively', function(done) {
 
+  });
 });
 
 // DELETE /groups/:id
 describe('DELETE /groups/:id', function() {
+  it('should delete a group', function(done) {
 
+  });
 });
