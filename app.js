@@ -3,21 +3,25 @@ var bodyParser = require('body-parser');
 var db = require('./models');
 var path = require('path');
 var methodOverride = require('method-override');
+var ejsLayouts = require('express-ejs-layouts');
 var app = express();
 
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
+app.set('view engine', 'ejs');
+app.use(ejsLayouts);
 
 app.get('/', function(req, res) {
-  db.user.findAll()
-  .then(function(users) {
-    res.status(200).json(users);
-  })
-  .catch(function(error) {
-    res.json(error);
-  });
+  res.render('index');
+  // db.user.findAll()
+  // .then(function(users) {
+  //   res.status(200).json(users);
+  // })
+  // .catch(function(error) {
+  //   res.json(error);
+  // });
 });
 
 app.use('/users', require('./controllers/users'));
