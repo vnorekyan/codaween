@@ -2,14 +2,14 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 
-// GET /costumes
+// GET /groups
 router.get('/', function(req, res) {
-  res.send('GET /costumes');
+  res.send('GET /groups');
 });
 
-// POST /costumes
-// GET /costumes/:id
-// PUT /costumes/:id
-// DELETE /costumes/:id
+// POST /groups
+// GET /groups/:id
+// PUT /groups/:id
+// DELETE /groups/:id
 
 module.exports = router;
