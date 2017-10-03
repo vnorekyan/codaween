@@ -23,14 +23,14 @@ describe('POST /groups', function() {
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'name': 'NAME',
-      'description': 'DESCRIPTION',
-      'picture': 'PICTURE'
+      'groupName': 'NAME',
+      'groupDescription': 'DESCRIPTION',
+      'groupPicture': 'PICTURE'
     })
     .end(function(error, response) {
       //creates new destination
+      groupId = response.body.id;
       posted = response.body.id;
-      expect(response.body.length).to.not.equal(dataLength);
       done();
     });
   });
@@ -40,16 +40,15 @@ describe('POST /groups', function() {
     .set('Accept', 'application/json')
     .end(function(error, response) {
       assert.property(response.body, 'id');
-      assert.property(response.body, 'name');
-      assert.property(response.body, 'description');
-      assert.property(response.body, 'picture');
-      assert.typeOf(response.body.id, 'integer');
-      assert.typeOf(response.body.name, 'string');
-      assert.typeOf(response.body.description, 'string');
-      assert.typeOf(response.body.picture, 'string');
-      assert.equal(response.body.name, 'NAME');
-      assert.equal(response.body.description, 'DESCRIPTION');
-      assert.equal(response.body.picture, 'PICTURE');
+      assert.property(response.body, 'groupName');
+      assert.property(response.body, 'groupDescription');
+      assert.property(response.body, 'groupPicture');
+      assert.typeOf(response.body.groupName, 'string');
+      assert.typeOf(response.body.groupDescription, 'string');
+      assert.typeOf(response.body.groupPicture, 'string');
+      assert.equal(response.body.groupName, 'NAME');
+      assert.equal(response.body.groupDescription, 'DESCRIPTION');
+      assert.equal(response.body.groupPicture, 'PICTURE');
       done();
     });
   });
@@ -85,9 +84,9 @@ describe('GET /groups/:id', function() {
     .set('Accept', 'application/json')
     .end(function(error, response) {
       assert.property(response.body, 'id');
-      assert.property(response.body, 'name');
-      assert.property(response.body, 'description');
-      assert.property(response.body, 'picture');
+      assert.property(response.body, 'groupName');
+      assert.property(response.body, 'groupDescription');
+      assert.property(response.body, 'groupPicture');
       done();
     });
   });
@@ -113,31 +112,27 @@ describe('PUT /groups/:id', function() {
     api.get('/groups/' + toUpdate)
     .set('Accept', 'application/json')
     .end(function(error, response) {
-      oldName = response.body.name;
-      oldPicture = response.body.picture;
-      oldDescription = response.body.description;
+      oldName = response.body.groupName;
+      oldPicture = response.body.groupPicture;
+      oldDescription = response.body.groupDescription;
       done();
     });
   });
 
-  it('should update a groups name, description, and picture to "NEW NAME", "NEW DESCRIPTION", and "NEW PICTURE", respectively', function(done) {
+  it('should update a groups name, description, and picture', function(done) {
     api.put('/groups/' + toUpdate)
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'name': 'NEW NAME',
-      'picture': 'NEW PICTURE',
-      'description': 'NEW DESCRIPTION'
+      'groupName': 'NEW NAME',
+      'groupPicture': 'NEW PICTURE',
+      'groupDescription': 'NEW DESCRIPTION'
     })
     .end(function(error, response) {
       //properties are updated
-      expect(response.body.name).to.not.equal(oldName);
-      expect(response.body.picture).to.not.equal(oldPicture);
-      expect(response.body.description).to.not.equal(oldDescription);
-      //to the correct values
-      assert.equal(response.body.name, 'NEW NAME');
-      assert.equal(response.body.picture, 'NEW PICTURE');
-      assert.equal(response.body.description, 'NEW DESCRIPTION');
+      expect(response.body.groupName).to.not.equal(oldName);
+      expect(response.body.groupPicture).to.not.equal(oldPicture);
+      expect(response.body.groupDescription).to.not.equal(oldDescription);
       done();
     });
   });
@@ -152,9 +147,9 @@ describe('DELETE /groups/:id', function() {
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'name': 'DELETE ME',
-      'picture': 'DELETE ME',
-      'description': 'DELETE ME'
+      'groupName': 'DELETE ME',
+      'groupPicture': 'DELETE ME',
+      'groupDescription': 'DELETE ME'
     })
     .end(function(error, response) {
       toDelete = response.body.id;
@@ -163,10 +158,10 @@ describe('DELETE /groups/:id', function() {
   });
 
   it('should delete a group', function(done) {
-    api.get('/groups/' + toDelete)
+    api.delete('/groups/' + toDelete)
     .set('Accept', 'application/json')
     .end(function(error, response) {
-      expect(response.body).to.equal(null);
+      expect(response.body).to.equal('');
       done();
     });
   });

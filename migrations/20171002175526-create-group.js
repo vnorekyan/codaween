@@ -8,13 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      groupName: {
         type: Sequelize.STRING
       },
-      description: {
+      groupDescription: {
         type: Sequelize.STRING
       },
-      picture: {
+      groupPicture: {
         type: Sequelize.STRING
       },
       createdAt: {

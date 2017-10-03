@@ -8,16 +8,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      costumeName: {
         type: Sequelize.STRING
       },
-      description: {
+      costumeDescription: {
         type: Sequelize.STRING
       },
-      picture: {
+      costumePicture: {
         type: Sequelize.STRING
       },
-      link: {
+      costumeLink: {
         type: Sequelize.STRING
       },
       createdAt: {
