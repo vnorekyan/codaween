@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        user.belongsTo(models.costume, {through: 'user_costume'})
+        // user.belongsTo(models.costume, {through: 'user_costume'})
         user.belongsToMany(models.group, {through: 'user_group'})
       }
     }

@@ -40,7 +40,7 @@
     "mocha": "^3.5.3",
     "morgan": "~1.6.1",
     "nodemon": "^1.12.1",
-    "pg": "^7.3.0",
+    "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
