@@ -160,6 +160,7 @@ describe('DELETE /users/:id', function() {
       done();
     });
   });
+  
   it('should delete a user', function(done) {
     api.get('/users/' + toDelete)
     .set('Accept', 'application/json')
