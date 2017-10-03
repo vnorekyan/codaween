@@ -27,6 +27,8 @@ app.get('/', function(req, res) {
 app.use('/users', require('./controllers/users'));
 app.use('/groups', require('./controllers/groups'));
 app.use('/costumes', require('./controllers/costumes'));
+app.use('/api', require('./controllers/api'));
+
 
 var server = app.listen(process.env.PORT || 8080, function() {
   console.log('Server started on port 8080');

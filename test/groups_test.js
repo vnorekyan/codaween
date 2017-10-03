@@ -67,6 +67,7 @@ describe('GET /groups', function() {
     .set('Accept', 'application/json')
     .end(function(error, response) {
       expect(response.body).to.be.an('array');
+      console.log('GET groups response: ', response.body);
       done();
     });
   });
