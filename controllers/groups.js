@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
 
 // POST /groups
 router.post('/', function(req, res) {
-  db.user.create({
+  db.group.create({
     name: req.body.name,
     picture: req.body.picture,
     description: req.body.description
@@ -35,9 +35,12 @@ router.post('/', function(req, res) {
       }
     })
     .spread((user, created) => {
-      user.addUser(user);
+      group.addUser(user);
       res.json(group);
     });
+  })
+  .then(function(groups) {
+    res.json(groups);
   })
   .catch(function(error) {
     res.json(error);

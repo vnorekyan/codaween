@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
     }]
   })
   .then(function(users) {
-    res.json(users);
+    res.status(200).json(users);
   })
   .catch(function(error) {
     res.json(error);
@@ -43,7 +43,56 @@ router.post('/', function(req, res) {
     res.json(error);
   });
 });
+
 // GET /users/:id
+router.get('/:id', function(req, res) {
+  db.user.find({
+    where: { id: req.params.id },
+    include: [{
+      model: db.group
+    }]
+  })
+  .then(function(user) {
+    if (!user) throw Error();
+    res.json(user);
+  })
+  .catch(function(error) {
+    res.json(error);
+  });
+});
+
 // PUT /users/:id
+router.put('/:id', function(req, res) {
+  db.user.find({
+    where: {id: req.params.id },
+    include: [{
+      model: db.group
+    }]
+  })
+  .then(function(user) {
+    user.updateAttributes(req.body);
+  })
+  .then(function(user) {
+    res.json(user);
+  })
+  .catch(function(error) {
+    res.json(error);
+  });
+});
+
 // DELETE /users/:id
+router.delete('/:id', function(req, res) {
+  db.user.find({
+    where: {id: req.params.id },
+    include: [{
+      model: db.group
+    }]
+  })
+  .then(function(user) {
+    user.destroy();
+  })
+  .then(function(user) {
+    res.json(user);
+  });
+});
 module.exports = router;

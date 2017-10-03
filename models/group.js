@@ -4,13 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     picture: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-        group.belongsToMany(models.user, {through: 'user_group'})
-      }
-    }
   });
+
+  group.associate = function(models) {
+    group.belongsToMany(models.user, {through: 'userGroup'})
+  };
+
   return group;
 };

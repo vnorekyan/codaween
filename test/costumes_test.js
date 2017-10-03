@@ -125,7 +125,7 @@
 //     });
 //   });
 //
-//   it('should update a costumes name, description, picture, and link to "NEW NAME", "NEW DESCRIPTION", "NEW PICTURE", and "NEW LINK", respectively', function(done) {
+//   it('should update a costumes name, description, picture, and link', function(done) {
 //     api.put('/costumes/' + toUpdate)
 //     .set('Accept', 'application/json')
 //     .type('form')
@@ -141,11 +141,6 @@
 //       expect(response.body.picture).to.not.equal(oldPicture);
 //       expect(response.body.description).to.not.equal(oldDescription);
 //       expect(response.body.link).to.not.equal(oldLink);
-//       //to the correct values
-//       assert.equal(response.body.name, 'NEW NAME');
-//       assert.equal(response.body.picture, 'NEW PICTURE');
-//       assert.equal(response.body.description, 'NEW DESCRIPTION');
-//       assert.equal(response.body.link, 'NEW LINK');
 //       done();
 //     });
 //   });
@@ -172,10 +167,10 @@
 //   });
 //
 //   it('should delete a costume', function(done) {
-//     api.get('/costumes/' + toDelete)
+//     api.delete('/costumes/' + toDelete)
 //     .set('Accept', 'application/json')
 //     .end(function(error, response) {
-//       expect(response.body).to.equal(null);
+//       expect(response.body).to.equal('');
 //       done();
 //     });
 //   });
