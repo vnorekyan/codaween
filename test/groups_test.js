@@ -62,7 +62,7 @@ describe('POST /groups', function() {
       assert.property(response.body, 'picture');
       assert.typeOf(response.body.id, 'integer');
       assert.typeOf(response.body.name, 'string');
-        assert.typeOf(response.body.description, 'string');
+      assert.typeOf(response.body.description, 'string');
       assert.typeOf(response.body.picture, 'string');
       assert.equal(response.body.name, 'NAME');
       assert.equal(response.body.description, 'DESCRIPTION');
