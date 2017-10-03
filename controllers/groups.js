@@ -22,16 +22,16 @@ router.get('/', function(req, res) {
 // POST /groups
 router.post('/', function(req, res) {
   db.group.create({
-    name: req.body.name,
-    picture: req.body.picture,
-    description: req.body.description
+    groupName: req.body.groupName,
+    groupPicture: req.body.groupPicture,
+    groupDescription: req.body.groupDescription
   })
   .then(function(group) {
     db.user.findOrCreate({
       where: {
-        name: req.body.name,
-        picture: req.body.picture,
-        email: req.body.email
+        userName: req.body.userName,
+        userPicture: req.body.userPicture,
+        userEmail: req.body.userEmail
       }
     })
     .spread((user, created) => {

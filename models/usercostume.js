@@ -4,5 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     costumeId: DataTypes.INTEGER
   });
+  
   return userCostume;
 };

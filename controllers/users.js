@@ -7,8 +7,10 @@ router.get('/', function(req, res) {
   // res.send('GET /users');
   db.user.findAll({
     include: [{
-      // model: db.costume,
       model: db.group
+    },
+    {
+      model: db.costume
     }]
   })
   .then(function(users) {
@@ -21,28 +23,43 @@ router.get('/', function(req, res) {
 
 // POST /users
 router.post('/', function(req, res) {
-  db.user.create({
-    name: req.body.name,
-    picture: req.body.picture,
-    email: req.body.email
+  return db.user.create({
+    userName: req.body.userName,
+    userPicture: req.body.userPicture,
+    userEmail: req.body.userEmail
   })
   .then(function(user) {
     db.group.findOrCreate({
       where: {
-        name: req.body.name,
-        picture: req.body.picture,
-        description: req.body.description
+        groupName: req.body.groupName,
+        groupPicture: req.body.groupPicture,
+        groupDescription: req.body.groupDescription
       }
     })
     .spread((group, created) => {
       user.addGroup(group);
+    })
+    return user;
+  })
+  .then(function(user) {
+    console.log('user', user);
+    db.costume.findOrCreate({
+      where: {
+        costumeName: req.body.costumeName,
+        costumePicture: req.body.costumePicture,
+        costumeDescription: req.body.costumeDescription,
+        costumeLink: req.body.costumeLink
+      }
+    })
+    .spread((costume, created) => {
+      user.addCostume(costume);
       res.json(user);
-    });
+    })
   })
   .catch(function(error) {
     res.json(error);
   });
-});
+})
 
 // GET /users/:id
 router.get('/:id', function(req, res) {
@@ -50,6 +67,9 @@ router.get('/:id', function(req, res) {
     where: { id: req.params.id },
     include: [{
       model: db.group
+    },
+    {
+      model: db.costume
     }]
   })
   .then(function(user) {
@@ -67,6 +87,9 @@ router.put('/:id', function(req, res) {
     where: {id: req.params.id },
     include: [{
       model: db.group
+    },
+    {
+      model: db.costume
     }]
   })
   .then(function(user) {
@@ -86,6 +109,9 @@ router.delete('/:id', function(req, res) {
     where: {id: req.params.id },
     include: [{
       model: db.group
+    },
+    {
+      model: db.costume
     }]
   })
   .then(function(user) {

@@ -23,9 +23,9 @@ describe('POST /users', function() {
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'name': 'NAME',
-      'picture': 'PICTURE',
-      'email': 'EMAIL'
+      'userName': 'NAME',
+      'userPicture': 'PICTURE',
+      'userEmail': 'EMAIL'
     })
     .end(function(error, response) {
       //creates new destination
@@ -41,15 +41,15 @@ describe('POST /users', function() {
     .set('Accept', 'application/json')
     .end(function(error, response) {
       assert.property(response.body, 'id');
-      assert.property(response.body, 'name');
-      assert.property(response.body, 'picture');
-      assert.property(response.body, 'email');
-      assert.typeOf(response.body.name, 'string');
-      assert.typeOf(response.body.picture, 'string');
-      assert.typeOf(response.body.email, 'string');
-      assert.equal(response.body.name, 'NAME');
-      assert.equal(response.body.picture, 'PICTURE');
-      assert.equal(response.body.email, 'EMAIL');
+      assert.property(response.body, 'userName');
+      assert.property(response.body, 'userPicture');
+      assert.property(response.body, 'userEmail');
+      assert.typeOf(response.body.userName, 'string');
+      assert.typeOf(response.body.userPicture, 'string');
+      assert.typeOf(response.body.userEmail, 'string');
+      assert.equal(response.body.userName, 'NAME');
+      assert.equal(response.body.userPicture, 'PICTURE');
+      assert.equal(response.body.userEmail, 'EMAIL');
       done();
     });
   });
@@ -84,9 +84,9 @@ describe('GET /users/:id', function() {
     .set('Accept', 'application/json')
     .end(function(error, response) {
       assert.property(response.body, 'id');
-      assert.property(response.body, 'name');
-      assert.property(response.body, 'picture');
-      assert.property(response.body, 'email');
+      assert.property(response.body, 'userName');
+      assert.property(response.body, 'userPicture');
+      assert.property(response.body, 'userEmail');
       done();
     });
   });
@@ -104,9 +104,9 @@ describe('PUT /users/:id', function() {
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'name': 'NAME',
-      'picture': 'PICTURE',
-      'email': 'EMAIL'
+      'userName': 'NAME',
+      'userPicture': 'PICTURE',
+      'userEmail': 'EMAIL'
     })
     .end(function(error, response) {
       toUpdate = response.body.id;
@@ -118,9 +118,9 @@ describe('PUT /users/:id', function() {
     api.get('/users/' + toUpdate)
     .set('Accept', 'application/json')
     .end(function(error, response) {
-      oldName = response.body.name;
-      oldPicture = response.body.picture;
-      oldEmail = response.body.email;
+      oldName = response.body.userName;
+      oldPicture = response.body.userPicture;
+      oldEmail = response.body.userEmail;
       done();
     });
   });
@@ -136,9 +136,9 @@ describe('PUT /users/:id', function() {
     })
     .end(function(error, response) {
       //properties are updated
-      expect(response.body.name).to.not.equal(oldName);
-      expect(response.body.picture).to.not.equal(oldPicture);
-      expect(response.body.email).to.not.equal(oldEmail);
+      expect(response.body.userName).to.not.equal(oldName);
+      expect(response.body.userPicture).to.not.equal(oldPicture);
+      expect(response.body.userEmail).to.not.equal(oldEmail);
       done();
     });
   });
@@ -153,9 +153,9 @@ describe('DELETE /users/:id', function() {
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'name': 'DELETE ME',
-      'picture': 'DELETE ME',
-      'email': 'DELETE ME'
+      'userName': 'DELETE ME',
+      'userPicture': 'DELETE ME',
+      'userEmail': 'DELETE ME'
     })
     .end(function(error, response) {
       toDelete = response.body.id;
