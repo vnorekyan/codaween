@@ -10,7 +10,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "database": "codaween_production",
+    "use_env_variable": "postgres://eqanugvuahdwha:28ee606c25a6d22c04e860b624c6ce72c89f627f37e8ab7a95d31bef17ed109b@ec2-23-21-92-251.compute-1.amazonaws.com:5432/d4m99mqn7hd0bj",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
