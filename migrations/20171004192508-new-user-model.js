@@ -8,12 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userName: {
+      userFirstName: {
         allowNull: false,
         unique: true,
         type: Sequelize.STRING
       },
-      userPassword: {
+      userLastName: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
       userPicture: {
@@ -22,6 +24,9 @@ module.exports = {
       userEmail: {
         unique: true,
         type:Sequelize.STRING
+      },
+      userPassword: {
+        type: Sequelize.STRING
       },
       userVotes: {
         type:Sequelize.INTEGER
@@ -34,9 +39,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    })
+    });
   },
-
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('users');
   }

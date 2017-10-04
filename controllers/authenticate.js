@@ -13,6 +13,7 @@ router.get('/register', function(req, res){
 });
 
 router.post('/register', function(req, res){
+  console.log(req.body);
   if(!req.body.email || !req.body.password){
     res.json({success: false, message: 'please enter an email and password to register'});
   } else if(req.body.password !== req.body.verifypassword){
@@ -26,6 +27,8 @@ router.post('/register', function(req, res){
       bcrypt.hash(req.body.password, salt)
       .then(hash => {
         var newUser = db.user.create({
+          userFirstName: req.body.firstname,
+          userLastName: req.body.lastname,
           userEmail: req.body.email,
           userPassword: hash
         })
@@ -36,7 +39,7 @@ router.post('/register', function(req, res){
           }
         )
         .catch(err => {
-          res.send('username taken! try again.');
+          res.json(err);
         })
       })
       .catch(err => {
@@ -56,7 +59,7 @@ router.post('/login', function(req, res){
   // in sequelize
   db.user.find({
     where: {
-        userName: req.body.email,
+        userEmail: req.body.email,
       }
     })
     .then(function(user){
@@ -78,7 +81,8 @@ router.post('/login', function(req, res){
       });
     })
     .catch(err => {
-      res.send('authentication failed. check username or password.');
+      res.json(err);
+      // res.send('authentication failed. check username or password.');
     })
 
 });
