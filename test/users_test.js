@@ -25,7 +25,8 @@ describe('POST /users', function() {
     .send({
       'userName': 'NAME',
       'userPicture': 'PICTURE',
-      'userEmail': 'EMAIL'
+      'userEmail': 'EMAIL',
+      'userVotes': 5
     })
     .end(function(error, response) {
       //creates new destination
@@ -36,7 +37,7 @@ describe('POST /users', function() {
     });
   });
 
-  it('should create a new user with an id of type integer, name, picture, and email of type string and with values of "NAME", "PICTURE", and "EMAIL", respectively', function(done) {
+  it('should create a new user with an id, name, picture, email, and votes with values of "NAME", "PICTURE", and "EMAIL", and 5, respectively', function(done) {
     api.get('/users/' + posted)
     .set('Accept', 'application/json')
     .end(function(error, response) {
@@ -44,12 +45,11 @@ describe('POST /users', function() {
       assert.property(response.body, 'userName');
       assert.property(response.body, 'userPicture');
       assert.property(response.body, 'userEmail');
-      assert.typeOf(response.body.userName, 'string');
-      assert.typeOf(response.body.userPicture, 'string');
-      assert.typeOf(response.body.userEmail, 'string');
+      assert.property(response.body, 'userVotes');
       assert.equal(response.body.userName, 'NAME');
       assert.equal(response.body.userPicture, 'PICTURE');
       assert.equal(response.body.userEmail, 'EMAIL');
+      assert.equal(response.body.userVotes, 5);
       done();
     });
   });
@@ -79,7 +79,7 @@ describe('GET /users/:id', function() {
     .set('Accept', 'application/json')
     .expect(200, done);
   });
-  it('should return a user with an id, name, picture, and email', function(done) {
+  it('should return a user with an id, name, picture, email, and votes', function(done) {
     api.get('/users/1')
     .set('Accept', 'application/json')
     .end(function(error, response) {
@@ -87,6 +87,7 @@ describe('GET /users/:id', function() {
       assert.property(response.body, 'userName');
       assert.property(response.body, 'userPicture');
       assert.property(response.body, 'userEmail');
+      assert.property(response.body, 'userVotes');
       done();
     });
   });
@@ -98,6 +99,7 @@ describe('PUT /users/:id', function() {
   var oldName = '';
   var oldPicture = '';
   var oldEmail = '';
+  var oldVotes = 0;
 
   before(function(done) {
     api.post('/users')
@@ -106,7 +108,8 @@ describe('PUT /users/:id', function() {
     .send({
       'userName': 'NAME',
       'userPicture': 'PICTURE',
-      'userEmail': 'EMAIL'
+      'userEmail': 'EMAIL',
+      'userVotes': 5
     })
     .end(function(error, response) {
       toUpdate = response.body.id;
@@ -121,24 +124,27 @@ describe('PUT /users/:id', function() {
       oldName = response.body.userName;
       oldPicture = response.body.userPicture;
       oldEmail = response.body.userEmail;
+      oldVotes = response.body.userVotes;
       done();
     });
   });
 
-  it('should update a users name, picture, and email', function(done) {
+  it('should update a users name, picture, email, and votes', function(done) {
     api.put('/users/' + toUpdate)
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'name': 'NEW NAME',
-      'picture': 'NEW PICTURE',
-      'email': 'NEW EMAIL'
+      'userName': 'NEW NAME',
+      'userPicture': 'NEW PICTURE',
+      'userEmail': 'NEW EMAIL',
+      'userVotes': 4
     })
     .end(function(error, response) {
       //properties are updated
       expect(response.body.userName).to.not.equal(oldName);
       expect(response.body.userPicture).to.not.equal(oldPicture);
       expect(response.body.userEmail).to.not.equal(oldEmail);
+      expect(response.body.userVotes).to.not.equal(oldVotes);
       done();
     });
   });
@@ -155,7 +161,8 @@ describe('DELETE /users/:id', function() {
     .send({
       'userName': 'DELETE ME',
       'userPicture': 'DELETE ME',
-      'userEmail': 'DELETE ME'
+      'userEmail': 'DELETE ME',
+      'userVotes': 0
     })
     .end(function(error, response) {
       toDelete = response.body.id;

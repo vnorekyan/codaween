@@ -36,7 +36,7 @@ describe('POST /costumes', function() {
     });
   });
 
-  it('should create a new costume associated with a user with an id, name, description, picture, and amazon link', function(done) {
+  it('should create a new costume with an id, name, description, picture, and amazon link', function(done) {
     api.get('/costumes/' + posted)
     .set('Accept', 'application/json')
     .end(function(error, response) {
@@ -45,9 +45,6 @@ describe('POST /costumes', function() {
       assert.property(response.body, 'costumeDescription');
       assert.property(response.body, 'costumePicture');
       assert.property(response.body, 'costumeLink');
-      assert.typeOf(response.body.costumeName, 'string');
-      assert.typeOf(response.body.costumeDescription, 'string');
-      assert.typeOf(response.body.costumePicture, 'string');
       assert.equal(response.body.costumeName, 'NAME');
       assert.equal(response.body.costumeDescription, 'DESCRIPTION');
       assert.equal(response.body.costumePicture, 'PICTURE');
@@ -82,7 +79,7 @@ describe('GET /costumes/:id', function() {
     .set('Accept', 'application/json')
     .expect(200, done);
   });
-  it('should return a costume associated with a user with an id, name, description, picture, and amazon link', function(done) {
+  it('should return a costume with an id, name, description, picture, and amazon link', function(done) {
     api.get('/costumes/1')
     .set('Accept', 'application/json')
     .end(function(error, response) {

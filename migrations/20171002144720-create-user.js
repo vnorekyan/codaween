@@ -17,6 +17,9 @@ module.exports = {
       userEmail: {
         type:Sequelize.STRING
       },
+      userVotes: {
+        type:Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

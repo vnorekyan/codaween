@@ -35,7 +35,7 @@ describe('POST /groups', function() {
     });
   });
 
-  it('should create a new group associated with multiple users with an id, name, description, and picture', function(done) {
+  it('should create a new group with an id, name, description, and picture', function(done) {
     api.get('/groups/' + posted)
     .set('Accept', 'application/json')
     .end(function(error, response) {
@@ -43,9 +43,6 @@ describe('POST /groups', function() {
       assert.property(response.body, 'groupName');
       assert.property(response.body, 'groupDescription');
       assert.property(response.body, 'groupPicture');
-      assert.typeOf(response.body.groupName, 'string');
-      assert.typeOf(response.body.groupDescription, 'string');
-      assert.typeOf(response.body.groupPicture, 'string');
       assert.equal(response.body.groupName, 'NAME');
       assert.equal(response.body.groupDescription, 'DESCRIPTION');
       assert.equal(response.body.groupPicture, 'PICTURE');
@@ -78,7 +75,7 @@ describe('GET /groups/:id', function() {
     .set('Accept', 'application/json')
     .expect(200, done);
   });
-  it('should return a group associated with multiple users with an id, name, description, and picture', function(done) {
+  it('should return a group with an id, name, description, and picture', function(done) {
     api.get('/groups/1')
     .set('Accept', 'application/json')
     .end(function(error, response) {

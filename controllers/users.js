@@ -26,7 +26,8 @@ router.post('/', function(req, res) {
   return db.user.create({
     userName: req.body.userName,
     userPicture: req.body.userPicture,
-    userEmail: req.body.userEmail
+    userEmail: req.body.userEmail,
+    userVotes: req.body.userVotes
   })
   .then(function(user) {
     db.group.findOrCreate({
