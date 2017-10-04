@@ -13,6 +13,9 @@ module.exports = {
         unique: true,
         type: Sequelize.STRING
       },
+      userPassword: {
+        type: Sequelize.STRING
+      },
       userPicture: {
         type: Sequelize.STRING
       },
@@ -31,8 +34,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    })
   },
+
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('users');
   }

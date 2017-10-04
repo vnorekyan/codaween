@@ -31,7 +31,8 @@ router.post('/', function(req, res) {
       where: {
         userName: req.body.userName,
         userPicture: req.body.userPicture,
-        userEmail: req.body.userEmail
+        userEmail: req.body.userEmail,
+        userVotes: req.body.userVotes
       }
     })
     .spread((user, created) => {
