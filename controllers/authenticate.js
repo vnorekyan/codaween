@@ -63,7 +63,7 @@ router.post('/login', function(req, res){
           var token = jwt.sign({data}, config.secret, { expiresIn: '1h' });
           res.cookie('jwt', token);
           console.log('token: ', token);
-          res.redirect('/api/dashboard');
+          res.redirect('/authenticate/dashboard');
         } else {
           res.send('authentication failed')
         }
