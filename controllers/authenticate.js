@@ -15,7 +15,11 @@ router.get('/register', function(req, res){
 router.post('/register', function(req, res){
   if(!req.body.email || !req.body.password){
     res.json({success: false, message: 'please enter an email and password to register'});
-  } else {
+  } else if(req.body.password !== req.body.verifypassword){
+    res.send('passwords do not match');
+  }
+
+  else {
 
     bcrypt.genSalt(10, function(err, salt){
       if (err) { return next(err); }
