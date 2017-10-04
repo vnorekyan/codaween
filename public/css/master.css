@@ -206,3 +206,8 @@ p {
 label {
   margin-bottom: 0;
 }
+
+.register {
+  margin: -14px;
+  margin: -0.875rem;
+}

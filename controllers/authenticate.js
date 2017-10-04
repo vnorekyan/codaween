@@ -27,8 +27,8 @@ router.post('/register', function(req, res){
       bcrypt.hash(req.body.password, salt)
       .then(hash => {
         var newUser = db.user.create({
-          userFirstName: req.body.firstname,
-          userLastName: req.body.lastname,
+          userFirstName: req.body.fname,
+          userLastName: req.body.lname,
           userEmail: req.body.email,
           userPassword: hash
         })
@@ -56,7 +56,8 @@ router.get('/login', function(req, res){
 
 
 router.post('/login', function(req, res){
-  // in sequelize
+  console.log(req.body);
+
   db.user.find({
     where: {
         userEmail: req.body.email,
@@ -72,12 +73,12 @@ router.post('/login', function(req, res){
           console.log('token: ', token);
           res.redirect('/authenticate/dashboard');
         } else {
-          res.send('authentication failed')
+          res.send('authentication failed');
         }
 
       })
       .catch(err => {
-        res.send('authentication failed');
+        res.json(err);
       });
     })
     .catch(err => {
