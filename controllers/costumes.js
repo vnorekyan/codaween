@@ -29,7 +29,8 @@ router.post('/', function(req, res) {
   .then(function(costume) {
     db.user.findOrCreate({
       where: {
-        userName: req.body.userName,
+        userFirstName: req.body.userFirstName,
+        userLastName: req.body.userLastName,
         userPicture: req.body.userPicture,
         userEmail: req.body.userEmail,
         userVotes: req.body.userVotes

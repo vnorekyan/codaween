@@ -24,7 +24,8 @@ router.get('/', function(req, res) {
 // POST /users
 router.post('/', function(req, res) {
   return db.user.create({
-    userName: req.body.userName,
+    userFirstName: req.body.userFirstName,
+    userLastName: req.body.userLastName,
     userPicture: req.body.userPicture,
     userEmail: req.body.userEmail,
     userVotes: req.body.userVotes

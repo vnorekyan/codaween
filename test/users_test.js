@@ -23,7 +23,8 @@ describe('POST /users', function() {
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'userName': 'NAME',
+      'userFirstName': 'FIRST NAME',
+      'userLastName': 'LAST NAME',
       'userPicture': 'PICTURE',
       'userEmail': 'EMAIL',
       'userVotes': 5
@@ -42,11 +43,13 @@ describe('POST /users', function() {
     .set('Accept', 'application/json')
     .end(function(error, response) {
       assert.property(response.body, 'id');
-      assert.property(response.body, 'userName');
+      assert.property(response.body, 'userFirstName');
+      assert.property(response.body, 'userLastName');
       assert.property(response.body, 'userPicture');
       assert.property(response.body, 'userEmail');
       assert.property(response.body, 'userVotes');
-      assert.equal(response.body.userName, 'NAME');
+      assert.equal(response.body.userFirstName, 'FIRST NAME');
+      assert.equal(response.body.userLastName, 'LAST NAME');
       assert.equal(response.body.userPicture, 'PICTURE');
       assert.equal(response.body.userEmail, 'EMAIL');
       assert.equal(response.body.userVotes, 5);
@@ -84,7 +87,8 @@ describe('GET /users/:id', function() {
     .set('Accept', 'application/json')
     .end(function(error, response) {
       assert.property(response.body, 'id');
-      assert.property(response.body, 'userName');
+      assert.property(response.body, 'userFirstName');
+      assert.property(response.body, 'userLastName');
       assert.property(response.body, 'userPicture');
       assert.property(response.body, 'userEmail');
       assert.property(response.body, 'userVotes');
@@ -96,7 +100,8 @@ describe('GET /users/:id', function() {
 // PUT /users/:id
 describe('PUT /users/:id', function() {
   var toUpdate;
-  var oldName = '';
+  var oldFirstName = '';
+  var oldLastName = '';
   var oldPicture = '';
   var oldEmail = '';
   var oldVotes = 0;
@@ -106,7 +111,8 @@ describe('PUT /users/:id', function() {
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'userName': 'NAME',
+      'userFirstName': 'FIRST NAME',
+      'userLastName': 'LAST NAME',
       'userPicture': 'PICTURE',
       'userEmail': 'EMAIL',
       'userVotes': 5
@@ -121,7 +127,8 @@ describe('PUT /users/:id', function() {
     api.get('/users/' + toUpdate)
     .set('Accept', 'application/json')
     .end(function(error, response) {
-      oldName = response.body.userName;
+      oldFirstName = response.body.userFirstName;
+      oldLastName = response.body.userLastName;
       oldPicture = response.body.userPicture;
       oldEmail = response.body.userEmail;
       oldVotes = response.body.userVotes;
@@ -134,14 +141,16 @@ describe('PUT /users/:id', function() {
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'userName': 'NEW NAME',
+      'userFirstName': 'NEW FIRST NAME',
+      'userLastName': 'NEW LAST NAME',
       'userPicture': 'NEW PICTURE',
       'userEmail': 'NEW EMAIL',
       'userVotes': 4
     })
     .end(function(error, response) {
       //properties are updated
-      expect(response.body.userName).to.not.equal(oldName);
+      expect(response.body.userFirstName).to.not.equal(oldFirstName);
+      expect(response.body.userLastName).to.not.equal(oldLastName);
       expect(response.body.userPicture).to.not.equal(oldPicture);
       expect(response.body.userEmail).to.not.equal(oldEmail);
       expect(response.body.userVotes).to.not.equal(oldVotes);
@@ -159,7 +168,8 @@ describe('DELETE /users/:id', function() {
     .set('Accept', 'application/json')
     .type('form')
     .send({
-      'userName': 'DELETE ME',
+      'userFirstName': 'DELETE ME',
+      'userLastName': 'DELETE ME',
       'userPicture': 'DELETE ME',
       'userEmail': 'DELETE ME',
       'userVotes': 0
