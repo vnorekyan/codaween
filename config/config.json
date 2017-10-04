@@ -1,7 +1,6 @@
 {
   "development": {
     "database": "codaween_development",
-    "host": "postgres://kddbpyzanzomju:d5ca698597e167149184847e792e44dd7dfccd92af548225f577afff9399a36e@ec2-54-163-245-14.compute-1.amazonaws.com:5432/de1jv3itg9i5qd",
     "dialect": "postgres"
   },
   "test": {
