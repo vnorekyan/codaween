@@ -3,8 +3,9 @@
 <% costumes.forEach(costume => { %>
   <div class="groupbox">
   <img src="<%= costume.costumePicture %>" width="200px">
-
   <a href="/costumes/<%= costume.id%>"><%= costume.costumeName %></a>
+  <p> votes: <%= costume.costumeVotes %> </p>
+
 </div>
 <% }) %>
 </body>
