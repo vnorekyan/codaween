@@ -1,11 +1,11 @@
 <body>
   <a href="/groups/create"><button type="button">Create new group</button></a>
-<% groups.forEach(g => { %>
+<% groups.forEach(group => { %>
   <div class="groupbox">
-  <img src="<%= g.groupPicture %>" width="200px">
+  <img src="<%= group.groupPicture %>" width="200px">
 
-  <p>Name: <%= g.groupName %> </p>
-  <p>Description: <%= g.groupDescription %> </p>
+  <a href="http://localhost:8080/groups/<%= group.id%>"><%= group.groupName %></a>
+  <p>Description: <%= group.groupDescription %> </p>
 </div>
 <% }) %>
 </body>
