@@ -77,6 +77,13 @@ router.post('/create', function(req, res) {
 
 // GET /costumes/:id
 router.get('/:id', function(req, res) {
+  var userEmail;
+  var isMine = false;
+  // grabbing and storing the user's email
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    userEmail = decoded.data;
+  });
+
   db.costume.find({
     where: { id: req.params.id },
     include: [{
@@ -85,31 +92,84 @@ router.get('/:id', function(req, res) {
   })
   .then(function(costume) {
     if (!costume) throw Error();
+
+    // see if current user is included in the costume object
+    if(costume.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
+      isMine = true;
+    }
+
     res.render('costume', {
-      costume: costume
+      costume: costume,
+      mine: isMine
     });
+
   })
   .catch(function(error) {
     res.json(error);
   });
 });
 
-// PUT /costumes/:id
-router.put('/:id', function(req, res) {
+router.get('/:id/edit', function(req, res){
+  // extra security to block unauthorized users from editing costumes
+  var thisId = req.params.id;
+  var userEmail;
+
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    userEmail = decoded.data;
+  });
+
   db.costume.find({
-    where: {id: req.params.id },
+    where: {id: thisId },
     include: [{
       model: db.user
     }]
   })
   .then(function(costume) {
-    costume.updateAttributes(req.body);
+    // check if user is included in costume
+    if(costume.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
+      costume.updateAttributes(req.body);
+      res.render('editCostume', {
+        costume: costume
+      });
+    } else {
+      res.send('this is not your costume!')
+    }
+  })
+
+})
+
+// PUT /costumes/:id
+router.put('/:id', function(req, res) {
+  // extra security to block unauthorized users
+  var thisId = req.params.id;
+  var userEmail;
+
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    userEmail = decoded.data;
+  });
+
+  db.costume.find({
+    where: {id: thisId },
+    include: [{
+      model: db.user
+    }]
   })
   .then(function(costume) {
-    res.json(costume);
+    // check if user is included in costume
+    if(costume.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
+      costume.updateAttributes(req.body);
+      res.redirect(`/costumes/${thisId}`);
+    } else {
+      res.send('this is not your costume!')
+    }
   })
+  // .then(function(costume) {
+  //   res.redirect('/costumes');
+  //   // console.log('success')
+  // })
   .catch(function(error) {
     res.json(error);
+
   });
 });
 
