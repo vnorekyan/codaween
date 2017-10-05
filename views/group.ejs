@@ -1,0 +1,15 @@
+<body>
+  <div class="groupbox">
+    <h1><%= group.groupName %></h1>
+
+  <img src="<%= group.groupPicture %>" width="200px">
+  <p>Description: <%=group.groupDescription %></p>
+  <p> Members: <% group.users.forEach(u => { %>
+    <a href="/users/<%=u.id %>"><%= u.userFirstName %></a>
+  <% }) %>
+</p>
+
+</div>
+<a href="/groups"><button type="button" name="button">back to groups</button></a>
+
+</body>

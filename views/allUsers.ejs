@@ -1,4 +1,9 @@
-<% users.forEach(function(user) { %>
-  <img src="<%= user.userPicture %>" alt="Profile Picture" />
-  <a href="http://localhost:8080/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
+
+<body>
+  <% users.forEach(function(user) { %>
+  <div class="groupbox">
+    <img src="<%= user.userPicture %>" alt="Profile Picture" />
+    <a href="/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
+</div>
 <% }) %>
+</body>

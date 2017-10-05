@@ -85,7 +85,9 @@ router.get('/:id', function(req, res) {
   })
   .then(function(group) {
     if (!group) throw Error();
-    res.json(group);
+    res.render('group', {
+      group: group
+    });
   })
   .catch(function(error) {
     res.json(error);
