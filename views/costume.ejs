@@ -9,9 +9,11 @@
   <% costume.users.forEach(function(user) { %>
     <a href="http://localhost:8080/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
   <% }) %>
+  <br>
+  <p class="votes">Votes: <%= costume.costumeVotes %></p>
 </p>
 <a href="<%= costume.costumeLink %>">Buy it on Amazon</a>
 
-<button id="vote" type="button" name="Vote for Costume">Vote for Costume</button>
+<button class="vote" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
 <button id="editCostume" type="button" name="Edit Costume">Edit Costume</button>
 <button id="deleteCostume" type="button" name="Delete Costume">Delete Costume</button>

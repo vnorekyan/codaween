@@ -99,6 +99,7 @@ router.put('/:id', function(req, res) {
     }]
   })
   .then(function(costume) {
+    console.log(req.body);
     costume.updateAttributes(req.body);
   })
   .then(function(costume) {
