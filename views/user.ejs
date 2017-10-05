@@ -1,0 +1,41 @@
+<div class="userInfo">
+  <img src="<%= user.userPicture %>" alt="Profile picture" />
+  <p>
+    First Name: <%= user.userFirstName %>
+    <br>
+    Last Name: <%= user.LastName %>
+    <br>
+    Email: <%= user.userEmail %>
+    <br>
+    Number of Votes Left: <%= user.userVotes %>
+    <br>
+  </p>
+</div>
+
+<div class="userAssociations">
+  <h3>My Costumes</h3>
+  <% user.costumes.forEach(function(costume) { %>
+    <img src="<%=costume.costumePicture%>" alt="Costume Picture" />
+    <h4><%= costume.costumeName %> </h4>
+    <p>
+      <%= costume.costumeDescription %>
+    </p>
+    <a href="<%= costume.costumeLink %>">Buy it on Amazon</a>
+  <% }) %>
+
+  <h3>My Groups</h3>
+  <% user.groups.forEach(function(group) { %>
+    <img src="<%=group.groupPicture%>" alt="Group Picture" />
+    <h4><%= group.groupName %> </h4>
+    <p>
+      <%= group.groupDescription %>
+    </p>
+  <% }) %>
+</div>
+
+<button id="editUser" type="button" name="Edit Profile">Edit Profile</button>
+<button id="createCostume" type="button" name="Create a Costume">Create a Costume</button>
+<button id="createGroup" type="button" name="Create a Group">Create a Group</button>
+<button id="joinGroup" type="button" name="Join a Group">Join a Group</button>
+<button id="resetPassword" type="button" name="Reset Password">Reset Password</button>
+<button type="button" name="Delete Account">Delete Account</button>
