@@ -220,7 +220,7 @@ router.delete('/:id', function(req, res) {
     user.destroy();
   })
   .then(function(user) {
-    res.json(user);
+    res.clearCookie("jwt").redirect('/authenticate/login');
   });
 });
 

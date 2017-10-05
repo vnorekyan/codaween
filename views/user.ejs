@@ -50,6 +50,7 @@
 
 <% if (me) {%>
   <a href="/users/<%=user.id%>/edit"><button id="editUser" type="button" name="Edit Profile">Edit Profile</button></a>
+  <form action="/users/<%= user.id %>?_method=DELETE" method="post">
+    <button id="deleteUser" type="submit" name="delete">Delete Account</button>
+  </form>
 <% } %>
-
-<button type="button" name="Delete Account" disabled>Delete Account</button>
