@@ -162,15 +162,19 @@ router.get('/:id/edit', function(req, res){
   jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
     userEmail = decoded.data;
   });
-  console.log('user email: ', userEmail);
 
   db.user.find({
     where: { userEmail: userEmail }
   })
   .then(function(user) {
-    res.render('editUser', {
-      user: user
-    })
+    if(thisId == user.id){
+      // costume.updateAttributes(req.body);
+      res.render('editUser', {
+        user: user
+      });
+    } else {
+      res.send('this is not you!')
+    }
   })
   .catch(function(err){
     res.send('this is not you');

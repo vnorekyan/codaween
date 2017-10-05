@@ -93,7 +93,6 @@ router.get('/:id/edit', function(req, res){
   .then(function(group) {
     // check if user is included in group
     if(group.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
-      group.updateAttributes(req.body);
       res.render('editGroup', {
         group: group
       });
