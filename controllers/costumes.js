@@ -94,6 +94,23 @@ router.get('/:id', function(req, res) {
   });
 });
 
+// GET /costumes/data/:id
+router.get('/data/:id', function(req, res) {
+  db.costume.find({
+    where: { id: req.params.id },
+    include: [{
+      model: db.user
+    }]
+  })
+  .then(function(costume) {
+    if (!costume) throw Error();
+    res.json(costume);
+  })
+  .catch(function(error) {
+    res.json(error);
+  });
+});
+
 // PUT /costumes/:id
 router.put('/:id', function(req, res) {
   db.costume.find({
@@ -102,8 +119,7 @@ router.put('/:id', function(req, res) {
       model: db.user
     }]
   })
-  .then(function(costume) {
-    console.log(req.body);
+  .then(function(costume) {;
     costume.updateAttributes(req.body);
   })
   .then(function(costume) {
