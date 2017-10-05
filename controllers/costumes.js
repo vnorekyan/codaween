@@ -56,7 +56,9 @@ router.get('/:id', function(req, res) {
   })
   .then(function(costume) {
     if (!costume) throw Error();
-    res.json(costume);
+    res.render('costume', {
+      costume: costume
+    });
   })
   .catch(function(error) {
     res.json(error);
