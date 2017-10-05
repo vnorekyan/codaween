@@ -12,9 +12,15 @@
 </div>
 <a href="/groups"><button type="button" name="button">Back to Groups</button></a>
 <% if (mine) { %>
-  <a href="/groups/<%=group.id%>/edit"><button id="editGroup" type="button" name="Edit Group">Edit Group</button></a>
+  <a href="/groups/<%=group.id%>/edit"><button id="editGroup" type="button" name="edit">Edit Group</button></a>
+
+  <form action="/groups/<%= group.id %>/leave?_method=PUT" method="post">
+    <button id="leaveGroup" type="submit" name="leave">Leave Group</button>
+  </form>
+
   <form action="/groups/<%= group.id %>?_method=DELETE" method="post">
-    <input class="button-delete" type="submit" value="Delete Group">
+    <button id="deleteGroup" type="submit" name="delete">Delete Group</button>
+
   </form>
 <% } else { %>
   <a href="/groups/<%=group.id%>/join"><button id="joinGroup" type="button" name="join">Join this group</button></a>
