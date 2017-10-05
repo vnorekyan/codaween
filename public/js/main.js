@@ -1,5 +1,10 @@
 console.log('main.js is connected');
 
+if(JSON.parse(localStorage.getItem('buttonArray')) === null) {
+  var array = [];
+  localStorage.setItem('buttonArray', JSON.stringify(array));
+}
+
 if (localStorage.getItem('clicked') === 'true') {
   var buttonIds = JSON.parse(localStorage.getItem('buttonArray'));
   for (let i = 0; i < buttonIds.length; i++) {
