@@ -2,13 +2,12 @@
   "development": {
     "dialect": "postgres",
     "database": "codaween_development"
-
   },
   "test": {
     "dialect": "postgres",
     "database": "codaween_development"
   },
-  
+
   "production": {
     "dialect": "postgres",
     "database": "codaween_development"

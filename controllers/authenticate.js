@@ -42,7 +42,10 @@ router.post('/register', function(req, res){
             var data = user.userEmail;
             var token = jwt.sign({data}, config.secret, { expiresIn: '1h' });
             res.cookie('jwt', token);
-            res.redirect('/authenticate/homepage');
+            // res.cookie('user', data);
+            res.render('homepage', {
+              user: user
+            });
           }
         )
         .catch(err => {
@@ -52,7 +55,7 @@ router.post('/register', function(req, res){
         })
       })
       .catch(err => {
-        throw err;
+        res.json(err);
       })
     });
   }
@@ -79,7 +82,6 @@ router.post('/login', function(req, res){
           var data = req.body.email;
           var token = jwt.sign({data}, config.secret, { expiresIn: '1h' });
           res.cookie('jwt', token);
-          console.log('token: ', token);
           res.redirect('/authenticate/homepage');
         } else {
           // username is correct but password is not

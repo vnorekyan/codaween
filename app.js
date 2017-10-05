@@ -10,6 +10,8 @@ var jwt = require('jsonwebtoken');
 var validateJwt = require('express-jwt');
 var cookieParser = require('cookie-parser');
 var config = require('./config/main');
+var methodOverride = require('method-override');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,6 +39,8 @@ app.use(validateJwt({
   })
   .unless({path: ['/authenticate/login', '/authenticate/register']}
 ));
+
+
 
 
 app.get('/', function(req, res) {
