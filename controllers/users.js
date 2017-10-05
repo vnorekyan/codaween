@@ -1,6 +1,8 @@
 var express = require('express');
 var db = require('../models');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
+var config = require('../config/main');
 
 // GET /users
 router.get('/', function(req, res) {
@@ -88,8 +90,15 @@ router.get('/data/:id', function(req, res) {
 
 // PUT /users/:id
 router.put('/:id', function(req, res) {
+  var thisId = req.params.id;
+  var em;
+
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    em = decoded.data;
+  });
+
   db.user.find({
-    where: {id: req.params.id },
+    where: { userEmail: em },
     include: [{
       model: db.group
     },
@@ -99,17 +108,23 @@ router.put('/:id', function(req, res) {
   })
   .then(function(user) {
     user.updateAttributes(req.body);
-  })
-  .then(function(user) {
     res.json(user);
   })
   .catch(function(error) {
-    res.json(error);
+    // res.json(error);
+    res.send('not you!');
   });
 });
 
 // GET /users/:id
 router.get('/:id', function(req, res) {
+  var isMe = false;
+  var email;
+
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    email = decoded.data;
+  });
+
   db.user.find({
     where: { id: req.params.id },
     include: [{
@@ -122,14 +137,47 @@ router.get('/:id', function(req, res) {
   .then(function(user) {
     if (!user) throw Error();
     // res.json(user);
-    res.render('user', {
-      user: user
-    });
+    if(user.userEmail == email){
+      res.render('user', {
+        user: user,
+        me: true
+      });
+    } else {
+      res.render('user', {
+        user: user,
+        me: false
+      });
+    }
   })
   .catch(function(error) {
     res.json(error);
   });
 });
+
+router.get('/:id/edit', function(req, res){
+  // ensuring user can only edit his/her own profile
+  var thisId = req.params.id;
+  var userEmail;
+
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    userEmail = decoded.data;
+  });
+  console.log('user email: ', userEmail);
+
+  db.user.find({
+    where: { userEmail: userEmail }
+  })
+  .then(function(user) {
+    res.render('editUser', {
+      user: user
+    })
+  })
+  .catch(function(err){
+    res.send('this is not you');
+  })
+
+});
+
 
 // PUT /users/:id
 router.put('/:id', function(req, res) {
@@ -146,7 +194,7 @@ router.put('/:id', function(req, res) {
     user.updateAttributes(req.body);
   })
   .then(function(user) {
-    res.json(user);
+    res.redirect('/users');
   })
   .catch(function(error) {
     res.json(error);
