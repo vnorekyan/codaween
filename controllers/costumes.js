@@ -13,7 +13,10 @@ router.get('/', function(req, res) {
     }]
   })
   .then(function(costumes) {
-    res.json(costumes);
+    // res.json(costumes);
+    res.render('allCostumes', {
+      costumes: costumes
+    })
   })
   .catch(function(error) {
     res.json(error);
@@ -60,7 +63,8 @@ router.post('/create', function(req, res) {
       .spread((user, created) => {
         user.addCostume(user);
         costume.addUser(user);
-        res.json(costume);
+        // res.json(costume);
+        res.redirect(`/costumes/${costume.id}`)
       });
     })
     .catch(function(error) {
