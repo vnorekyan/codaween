@@ -14,7 +14,9 @@ router.get('/', function(req, res) {
     }]
   })
   .then(function(users) {
-    res.status(200).json(users);
+    res.render('allUsers', {
+      users: users
+    });
   })
   .catch(function(error) {
     res.json(error);
