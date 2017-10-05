@@ -118,25 +118,22 @@ router.get('/:id/edit', function(req, res){
     userEmail = decoded.data;
   });
 
+// GET /costumes/data/:id
+router.get('/data/:id', function(req, res) {
   db.costume.find({
-    where: {id: thisId },
+    where: { id: req.params.id },
     include: [{
       model: db.user
     }]
   })
   .then(function(costume) {
-    // check if user is included in costume
-    if(costume.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
-      costume.updateAttributes(req.body);
-      res.render('editCostume', {
-        costume: costume
-      });
-    } else {
-      res.send('this is not your costume!')
-    }
+    if (!costume) throw Error();
+    res.json(costume);
   })
-
-})
+  .catch(function(error) {
+    res.json(error);
+  });
+});
 
 // PUT /costumes/:id
 router.put('/:id', function(req, res) {
@@ -153,7 +150,6 @@ router.put('/:id', function(req, res) {
     include: [{
       model: db.user
     }]
-  })
   .then(function(costume) {
     // check if user is included in costume
     if(costume.users.filter(u => { return u.userEmail == userEmail; }).length > 0){

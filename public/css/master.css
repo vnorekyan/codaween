@@ -227,3 +227,7 @@ label {
 .groupbox {
   border: 1px solid black;
 }
+
+.transparent {
+  visibility: hidden;
+}

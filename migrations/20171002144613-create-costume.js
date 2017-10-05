@@ -20,6 +20,9 @@ module.exports = {
       costumeLink: {
         type: Sequelize.STRING
       },
+      costumeVotes: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

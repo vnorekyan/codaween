@@ -65,6 +65,49 @@ router.post('/', function(req, res) {
   });
 })
 
+// GET /users/data/:id
+router.get('/data/:id', function(req, res) {
+  db.user.find({
+    where: { id: req.params.id },
+    include: [{
+      model: db.group
+    },
+    {
+      model: db.costume
+    }]
+  })
+  .then(function(user) {
+    if (!user) throw Error();
+    // res.json(user);
+    res.json(user);
+  })
+  .catch(function(error) {
+    res.json(error);
+  });
+});
+
+// PUT /users/:id
+router.put('/:id', function(req, res) {
+  db.user.find({
+    where: {id: req.params.id },
+    include: [{
+      model: db.group
+    },
+    {
+      model: db.costume
+    }]
+  })
+  .then(function(user) {
+    user.updateAttributes(req.body);
+  })
+  .then(function(user) {
+    res.json(user);
+  })
+  .catch(function(error) {
+    res.json(error);
+  });
+});
+
 // GET /users/:id
 router.get('/:id', function(req, res) {
   db.user.find({

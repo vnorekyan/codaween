@@ -21,12 +21,13 @@
   <% } else { %>
     <% user.costumes.forEach(function(costume) { %>
       <img src="<%=costume.costumePicture%>" alt="Costume Picture" />
-      <h4><%= costume.costumeName %> </h4>
+      <a class="costumeLink" href="http://localhost:8080/costumes/<%= costume.id %>"><%= costume.costumeName %></a>
       <p>
         <%= costume.costumeDescription %>
       </p>
       <a href="<%= costume.costumeLink %>">Buy it on Amazon</a>
-      <button id="vote" type="button" name="Vote for Costume">Vote for Costume</button>
+      <a class="userLink transparent" href="http://localhost:8080/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
+      <button class="vote" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
     <% }) %>
   <% } %>
 

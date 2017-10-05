@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     costumeName: DataTypes.STRING,
     costumeDescription: DataTypes.STRING,
     costumePicture: DataTypes.STRING,
-    costumeLink: DataTypes.STRING
+    costumeLink: DataTypes.STRING,
+    costumeVotes: DataTypes.INTEGER
   });
 
   costume.associate = function(models) {
