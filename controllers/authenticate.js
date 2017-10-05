@@ -10,6 +10,7 @@ var bcrypt = require('bcrypt');
 // register new users
 router.get('/register', function(req, res){
   res.render('register', {
+    page: req.url,
     message: null
   });
 });
@@ -18,10 +19,12 @@ router.post('/register', function(req, res){
   console.log(req.body);
   if(!req.body.email || !req.body.password){
     res.render('register', {
+      page: req.url,
       message: 'please enter an email and password to register'
     });
   } else if(req.body.password !== req.body.verifypassword){
     res.render('register', {
+      page: req.url,
       message: 'passwords do not match'
     });
   }
@@ -44,12 +47,14 @@ router.post('/register', function(req, res){
             res.cookie('jwt', token);
             // res.cookie('user', data);
             res.render('homepage', {
-              user: user
+              user: user,
+              page: req.url
             });
           }
         )
         .catch(err => {
           res.render('register', {
+            page: req.url,
             message: `${req.body.email} is already a registered user`
           })
         })
@@ -63,7 +68,9 @@ router.post('/register', function(req, res){
 
 // login using jwts
 router.get('/login', function(req, res){
+  console.log('loing url: ', req.url);
   res.render('login', {
+    page: req.url,
     message: null
   });
 });
@@ -86,6 +93,7 @@ router.post('/login', function(req, res){
         } else {
           // username is correct but password is not
           res.render('login', {
+            page: req.url,
             message: 'invalid login credentials'
           });
         }
@@ -94,6 +102,7 @@ router.post('/login', function(req, res){
     .catch(err => {
       // unable to find user in database
       res.render('login', {
+        page: req.url,
         message: 'invalid login credentials'
       });
       // res.send('authentication failed. check username or password.');
@@ -117,6 +126,7 @@ router.get('/homepage', function(req, res){
     })
     .then(userDetails => {
       res.render('homepage', {
+        page: req.url,
         user: userDetails
       });
     })

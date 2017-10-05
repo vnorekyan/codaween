@@ -16,6 +16,7 @@ router.get('/', function(req, res) {
   .then(function(groups) {
     // res.json(groups);
     res.render('allGroups', {
+      page: req.url,
       groups: groups
     })
   })
@@ -27,6 +28,7 @@ router.get('/', function(req, res) {
 // GET groups/create
 router.get('/create', function(req, res){
   res.render('newGroup', {
+    page: req.url,
     message: null
   });
 });
@@ -94,6 +96,7 @@ router.get('/:id/edit', function(req, res){
     // check if user is included in group
     if(group.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
       res.render('editGroup', {
+        page: req.url,
         group: group
       });
     } else {
@@ -163,6 +166,7 @@ router.get('/:id', function(req, res) {
     }
 
     res.render('group', {
+      page: req.url,
       group: group,
       mine: isMine
     });

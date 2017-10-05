@@ -17,6 +17,7 @@ router.get('/', function(req, res) {
   })
   .then(function(users) {
     res.render('allUsers', {
+      page: req.url,
       users: users
     });
   })
@@ -139,11 +140,13 @@ router.get('/:id', function(req, res) {
     // res.json(user);
     if(user.userEmail == email){
       res.render('user', {
+        page: req.url,
         user: user,
         me: true
       });
     } else {
       res.render('user', {
+        page: req.url,
         user: user,
         me: false
       });
@@ -170,6 +173,7 @@ router.get('/:id/edit', function(req, res){
     if(thisId == user.id){
       // costume.updateAttributes(req.body);
       res.render('editUser', {
+        page: req.url,
         user: user
       });
     } else {

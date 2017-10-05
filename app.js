@@ -44,7 +44,9 @@ app.use(validateJwt({
 
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index', {
+    page: req.url
+  });
   // db.user.findAll()
   // .then(function(users) {
   //   res.status(200).json(users);
