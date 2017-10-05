@@ -22,9 +22,7 @@ var sortCostumes = function() {
       costumeDiv.append(description);
       costumeDiv.append(votes);
       $('body').append(costumeDiv);
-    })
-
-
+    });
   });
 };
 
