@@ -63,6 +63,7 @@ router.post('/create', function(req, res) {
       })
       .spread((user, created) => {
         user.addGroup(user);
+        group.addUser(user);
         res.json(group);
       });
     })
