@@ -1,0 +1,13 @@
+<img src="<%= costume.costumePicture %>" alt="Costume Picture" />
+<p>
+  Costume Name: <%= costume.costumeName %>
+  <br>
+  Description: <%= costume.costumeDescription %>
+  <br>
+  Who's Wearing This?
+  <br>
+  <% costume.users.forEach(function(user) { %>
+    <a href="http://localhost:8080/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
+  <% }) %>
+</p>
+<a href="<%= costume.costumeLink %>">Buy it on Amazon</a>
