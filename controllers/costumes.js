@@ -4,6 +4,23 @@ var jwt = require('jsonwebtoken');
 var config = require('../config/main');
 var router = express.Router();
 
+//GET /costumes/data
+router.get('/data', function(req, res) {
+  //res.send('GET /groups');
+  db.costume.findAll({
+    include: [{
+      model: db.user
+    }]
+  })
+  .then(function(costumes) {
+    // res.json(costumes);
+    res.json(costumes);
+  })
+  .catch(function(error) {
+    res.json(error);
+  });
+});
+
 // GET /costumes
 router.get('/', function(req, res) {
   //res.send('GET /groups');
