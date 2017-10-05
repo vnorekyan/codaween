@@ -17,6 +17,7 @@
 <button id="vote" type="button" name="Vote for Costume">Vote for Costume</button>
 <% if (mine) { %>
   <a href="/costumes/<%=costume.id%>/edit"><button id="editCostume" type="button" name="Edit Costume">Edit Costume</button></a>
-  <button id="deleteCostume" type="button" name="Delete Costume">Delete Costume</button>
-
+  <form action="/costumes/<%= costume.id %>?_method=DELETE" method="post">
+    <input class="button-delete" type="submit" value="Delete costume">
+  </form>
 <% } %>

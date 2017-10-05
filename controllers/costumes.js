@@ -64,7 +64,7 @@ router.post('/create', function(req, res) {
         user.addCostume(user);
         costume.addUser(user);
         // res.json(costume);
-        res.redirect(`/costumes/${costume.id}`)
+        res.redirect('/costumes')
       });
     })
     .catch(function(error) {
@@ -177,6 +177,7 @@ router.put('/:id', function(req, res) {
     if(costume.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
       costume.updateAttributes(req.body);
       res.redirect(`/costumes/${thisId}`);
+
     } else {
       res.send('this is not your costume!')
     }
@@ -204,7 +205,7 @@ router.delete('/:id', function(req, res) {
     costume.destroy();
   })
   .then(function(costume) {
-    res.json(costume);
+    res.redirect('/costumes');
   });
 });
 

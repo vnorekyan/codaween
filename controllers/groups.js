@@ -64,7 +64,8 @@ router.post('/create', function(req, res) {
       .spread((user, created) => {
         user.addGroup(user);
         group.addUser(user);
-        res.json(group);
+        // res.json(group);
+        res.redirect('/groups');
       });
     })
     .catch(function(error) {
