@@ -126,7 +126,7 @@ router.get('/:id/join', (req, res) => {
       })
       .then(u => {
         group.addUser(u);
-        res.redirect(`/users/${u.id}`);
+        res.redirect(`/groups/${req.params.id}`);
       })
       .catch(err => {
         res.json(err);
@@ -172,6 +172,40 @@ router.get('/:id', function(req, res) {
     res.json(error);
   });
 });
+
+router.put('/:id/leave', (req, res) => {
+  var userEmail;
+  // grabbing and storing the user's email
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    userEmail = decoded.data;
+  });
+
+  db.group.find({
+    where: { id: req.params.id }
+  })
+  .then(gp => {
+    db.user.find({
+      where: { userEmail: userEmail }
+    })
+    .then(u => {
+      gp.removeUser(u);
+      res.redirect('/groups');
+    })
+    .catch(err => {
+      res.json(err);
+    })
+  })
+  .catch(err => {
+    // can't remove user?
+    res.json(err);
+  })
+
+
+
+
+
+});
+
 // PUT /groups/:id
 router.put('/:id', function(req, res) {
   // extra security to block unauthorized users
