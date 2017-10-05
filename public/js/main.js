@@ -1,5 +1,13 @@
 console.log('main.js is connected');
 
+if (localStorage.getItem('clicked') === 'true') {
+  var buttonIds = JSON.parse(localStorage.getItem('buttonArray'));
+  for (let i = 0; i < buttonIds.length; i++) {
+    console.log('buttonIds', buttonIds[i]);
+    $(`#${buttonIds[i]}`).attr('disabled', 'disabled');
+  }
+}
+
 var updateUserVotes = function(id) {
   var userId = id;
   $.ajax({
@@ -8,8 +16,9 @@ var updateUserVotes = function(id) {
     dataType: 'json'
   }).then(function(getResponse) {
     var oldVotes = getResponse.userVotes;
-    var newVotes = oldVotes - 1;
-    console.log(getResponse);
+    if(oldVotes > 0) {
+      var newVotes = oldVotes - 1;
+    }
 
     $.ajax({
       url: `http://localhost:8080/users/${userId}`,
@@ -57,9 +66,13 @@ $('.vote').click(function() {
   var userLink = $('.userLink').attr('href').split('');
   var userId = userLink[userLink.length - 1];
 
-  console.log(this.id);
   updateCostumeVotes(this.id);
   updateUserVotes(userId);
 
+  var array = JSON.parse(localStorage.getItem('buttonArray'));
+  array.push(Number(this.id));
+  localStorage.setItem('clicked', true);
+  localStorage.setItem('buttonArray', JSON.stringify(array));
+  $(`#${this.id}`).attr('disabled', 'disabled');
 
 });
