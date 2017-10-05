@@ -1,55 +1,51 @@
-<!-- <form class="" action="/authenticate/register" method="POST">
-      Email: <input type="text" name="email" placeholder="enter email"><br><br>
-      Password: <input type="password" name="password" placeholder="enter password"><br><br>
-      <button type="submit" name="button">Create user</button>
-
-    </form> -->
 
     <body class="align">
 
-      <div class="grid">
-    <div class="container">
-    	<div class="col-lg-12">
-    	<div class="row form">
+      <% if(message){ %>
+        <%= message %>
+      <% } %>
 
-    				<form action="/authenticate/register" method="POST" class="register login">
+      <div style="margin-top:2rem">
+        <div class="container">
+    	     <div class="col-lg-12">
+    	        <div class="row form">
+                <form action="/authenticate/register" method="POST" class="form login">
+                  <div class="col-sm-12">
 
-    					<div class="col-sm-12">
-
-    						<div class="row">
+    						<div class="register-row">
                   <div class="form__field">
-                    <label for="login__username">First Name</label>
-                    <input id="login__username" type="text" name="fname" class="form__input" placeholder="enter first name" required>
+                    <label for="fname" class="register-label">First Name</label>
+                    <input type="text" name="fname" class="form__input" placeholder="enter first name" required>
                   </div>
                   <div class="form__field">
-                    <label for="login__username">Last Name</label>
-                    <input id="login__username" type="text" name="lname" class="form__input" placeholder="enter last name" required>
+                    <label for="lname" class="register-label">Last Name</label>
+                    <input type="text" name="lname" class="form__input" placeholder="enter last name" required>
                   </div>
-    						</div>
 
-                <div class ="row">
                 <div class="form__field">
-                  <label for="login__username">Email</label>
-                  <input id="login__username" type="text" name="email" class="form__input" placeholder="enter email" required>
+                  <label for="email" class="register-label">Email</label>
+                  <input type="text" name="email" class="form__input" placeholder="enter email" required>
                 </div>
-              </div>
 
-              <div class="row">
                 <div class="form__field">
-                  <label>Password</label>
-                  <input type="password" name="password" placeholder="Enter password..">
+                  <label for="password" class="register-label">Password</label>
+                  <input type="password" name="password" class="form__input" placeholder="enter password" required>
                 </div>
+
                 <div class="form__field">
-                  <label>Verify password</label>
-                  <input type="password" name="verifypassword" placeholder="Enter password again...">
+                  <label for="email" class="register-label">Verify Password</label>
+                  <input type="password" name="verifypassword" class="form__input" placeholder="enter password again" required>
                 </div>
-              </div>
+
 
               <div class="form__field">
                 <input type="submit" value="Submit">
               </div>
+            </div>
 
     					</div>
+              <p class="text--center">Already registered? <a href="/authenticate/login">Log in now</a> <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#arrow-right"></use></svg></p>
+
     				</form>
     				</div>
     	</div>

@@ -9,19 +9,23 @@ var bcrypt = require('bcrypt');
 
 // register new users
 router.get('/register', function(req, res){
-  res.render('register');
+  res.render('register', {
+    message: null
+  });
 });
 
 router.post('/register', function(req, res){
   console.log(req.body);
   if(!req.body.email || !req.body.password){
-    res.json({success: false, message: 'please enter an email and password to register'});
+    res.render('register', {
+      message: 'please enter an email and password to register'
+    });
   } else if(req.body.password !== req.body.verifypassword){
-    res.send('passwords do not match');
+    res.render('register', {
+      message: 'passwords do not match'
+    });
   }
-
   else {
-
     bcrypt.genSalt(10, function(err, salt){
       if (err) { return next(err); }
       bcrypt.hash(req.body.password, salt)
@@ -34,12 +38,17 @@ router.post('/register', function(req, res){
         })
         .then(
           function(user){
-            // attempt to save the new user
-            res.status(200).send(user)
+            // user created! generate token then send to the dashboard page
+            var data = user.userEmail;
+            var token = jwt.sign({data}, config.secret, { expiresIn: '1h' });
+            res.cookie('jwt', token);
+            res.redirect('/authenticate/dashboard');
           }
         )
         .catch(err => {
-          res.json(err);
+          res.render('register', {
+            message: `${req.body.email} is already a registered user`
+          })
         })
       })
       .catch(err => {
@@ -51,13 +60,13 @@ router.post('/register', function(req, res){
 
 // login using jwts
 router.get('/login', function(req, res){
-  res.render('login');
+  res.render('login', {
+    message: null
+  });
 });
 
 
 router.post('/login', function(req, res){
-  console.log(req.body);
-
   db.user.find({
     where: {
         userEmail: req.body.email,
@@ -73,16 +82,18 @@ router.post('/login', function(req, res){
           console.log('token: ', token);
           res.redirect('/authenticate/dashboard');
         } else {
-          res.send('authentication failed');
+          // username is correct but password is not
+          res.render('login', {
+            message: 'invalid login credentials'
+          });
         }
-
       })
-      .catch(err => {
-        res.json(err);
-      });
     })
     .catch(err => {
-      res.json(err);
+      // unable to find user in database
+      res.render('login', {
+        message: 'invalid login credentials'
+      });
       // res.send('authentication failed. check username or password.');
     })
 
@@ -101,13 +112,32 @@ router.get('/dashboard', validateJwt({
       return null;
     }
   }), function(req, res){
-  res.send('you are in!');
+    // variable for user's email we'll get from the jwt
+    var em;
+    // calling jwt.verify again to save the user's email address
+    jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+      em = decoded.data;
+    });
+    // find user in our database and pull their information
+    db.user.find({
+      where: {
+        userEmail: em
+      }
+    })
+    .then(userDetails => {
+      res.render('index', {
+        user: userDetails
+      });
+    })
+    .catch(err => {
+      res.json(err);
+    })
 });
 
 // logout route
 router.post('/logout', function(req, res){
   if (req.cookies.jwt){
-    res.clearCookie("jwt").send('successfully logged out');
+    res.clearCookie("jwt").redirect('/authenticate/login');
   } res.redirect('/authenticate/login');
 })
 
