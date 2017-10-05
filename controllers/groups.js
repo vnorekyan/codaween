@@ -22,8 +22,15 @@ router.get('/', function(req, res) {
   });
 });
 
+// GET groups/create
+router.get('/create', function(req, res){
+  res.render('newGroup', {
+    message: null
+  });
+});
+
 // POST /groups
-router.post('/', function(req, res) {
+router.post('/create', function(req, res) {
   db.group.create({
     groupName: req.body.groupName,
     groupPicture: req.body.groupPicture,
@@ -48,6 +55,7 @@ router.post('/', function(req, res) {
     res.json(error);
   });
 });
+
 
 // GET /groups/:id
 router.get('/:id', function(req, res) {

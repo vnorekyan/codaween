@@ -100,18 +100,7 @@ router.post('/login', function(req, res){
 });
 
 // protect the homepage with jwt token check
-router.get('/homepage', validateJwt({
-    secret: config.secret,
-    getToken: function fromCookie (req) {
-      if (req.cookies.jwt) {
-        jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
-          if (err) throw err;
-        })
-        return req.cookies.jwt;
-      }
-      return null;
-    }
-  }), function(req, res){
+router.get('/homepage', function(req, res){
     // variable for user's email we'll get from the jwt
     var em;
     // calling jwt.verify again to save the user's email address
@@ -125,7 +114,7 @@ router.get('/homepage', validateJwt({
       }
     })
     .then(userDetails => {
-      res.render('index', {
+      res.render('homepage', {
         user: userDetails
       });
     })

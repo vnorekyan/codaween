@@ -7,7 +7,9 @@ var ejsLayouts = require('express-ejs-layouts');
 var app = express();
 // validation shit
 var jwt = require('jsonwebtoken');
+var validateJwt = require('express-jwt');
 var cookieParser = require('cookie-parser');
+var config = require('./config/main');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,6 +22,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(ejsLayouts);
+
+app.use(validateJwt({
+    secret: config.secret,
+    getToken: function fromCookie (req) {
+      if (req.cookies.jwt) {
+        jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+          if (err) throw err;
+        })
+        return req.cookies.jwt;
+      }
+      return null;
+    }
+  })
+  .unless({path: ['/authenticate/login', '/authenticate/register']}
+));
+
 
 app.get('/', function(req, res) {
   res.render('index');

@@ -223,3 +223,7 @@ label {
 .register-row {
   width:35rem;
 }
+
+.groupbox {
+  border: 1px solid black;
+}
