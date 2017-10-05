@@ -12,7 +12,10 @@ router.get('/', function(req, res) {
     }]
   })
   .then(function(groups) {
-    res.json(groups);
+    // res.json(groups);
+    res.render('allGroups', {
+      groups: groups
+    })
   })
   .catch(function(error) {
     res.json(error);
