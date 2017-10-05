@@ -77,7 +77,9 @@ router.get('/:id', function(req, res) {
   .then(function(user) {
     if (!user) throw Error();
     // res.json(user);
-    res.render('user');
+    res.render('user', {
+      user: user
+    });
   })
   .catch(function(error) {
     res.json(error);

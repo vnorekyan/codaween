@@ -3,7 +3,7 @@
   <p>
     First Name: <%= user.userFirstName %>
     <br>
-    Last Name: <%= user.LastName %>
+    Last Name: <%= user.userLastName %>
     <br>
     Email: <%= user.userEmail %>
     <br>
@@ -14,23 +14,36 @@
 
 <div class="userAssociations">
   <h3>My Costumes</h3>
-  <% user.costumes.forEach(function(costume) { %>
-    <img src="<%=costume.costumePicture%>" alt="Costume Picture" />
-    <h4><%= costume.costumeName %> </h4>
+  <% if(user.costumes.length === 0) { %>
     <p>
-      <%= costume.costumeDescription %>
+      You don't have any costumes yet.
     </p>
-    <a href="<%= costume.costumeLink %>">Buy it on Amazon</a>
-  <% }) %>
+  <% } else { %>
+    <% user.costumes.forEach(function(costume) { %>
+      <img src="<%=costume.costumePicture%>" alt="Costume Picture" />
+      <h4><%= costume.costumeName %> </h4>
+      <p>
+        <%= costume.costumeDescription %>
+      </p>
+      <a href="<%= costume.costumeLink %>">Buy it on Amazon</a>
+    <% }) %>
+  <% } %>
 
   <h3>My Groups</h3>
-  <% user.groups.forEach(function(group) { %>
-    <img src="<%=group.groupPicture%>" alt="Group Picture" />
-    <h4><%= group.groupName %> </h4>
+  <% if(user.groups.length === 0) { %>
     <p>
-      <%= group.groupDescription %>
+      You don't have any groups yet.
     </p>
-  <% }) %>
+  <% } else { %>
+    <% user.groups.forEach(function(group) { %>
+      <img src="<%=group.groupPicture%>" alt="Group Picture" />
+      <h4><%= group.groupName %> </h4>
+      <p>
+        <%= group.groupDescription %>
+      </p>
+    <% }) %>
+  <% } %>
+
 </div>
 
 <button id="editUser" type="button" name="Edit Profile">Edit Profile</button>
