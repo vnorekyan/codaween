@@ -93,7 +93,6 @@ router.get('/:id/edit', function(req, res){
   .then(function(group) {
     // check if user is included in group
     if(group.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
-      group.updateAttributes(req.body);
       res.render('editGroup', {
         group: group
       });
@@ -102,6 +101,42 @@ router.get('/:id/edit', function(req, res){
     }
   })
 
+});
+
+router.get('/:id/join', (req, res) => {
+  var currentUserEmail;
+
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    currentUserEmail = decoded.data;
+  });
+
+  db.group.find({
+    where: { id: req.params.id },
+    include: [{
+      model: db.user
+    }]
+  })
+  .then(function(group) {
+    // extra check -- make sure user is not already in the group
+    if(group.users.filter(u => { return u.userEmail === currentUserEmail; }).length > 0){
+      res.send('you are already in this group!!');
+    } else {
+      db.user.find({
+        where: { userEmail: currentUserEmail }
+      })
+      .then(u => {
+        group.addUser(u);
+        res.redirect(`/users/${u.id}`);
+      })
+      .catch(err => {
+        res.json(err);
+      })
+    }
+
+  })
+  .catch(function(error) {
+    res.json(error);
+  });
 });
 
 // GET /groups/:id
@@ -172,7 +207,6 @@ router.put('/:id', function(req, res) {
 
   });
 });
-
 
 // DELETE /groups/:id
 router.delete('/:id', function(req, res) {

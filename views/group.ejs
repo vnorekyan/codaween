@@ -16,5 +16,8 @@
   <form action="/groups/<%= group.id %>?_method=DELETE" method="post">
     <input class="button-delete" type="submit" value="Delete Group">
   </form>
+<% } else { %>
+  <a href="/groups/<%=group.id%>/join"><button id="joinGroup" type="button" name="join">Join this group</button></a>
+
 <% } %>
 </body>
