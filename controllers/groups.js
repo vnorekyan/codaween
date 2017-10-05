@@ -1,6 +1,8 @@
 var express = require('express');
 var db = require('../models');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
+var config = require('../config/main');
 
 // GET /groups
 router.get('/', function(req, res) {
@@ -31,29 +33,44 @@ router.get('/create', function(req, res){
 
 // POST /groups
 router.post('/create', function(req, res) {
-  db.group.create({
-    groupName: req.body.groupName,
-    groupPicture: req.body.groupPicture,
-    groupDescription: req.body.groupDescription
+  var em;
+  var details;
+  // calling jwt.verify again to save the user's email address
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    em = decoded.data;
+  });
+  // find user in our database and pull their information
+  db.user.find({
+    where: {
+      userEmail: em
+    }
   })
-  .then(function(group) {
-    db.user.findOrCreate({
-      where: {
-        userFirstName: req.body.userFirstName,
-        userLastName: req.body.userLastName,
-        userPicture: req.body.userPicture,
-        userEmail: req.body.userEmail,
-        userVotes: req.body.userVotes
-      }
+  .then(userDetails => {
+    db.group.create({
+      groupName: req.body.groupName,
+      groupPicture: req.body.groupPicture,
+      groupDescription: req.body.groupDescription
     })
-    .spread((user, created) => {
-      user.addGroup(user);
-      res.json(group);
+    .then(function(group) {
+      db.user.findOrCreate({
+        where: {
+          userFirstName: userDetails.userFirstName,
+          userLastName: userDetails.userLastName,
+          userPicture: userDetails.userPicture,
+          userEmail: userDetails.userEmail,
+          userVotes: userDetails.userVotes
+        }
+      })
+      .spread((user, created) => {
+        user.addGroup(user);
+        res.json(group);
+      });
+    })
+    .catch(function(error) {
+      res.json(error);
     });
   })
-  .catch(function(error) {
-    res.json(error);
-  });
+
 });
 
 
