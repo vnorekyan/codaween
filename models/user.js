@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
     userLastName: DataTypes.STRING,
     userPicture: DataTypes.STRING,
     userEmail: { type: DataTypes.STRING, unique: true },
-    userVotes: DataTypes.INTEGER,
     userPassword: DataTypes.STRING
   }
 );

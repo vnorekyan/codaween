@@ -7,7 +7,7 @@
   Who's Wearing This?
   <br>
   <% costume.users.forEach(function(user) { %>
-    <a class="userLink" href="http://localhost:8080/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
+    <a class="userLink" href="/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
   <% }) %>
   <br>
   <p class="votes">Votes: <%= costume.costumeVotes %></p>
