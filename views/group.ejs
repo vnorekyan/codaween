@@ -10,6 +10,11 @@
 </p>
 
 </div>
-<a href="/groups"><button type="button" name="button">back to groups</button></a>
-
+<a href="/groups"><button type="button" name="button">Back to Groups</button></a>
+<% if (mine) { %>
+  <a href="/groups/<%=group.id%>/edit"><button id="editGroup" type="button" name="Edit Group">Edit Group</button></a>
+  <form action="/groups/<%= group.id %>?_method=DELETE" method="post">
+    <input class="button-delete" type="submit" value="Delete Group">
+  </form>
+<% } %>
 </body>

@@ -75,9 +75,44 @@ router.post('/create', function(req, res) {
 
 });
 
+router.get('/:id/edit', function(req, res){
+  // extra security to block unauthorized users from editing costumes
+  var thisId = req.params.id;
+  var userEmail;
+
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    userEmail = decoded.data;
+  });
+
+  db.group.find({
+    where: {id: thisId },
+    include: [{
+      model: db.user
+    }]
+  })
+  .then(function(group) {
+    // check if user is included in group
+    if(group.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
+      group.updateAttributes(req.body);
+      res.render('editGroup', {
+        group: group
+      });
+    } else {
+      res.send('this is not your costume!')
+    }
+  })
+
+});
 
 // GET /groups/:id
 router.get('/:id', function(req, res) {
+  var userEmail;
+  var isMine = false;
+  // grabbing and storing the user's email
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    userEmail = decoded.data;
+  });
+
   db.group.find({
     where: { id: req.params.id },
     include: [{
@@ -86,33 +121,58 @@ router.get('/:id', function(req, res) {
   })
   .then(function(group) {
     if (!group) throw Error();
+
+    // see if current user is included in the costume object
+    if(group.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
+      isMine = true;
+    }
+
     res.render('group', {
-      group: group
+      group: group,
+      mine: isMine
     });
+
   })
   .catch(function(error) {
     res.json(error);
   });
 });
-
 // PUT /groups/:id
 router.put('/:id', function(req, res) {
+  // extra security to block unauthorized users
+  var thisId = req.params.id;
+  var userEmail;
+
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    userEmail = decoded.data;
+  });
+
   db.group.find({
-    where: {id: req.params.id },
+    where: {id: thisId },
     include: [{
       model: db.user
     }]
   })
   .then(function(group) {
-    group.updateAttributes(req.body);
+    // check if user is included in costume
+    if(group.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
+      group.updateAttributes(req.body);
+      res.redirect(`/groups/${thisId}`);
+
+    } else {
+      res.send('This is not your group!')
+    }
   })
-  .then(function(group) {
-    res.json(group);
-  })
+  // .then(function(costume) {
+  //   res.redirect('/costumes');
+  //   // console.log('success')
+  // })
   .catch(function(error) {
     res.json(error);
+
   });
 });
+
 
 // DELETE /groups/:id
 router.delete('/:id', function(req, res) {
@@ -126,7 +186,7 @@ router.delete('/:id', function(req, res) {
     group.destroy();
   })
   .then(function(group) {
-    res.json(group);
+    res.redirect('/groups');
   });
 });
 
