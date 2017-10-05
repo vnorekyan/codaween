@@ -1,0 +1,17 @@
+<body class="align">
+
+
+<h3> Welcome, <%= user.userFirstName %> </h3>
+<p>
+  Email/login: <%= user.userEmail %>
+</p>
+
+
+<form action="/authenticate/logout" method="POST" class="form login">
+
+  <div class="form__field">
+    <input type="submit" value="Log out">
+  </div>
+
+</form>
+</body>

@@ -38,11 +38,11 @@ router.post('/register', function(req, res){
         })
         .then(
           function(user){
-            // user created! generate token then send to the dashboard page
+            // user created! generate token then send to the homepage
             var data = user.userEmail;
             var token = jwt.sign({data}, config.secret, { expiresIn: '1h' });
             res.cookie('jwt', token);
-            res.redirect('/authenticate/dashboard');
+            res.redirect('/authenticate/homepage');
           }
         )
         .catch(err => {
@@ -80,7 +80,7 @@ router.post('/login', function(req, res){
           var token = jwt.sign({data}, config.secret, { expiresIn: '1h' });
           res.cookie('jwt', token);
           console.log('token: ', token);
-          res.redirect('/authenticate/dashboard');
+          res.redirect('/authenticate/homepage');
         } else {
           // username is correct but password is not
           res.render('login', {
@@ -99,8 +99,8 @@ router.post('/login', function(req, res){
 
 });
 
-// protect the dashboard with jwt token check
-router.get('/dashboard', validateJwt({
+// protect the homepage with jwt token check
+router.get('/homepage', validateJwt({
     secret: config.secret,
     getToken: function fromCookie (req) {
       if (req.cookies.jwt) {
