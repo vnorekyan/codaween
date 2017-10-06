@@ -22,7 +22,6 @@
         <% if (mine) { %>
           <a href="/costumes/<%=costume.id%>/edit"><button id="editCostume" class="btn btn-secondary" type="button" name="Edit Costume">Edit Costume</button></a>
           <form action="/costumes/<%= costume.id %>?_method=DELETE" method="post">
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <input class="button-delete btn btn-danger" type="submit" value="Delete costume">
           </form>
         <% } %>

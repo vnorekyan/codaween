@@ -3,10 +3,10 @@ var db = require('../models');
 var jwt = require('jsonwebtoken');
 var config = require('../config/main');
 var router = express.Router();
-var csrf = require('csurf');
-var csrfProtection = csrf({ cookie: true });
-var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+// var csrf = require('csurf');
+// var csrfProtection = csrf({ cookie: true });
+// var bodyParser = require('body-parser');
+// var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 //GET /costumes/data
@@ -48,17 +48,16 @@ router.get('/', function(req, res) {
 });
 
 // GET costumes/create
-router.get('/create', csrfProtection, function(req, res){
+router.get('/create', function(req, res){
   res.render('newCostume', {
     active: "create-costume",
     page: req.url,
-    message: null,
-    csrfToken: req.csrfToken()
+    message: null
   });
 });
 
 // POST /costumes
-router.post('/create', urlencodedParser, csrfProtection, function(req, res) {
+router.post('/create', function(req, res) {
   var em;
   var details;
   // calling jwt.verify again to save the user's email address
@@ -155,7 +154,7 @@ router.get('/:id', function(req, res) {
   });
 });
 
-router.get('/:id/edit', csrfProtection, function(req, res){
+router.get('/:id/edit', function(req, res){
   // extra security to block unauthorized users from editing costumes
   var thisId = req.params.id;
   var userEmail;
@@ -177,8 +176,7 @@ router.get('/:id/edit', csrfProtection, function(req, res){
       res.render('editCostume', {
         active: "costumes",
         page: req.url,
-        costume: costume,
-        csrfToken: req.csrfToken()
+        costume: costume
       });
     } else {
       res.send('this is not your costume!')
@@ -225,7 +223,7 @@ router.put('/:id', function(req, res) {
 
 
 // DELETE /costumes/:id
-router.delete('/:id', urlencodedParser, csrfProtection, function(req, res) {
+router.delete('/:id', function(req, res) {
   db.costume.find({
     where: {id: req.params.id },
     include: [{
