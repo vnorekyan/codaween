@@ -46,7 +46,7 @@ router.post('/register', function(req, res){
             var token = jwt.sign({data}, config.secret, { expiresIn: '1h' });
             res.cookie('jwt', token);
             // res.cookie('user', data);
-            res.render('index');
+            res.redirect('/');
           }
         )
         .catch(err => {
