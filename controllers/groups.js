@@ -59,8 +59,7 @@ router.post('/create', function(req, res) {
           userFirstName: userDetails.userFirstName,
           userLastName: userDetails.userLastName,
           userPicture: userDetails.userPicture,
-          userEmail: userDetails.userEmail,
-          userVotes: userDetails.userVotes
+          userEmail: userDetails.userEmail
         }
       })
       .spread((user, created) => {
