@@ -21,9 +21,10 @@ var updateCostumeVotes = function(id) {
     type: 'GET',
     dataType: 'json'
   }).then(function(getResponse) {
-    console.log(getResponse);
+    console.log('response',getResponse);
     var oldVotes = getResponse.costumeVotes;
     var newVotes = oldVotes + 1;
+    console.log('newvotes', newVotes);
 
     $.ajax({
       url: `https://codaween.herokuapp.com/costumes/${costumeId}`,
@@ -39,9 +40,9 @@ var updateCostumeVotes = function(id) {
 };
 
 $('.vote').click(function() {
-  var oldCostumeVotes = Number($('body').find('.votes').text().split(' ')[1]);
-  var newCostumeVotes = oldCostumeVotes + 1;
-  $('body').find('.votes').text('Votes: ' + newCostumeVotes);
+  // var oldCostumeVotes = Number($('body').find('.votes').text().split(' ')[1]);
+  // var newCostumeVotes = oldCostumeVotes + 1;
+  // $('body').find('.votes').text('Votes: ' + newCostumeVotes);
 
   updateCostumeVotes(this.id);
 
