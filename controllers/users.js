@@ -3,6 +3,10 @@ var db = require('../models');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 var config = require('../config/main');
+var csrf = require('csurf');
+var csrfProtection = csrf({ cookie: true });
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // GET /users
 router.get('/', function(req, res) {
@@ -33,8 +37,7 @@ router.post('/', function(req, res) {
     userFirstName: req.body.userFirstName,
     userLastName: req.body.userLastName,
     userPicture: req.body.userPicture,
-    userEmail: req.body.userEmail,
-    userVotes: req.body.userVotes
+    userEmail: req.body.userEmail
   })
   .then(function(user) {
     db.group.findOrCreate({
@@ -91,7 +94,7 @@ router.get('/data/:id', function(req, res) {
 });
 
 // PUT /users/:id
-router.put('/:id', function(req, res) {
+router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
   var thisId = req.params.id;
   var em;
 
@@ -110,7 +113,11 @@ router.put('/:id', function(req, res) {
   })
   .then(function(user) {
     user.updateAttributes(req.body);
+<<<<<<< HEAD
     res.redirect(`/users/${req.params.id}`)
+=======
+    res.redirect(`/users/${thisId}`);
+>>>>>>> 8a6b86d63ca6f572f6580678966870ed32a8ec45
   })
   .catch(function(error) {
     // res.json(error);
@@ -119,7 +126,7 @@ router.put('/:id', function(req, res) {
 });
 
 // GET /users/:id
-router.get('/:id', function(req, res) {
+router.get('/:id', csrfProtection, function(req, res) {
   var isMe = false;
   var email;
 
@@ -144,14 +151,16 @@ router.get('/:id', function(req, res) {
         active: "users",
         page: req.url,
         user: user,
-        me: true
+        me: true,
+        csrfToken: req.csrfToken()
       });
     } else {
       res.render('user', {
         active: "users",
         page: req.url,
         user: user,
-        me: false
+        me: false,
+        csrfToken: req.csrfToken()
       });
     }
   })
@@ -160,7 +169,7 @@ router.get('/:id', function(req, res) {
   });
 });
 
-router.get('/:id/edit', function(req, res){
+router.get('/:id/edit', csrfProtection, function(req, res){
   // ensuring user can only edit his/her own profile
   var thisId = req.params.id;
   var userEmail;
@@ -178,7 +187,8 @@ router.get('/:id/edit', function(req, res){
       res.render('editUser', {
         active: "users",
         page: req.url,
-        user: user
+        user: user,
+        csrfToken: req.csrfToken()
       });
     } else {
       res.send('this is not you!')
@@ -190,31 +200,8 @@ router.get('/:id/edit', function(req, res){
 
 });
 
-
-// PUT /users/:id
-router.put('/:id', function(req, res) {
-  db.user.find({
-    where: {id: req.params.id },
-    include: [{
-      model: db.group
-    },
-    {
-      model: db.costume
-    }]
-  })
-  .then(function(user) {
-    user.updateAttributes(req.body);
-  })
-  .then(function(user) {
-    res.redirect('/users');
-  })
-  .catch(function(error) {
-    res.json(error);
-  });
-});
-
 // DELETE /users/:id
-router.delete('/:id', function(req, res) {
+router.delete('/:id', urlencodedParser, csrfProtection, function(req, res) {
   db.user.find({
     where: {id: req.params.id },
     include: [{

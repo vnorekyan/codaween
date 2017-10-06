@@ -13,45 +13,22 @@ if (localStorage.getItem('clicked') === 'true') {
   }
 }
 
-var updateUserVotes = function(id) {
-  var userId = id;
-  $.ajax({
-    url: `http://localhost:8080/users/data/${userId}`,
-    type: 'GET',
-    dataType: 'json'
-  }).then(function(getResponse) {
-    var oldVotes = getResponse.userVotes;
-    if(oldVotes > 0) {
-      var newVotes = oldVotes - 1;
-    }
-
-    $.ajax({
-      url: `http://localhost:8080/users/${userId}`,
-      type: 'PUT',
-      dataType:'json',
-      data: {
-        userVotes: newVotes
-      }
-    }).done(function() {
-      console.log('ajax request done');
-    });
-  });
-};
-
 var updateCostumeVotes = function(id) {
   var costumeId = id;
   console.log('costumeid', costumeId);
+
   $.ajax({
-    url: `http://localhost:8080/costumes/data/${costumeId}`,
+    url: `https://codaween.herokuapp.com/costumes/data/${costumeId}`,
     type: 'GET',
     dataType: 'json'
   }).then(function(getResponse) {
-    console.log(getResponse);
+    console.log('response',getResponse);
     var oldVotes = getResponse.costumeVotes;
     var newVotes = oldVotes + 1;
+    console.log('newvotes', newVotes);
 
     $.ajax({
-      url: `http://localhost:8080/costumes/${costumeId}`,
+      url: `https://codaween.herokuapp.com/costumes/${costumeId}`,
       type: 'PUT',
       dataType:'json',
       data: {
@@ -64,15 +41,11 @@ var updateCostumeVotes = function(id) {
 };
 
 $('.vote').click(function() {
-  var oldCostumeVotes = Number($('body').find('.votes').text().split(' ')[1]);
-  var newCostumeVotes = oldCostumeVotes + 1;
-  $('body').find('.votes').text('Votes: ' + newCostumeVotes);
-
-  var userLink = $('.userLink').attr('href').split('');
-  var userId = userLink[userLink.length - 1];
+  // var oldCostumeVotes = Number($('body').find('.votes').text().split(' ')[1]);
+  // var newCostumeVotes = oldCostumeVotes + 1;
+  // $('body').find('.votes').text('Votes: ' + newCostumeVotes);
 
   updateCostumeVotes(this.id);
-  updateUserVotes(userId);
 
   var array = JSON.parse(localStorage.getItem('buttonArray'));
   array.push(Number(this.id));

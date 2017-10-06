@@ -8,6 +8,7 @@
           <div class="row form">
 
             <form action="/groups/<%= group.id %>?_method=PUT" method="post" class="form login">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="col-sm-12">
 
             <div class="register-row">

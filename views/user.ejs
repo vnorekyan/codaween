@@ -38,6 +38,7 @@
         <% }) %>
       <% } %>
     </p>
+<<<<<<< HEAD
 
   </div>
 </div>
@@ -48,6 +49,28 @@
   <h4 class="card-title">Groups</h4>
   <p class="card-text">
     <% if(user.groups.length === 0) { %>
+=======
+  <% } else { %>
+    <% user.costumes.forEach(function(costume) { %>
+      <img src="<%=costume.costumePicture%>" alt="Costume Picture" />
+      <a class="costumeLink" href="/costumes/<%= costume.id %>"><%= costume.costumeName %></a>
+      <p><%= costume.costumeDescription %></p>
+      <p class="votes">Votes: <%= costume.costumeVotes %></p>
+      <a href="<%= costume.costumeLink %>">Buy it on Amazon</a>
+      <button class="vote" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
+    <% }) %>
+  <% } %>
+
+  <h3>My Groups</h3>
+  <% if(user.groups.length === 0) { %>
+    <p>
+      You don't have any groups yet.
+    </p>
+  <% } else { %>
+    <% user.groups.forEach(function(group) { %>
+      <img src="<%=group.groupPicture%>" alt="Group Picture" />
+      <a class="groupLink" href="/groups/<%= group.id %>"><%= group.groupName %></a>
+>>>>>>> 8a6b86d63ca6f572f6580678966870ed32a8ec45
       <p>
         You don't have any groups yet.
       </p>
@@ -71,6 +94,7 @@
 <% if (me) {%>
   <a href="/users/<%=user.id%>/edit"><button id="editUser" type="button" name="Edit Profile">Edit Profile</button></a>
   <form action="/users/<%= user.id %>?_method=DELETE" method="post">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     <button id="deleteUser" type="submit" name="delete">Delete Account</button>
   </form>
 <% } %>

@@ -3,6 +3,11 @@ var db = require('../models');
 var jwt = require('jsonwebtoken');
 var config = require('../config/main');
 var router = express.Router();
+var csrf = require('csurf');
+var csrfProtection = csrf({ cookie: true });
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 
 //GET /costumes/data
 router.get('/data', function(req, res) {
@@ -43,16 +48,17 @@ router.get('/', function(req, res) {
 });
 
 // GET costumes/create
-router.get('/create', function(req, res){
+router.get('/create', csrfProtection, function(req, res){
   res.render('newCostume', {
     active: "create-costume",
     page: req.url,
-    message: null
+    message: null,
+    csrfToken: req.csrfToken()
   });
 });
 
 // POST /costumes
-router.post('/create', function(req, res) {
+router.post('/create', urlencodedParser, csrfProtection, function(req, res) {
   var em;
   var details;
   // calling jwt.verify again to save the user's email address
@@ -69,7 +75,8 @@ router.post('/create', function(req, res) {
     db.costume.create({
       costumeName: req.body.costumeName,
       costumePicture: req.body.costumePicture,
-      costumeDescription: req.body.costumeDescription
+      costumeDescription: req.body.costumeDescription,
+      costumeVotes: 0
     })
     .then(function(costume) {
       db.user.findOrCreate({
@@ -77,8 +84,7 @@ router.post('/create', function(req, res) {
           userFirstName: userDetails.userFirstName,
           userLastName: userDetails.userLastName,
           userPicture: userDetails.userPicture,
-          userEmail: userDetails.userEmail,
-          userVotes: userDetails.userVotes
+          userEmail: userDetails.userEmail
         }
       })
       .spread((user, created) => {
@@ -114,7 +120,7 @@ router.get('/data/:id', function(req, res) {
 });
 
 // GET /costumes/:id
-router.get('/:id', function(req, res) {
+router.get('/:id', csrfProtection, function(req, res) {
   var userEmail;
   var isMine = false;
   // grabbing and storing the user's email
@@ -140,7 +146,8 @@ router.get('/:id', function(req, res) {
       active: "costumes",
       page: req.url,
       costume: costume,
-      mine: isMine
+      mine: isMine,
+      csrfToken: req.csrfToken()
     });
 
   })
@@ -149,7 +156,7 @@ router.get('/:id', function(req, res) {
   });
 });
 
-router.get('/:id/edit', function(req, res){
+router.get('/:id/edit', csrfProtection, function(req, res){
   // extra security to block unauthorized users from editing costumes
   var thisId = req.params.id;
   var userEmail;
@@ -171,7 +178,8 @@ router.get('/:id/edit', function(req, res){
       res.render('editCostume', {
         active: "costumes",
         page: req.url,
-        costume: costume
+        costume: costume,
+        csrfToken: req.csrfToken()
       });
     } else {
       res.send('this is not your costume!')
@@ -222,7 +230,7 @@ router.put('/:id', function(req, res) {
 
 
 // DELETE /costumes/:id
-router.delete('/:id', function(req, res) {
+router.delete('/:id', urlencodedParser, csrfProtection, function(req, res) {
   db.costume.find({
     where: {id: req.params.id },
     include: [{

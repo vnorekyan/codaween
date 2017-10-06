@@ -9,6 +9,7 @@
           <div class="row form">
 
             <form action="/costumes/<%= costume.id %>?_method=PUT" method="post" class="form login">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="col-sm-12">
 
             <div class="register-row">

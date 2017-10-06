@@ -3,6 +3,10 @@ var db = require('../models');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 var config = require('../config/main');
+var csrf = require('csurf');
+var csrfProtection = csrf({ cookie: true });
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // GET /groups
 router.get('/', function(req, res) {
@@ -27,17 +31,22 @@ router.get('/', function(req, res) {
 });
 
 // GET groups/create
+<<<<<<< HEAD
 router.get('/create', function(req, res){
   console.log('groups url: ', req.url);
+=======
+router.get('/create', csrfProtection, function(req, res){
+>>>>>>> 8a6b86d63ca6f572f6580678966870ed32a8ec45
   res.render('newGroup', {
     active: "create-group",
     page: req.url,
-    message: null
+    message: null,
+    csrfToken: req.csrfToken()
   });
 });
 
-// POST /groups
-router.post('/create', function(req, res) {
+// POST /groups/create
+router.post('/create', urlencodedParser, csrfProtection, function(req, res) {
   var em;
   var details;
   // calling jwt.verify again to save the user's email address
@@ -62,8 +71,7 @@ router.post('/create', function(req, res) {
           userFirstName: userDetails.userFirstName,
           userLastName: userDetails.userLastName,
           userPicture: userDetails.userPicture,
-          userEmail: userDetails.userEmail,
-          userVotes: userDetails.userVotes
+          userEmail: userDetails.userEmail
         }
       })
       .spread((user, created) => {
@@ -80,7 +88,7 @@ router.post('/create', function(req, res) {
 
 });
 
-router.get('/:id/edit', function(req, res){
+router.get('/:id/edit', csrfProtection, function(req, res){
   // extra security to block unauthorized users from editing costumes
   var thisId = req.params.id;
   var userEmail;
@@ -101,7 +109,8 @@ router.get('/:id/edit', function(req, res){
       res.render('editGroup', {
         active: "groups",
         page: req.url,
-        group: group
+        group: group,
+        csrfToken: req.csrfToken()
       });
     } else {
       res.send('this is not your costume!')
@@ -147,7 +156,7 @@ router.get('/:id/join', (req, res) => {
 });
 
 // GET /groups/:id
-router.get('/:id', function(req, res) {
+router.get('/:id', csrfProtection, function(req, res) {
   var userEmail;
   var isMine = false;
   // grabbing and storing the user's email
@@ -173,7 +182,8 @@ router.get('/:id', function(req, res) {
       active: "groups",
       page: req.url,
       group: group,
-      mine: isMine
+      mine: isMine,
+      csrfToken: req.csrfToken()
     });
 
   })
@@ -216,7 +226,7 @@ router.put('/:id/leave', (req, res) => {
 });
 
 // PUT /groups/:id
-router.put('/:id', function(req, res) {
+router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
   // extra security to block unauthorized users
   var thisId = req.params.id;
   var userEmail;
@@ -252,7 +262,7 @@ router.put('/:id', function(req, res) {
 });
 
 // DELETE /groups/:id
-router.delete('/:id', function(req, res) {
+router.delete('/:id', urlencodedParser, csrfProtection, function(req, res) {
   db.group.find({
     where: {id: req.params.id },
     include: [{

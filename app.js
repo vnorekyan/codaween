@@ -5,12 +5,15 @@ var path = require('path');
 var methodOverride = require('method-override');
 var ejsLayouts = require('express-ejs-layouts');
 var app = express();
-// validation shit
 var jwt = require('jsonwebtoken');
 var validateJwt = require('express-jwt');
 var cookieParser = require('cookie-parser');
 var config = require('./config/main');
 var methodOverride = require('method-override');
+var csrf = require('csurf');
+var csrfProtection = csrf({ cookie: true });
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 // view engine setup
@@ -39,6 +42,13 @@ app.use(validateJwt({
   })
   .unless({path: ['/authenticate/login', '/authenticate/register']}
 ));
+
+app.use(function(request, response, next) {
+  response.setHeader('X-Frame-Options', 'DENY');
+  next();
+});
+
+app.disable('x-powered-by');
 
 
 
