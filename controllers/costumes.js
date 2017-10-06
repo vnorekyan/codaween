@@ -33,7 +33,8 @@ router.get('/', function(req, res) {
     // res.json(costumes);
     res.render('allCostumes', {
       page: req.url,
-      costumes: costumes
+      costumes: costumes,
+      csrfToken: request.csrfToken()
     })
   })
   .catch(function(error) {
@@ -45,12 +46,13 @@ router.get('/', function(req, res) {
 router.get('/create', function(req, res){
   res.render('newCostume', {
     page: req.url,
-    message: null
+    message: null,
+    csrfToken: req.csrfToken()
   });
 });
 
 // POST /costumes
-router.post('/create', function(req, res) {
+router.post('/create', urlencodedParser, csrfProtection, function(req, res) {
   var em;
   var details;
   // calling jwt.verify again to save the user's email address
@@ -167,7 +169,8 @@ router.get('/:id/edit', function(req, res){
       // costume.updateAttributes(req.body);
       res.render('editCostume', {
         page: req.url,
-        costume: costume
+        costume: costume,
+        csrfToken: request.csrfToken()
       });
     } else {
       res.send('this is not your costume!')
@@ -181,7 +184,7 @@ router.get('/:id/edit', function(req, res){
 
 
 // PUT /costumes/:id
-router.put('/:id', function(req, res) {
+router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
   // extra security to block unauthorized users
   var thisId = req.params.id;
   var userEmail;
@@ -218,7 +221,7 @@ router.put('/:id', function(req, res) {
 
 
 // DELETE /costumes/:id
-router.delete('/:id', function(req, res) {
+router.delete('/:id', urlencodedParser, csrfProtection, function(req, res) {
   db.costume.find({
     where: {id: req.params.id },
     include: [{
