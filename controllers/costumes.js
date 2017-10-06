@@ -120,7 +120,7 @@ router.get('/data/:id', function(req, res) {
 });
 
 // GET /costumes/:id
-router.get('/:id', function(req, res) {
+router.get('/:id', csrfProtection, function(req, res) {
   var userEmail;
   var isMine = false;
   // grabbing and storing the user's email
@@ -146,7 +146,8 @@ router.get('/:id', function(req, res) {
       active: "costumes",
       page: req.url,
       costume: costume,
-      mine: isMine
+      mine: isMine,
+      csrfToken: req.csrfToken()
     });
 
   })
@@ -155,7 +156,7 @@ router.get('/:id', function(req, res) {
   });
 });
 
-router.get('/:id/edit', function(req, res){
+router.get('/:id/edit', csrfProtection, function(req, res){
   // extra security to block unauthorized users from editing costumes
   var thisId = req.params.id;
   var userEmail;
@@ -177,7 +178,8 @@ router.get('/:id/edit', function(req, res){
       res.render('editCostume', {
         active: "costumes",
         page: req.url,
-        costume: costume
+        costume: costume,
+        csrfToken: req.csrfToken()
       });
     } else {
       res.send('this is not your costume!')
