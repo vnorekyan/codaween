@@ -1,13 +1,36 @@
-
+<link rel="stylesheet" href="/css/box.css" media="screen" title="no title" charset="utf-8">
 <div class="page">
 <% costumes.forEach(costume => { %>
-  <div class="card" style="margin: 1rem; height: 20rem; width:20rem; display:inline-block; align:vertical-align">
+  <!-- <div class="card content" style="margin: 1rem; height: 20rem; width:20rem; display:inline-block; align:vertical-align">
      <a href="/costumes/<%= costume.id%>">
+       <div class="content-overlay"></div>
+
        <img class="card-img-top sized" src="<%=costume.costumePicture %>" alt="no photo available">
      </a>
     <div class="card-block">
       <h3 class="card-title"><%= costume.costumeName %></h3>
     </div>
-  </div>
+  </div> -->
+
+  <div class="container">
+ <div class="content">
+   <a href="/costumes/<%= costume.id%>">
+     <div class="content-overlay"></div>
+     <% console.log(costume.costumePicture) %>
+     <% if(costume.costumePicture){ %>
+       <img class="content-image" src="<%=costume.costumePicture %>" alt="no photo available">
+
+     <% } else {%>
+       <img class="content-image" src="http://gallery.smartadserver.com/demo_web/image/image_placeholder.png">
+
+    <% } %>
+     <div class="content-details fadeIn-bottom">
+       <h3 class="content-title"><%= costume.costumeName %></h3>
+       <h5 class="content-text"><%= costume.costumeDescription %></h5>
+     </div>
+   </a>
+ </div>
+</div>
+
 
 <% }) %>

@@ -1,8 +1,10 @@
 <ul id="navbar">
   <li <%if(active=="home"){%>class="active"<%}%>><a href="/">Home</a></li>
+  <li <%if(active=="profile"){%>class="active"<%}%>><a href="/users/me">My Profile</a></li>
   <li <%if(active=="costumes"){%>class="active"<%}%>> <a href="/costumes">See the Costumes</a></li>
   <li <%if(active=="users"){%>class="active"<%}%>><a href="/users">See the people</a></li>
   <li <%if(active=="groups"){%>class="active"<%}%>><a href="/groups">Join a group</a></li>
   <li <%if(active=="create-costume"){%>class="active"<%}%>><a href="/costumes/create">Create a costume</a></li>
   <li <%if(active=="create-group"){%>class="active"<%}%>><a href="/groups/create">Create a group</a></li>
+
 </ul>

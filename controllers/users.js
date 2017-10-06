@@ -31,6 +31,37 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/me', csrfProtection, (req, res) => {
+  var me;
+  jwt.verify(req.cookies.jwt, config.secret, function(err, decoded){
+    me = decoded.data;
+  });
+
+  db.user.find({
+    where: {
+      userEmail: me
+    }, include: [{
+      model: db.group
+    },
+    {
+      model: db.costume
+    }]
+  })
+  .then(u => {
+    res.render('user', {
+      active: "profile",
+      page: req.url,
+      user: u,
+      me: true,
+      csrfToken: req.csrfToken()
+
+    });
+  })
+  .catch(err => {
+    res.json(err);
+  })
+});
+
 // POST /users
 router.post('/', function(req, res) {
   return db.user.create({
