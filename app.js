@@ -42,6 +42,12 @@ app.use(validateJwt({
   })
   .unless({path: ['/authenticate/login', '/authenticate/register']}
 ));
+
+app.use(function(request, response, next) {
+  response.setHeader('X-Frame-Options', 'DENY');
+  next();
+});
+
 app.disable('x-powered-by');
 
 

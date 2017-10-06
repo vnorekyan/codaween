@@ -195,6 +195,8 @@ router.get('/:id/edit', csrfProtection, function(req, res){
 
 // PUT /users/:id
 router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
+  var thisId = req.params.id;
+
   db.user.find({
     where: {id: req.params.id },
     include: [{
@@ -208,7 +210,7 @@ router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
     user.updateAttributes(req.body);
   })
   .then(function(user) {
-    res.redirect(`/users/${req.params.id}`);
+    res.redirect(`/users/${thisId}`);
   })
   .catch(function(error) {
     res.json(error);
