@@ -208,7 +208,7 @@ router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
     user.updateAttributes(req.body);
   })
   .then(function(user) {
-    res.redirect('/users');
+    res.redirect(`/users/${req.params.id}`);
   })
   .catch(function(error) {
     res.json(error);
