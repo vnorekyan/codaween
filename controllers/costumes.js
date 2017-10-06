@@ -120,7 +120,7 @@ router.get('/data/:id', function(req, res) {
 });
 
 // GET /costumes/:id
-router.get('/:id', csrfProtection, function(req, res) {
+router.get('/:id', function(req, res) {
   var userEmail;
   var isMine = false;
   // grabbing and storing the user's email
@@ -146,8 +146,7 @@ router.get('/:id', csrfProtection, function(req, res) {
       active: "costumes",
       page: req.url,
       costume: costume,
-      mine: isMine,
-      csrfToken: req.csrfToken()
+      mine: isMine
     });
 
   })
