@@ -29,11 +29,11 @@ var updateCostumeVotes = function(id) {
 
     $.ajax({
       url: `https://codaween.herokuapp.com/costumes/${costumeId}`,
-      type: 'PUT',
-      dataType:'json',
-      data: {
-        costumeVotes: newVotes
-      }
+      type: 'GET',
+      dataType:'json'
+      // data: {
+      //   costumeVotes: newVotes
+      // }
     }).done(function() {
       console.log('ajax request done');
     });
