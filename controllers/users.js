@@ -3,7 +3,10 @@ var db = require('../models');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 var config = require('../config/main');
+var csrf = require('csurf');
+var csrfProtection = csrf({ cookie: true });
 var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // GET /users
 router.get('/', function(req, res) {
