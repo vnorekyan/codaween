@@ -116,6 +116,12 @@ body {
   min-height: 100%;
 }
 
+body.svg {
+  background-image: url('../codaween-background.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 h1 {
   font-family: 'Creepster', cursive;
   font-size: 9rem;
@@ -124,6 +130,14 @@ h1 {
   align-items: center;
   color: #E85821;
 }
+
+h1.lr {
+  font-family: 'Creepster', cursive;
+  font-size: 5rem;
+  color: #24546A;
+
+}
+
 
 /* modules/anchor.css */
 

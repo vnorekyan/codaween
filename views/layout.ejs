@@ -24,10 +24,11 @@
       <%- include('partials/nav', {active: active}); %>
 
     <% } else if (page == "/login"){%>
-      <body>
-      <h2> Login </h2>
+      <body class="svg align">
+      <h1 class="lr"> Login </h1>
     <% } else if (page == "/register"){ %>
-      <h2> Register </h2>
+      <body class="svg align" style="margin-top: 4rem;">
+      <h1 class="lr"> Register </h1>
     <% }%>
 
     <%- body%>
