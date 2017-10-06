@@ -1,7 +1,7 @@
 console.log('sort is connected');
 var sortCostumes = function() {
   $.ajax({
-    url: `https://localhost:8080/costumes/data`,
+    url: `https://codaween.herokuapp.com/costumes/data`,
     type: 'GET',
     dataType:'json'
   }).done(function(response) {
