@@ -67,7 +67,8 @@ router.post('/create', function(req, res) {
     db.costume.create({
       costumeName: req.body.costumeName,
       costumePicture: req.body.costumePicture,
-      costumeDescription: req.body.costumeDescription
+      costumeDescription: req.body.costumeDescription,
+      costumeVotes: 0
     })
     .then(function(costume) {
       db.user.findOrCreate({
