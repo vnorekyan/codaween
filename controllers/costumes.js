@@ -3,6 +3,10 @@ var db = require('../models');
 var jwt = require('jsonwebtoken');
 var config = require('../config/main');
 var router = express.Router();
+var csrf = require('csurf');
+var csrfProtection = csrf({ cookie: true });
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 
 //GET /costumes/data
 router.get('/data', function(req, res) {
