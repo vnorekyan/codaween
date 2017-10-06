@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
 });
 
 // GET groups/create
-router.get('/create', function(req, res){
+router.get('/create', csrfProtection, function(req, res){
   res.render('newGroup', {
     page: req.url,
     message: null,
@@ -81,7 +81,7 @@ router.post('/create', urlencodedParser, csrfProtection, function(req, res) {
 
 });
 
-router.get('/:id/edit', function(req, res){
+router.get('/:id/edit', csrfProtection, function(req, res){
   // extra security to block unauthorized users from editing costumes
   var thisId = req.params.id;
   var userEmail;
@@ -148,7 +148,7 @@ router.get('/:id/join', (req, res) => {
 });
 
 // GET /groups/:id
-router.get('/:id', function(req, res) {
+router.get('/:id', csrfProtection, function(req, res) {
   var userEmail;
   var isMine = false;
   // grabbing and storing the user's email

@@ -9,20 +9,21 @@
           <div class="row form">
 
             <form action="/users/<%= user.id %>?_method=PUT" method="post" class="form login">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="col-sm-12">
 
             <div class="register-row">
               <div class="form__field">
-                <label for="picture" class="register-label">First Name</label>
+                <label for="fname" class="register-label">First Name</label>
                 <input type="text" name="userFirstName" class="form__input" value="<%= user.userFirstName %>" required>
               </div>
               <div class="form__field">
-                <label for="name" class="register-label">Last Name</label>
+                <label for="lname" class="register-label">Last Name</label>
                 <input type="text" name="userLastName" class="form__input" value="<%= user.userLastName %>" required>
               </div>
 
             <div class="form__field">
-              <label for="email" class="register-label">User Picture</label>
+              <label for="picture" class="register-label">User Picture</label>
               <input type="text" name="userPicture" class="form__input" value="<%= user.userPicture %>" required>
             </div>
 

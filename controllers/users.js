@@ -121,7 +121,7 @@ router.put('/:id', function(req, res) {
 });
 
 // GET /users/:id
-router.get('/:id', function(req, res) {
+router.get('/:id', csrfProtection, function(req, res) {
   var isMe = false;
   var email;
 
@@ -145,13 +145,15 @@ router.get('/:id', function(req, res) {
       res.render('user', {
         page: req.url,
         user: user,
-        me: true
+        me: true,
+        csrfToken: req.csrfToken()
       });
     } else {
       res.render('user', {
         page: req.url,
         user: user,
-        me: false
+        me: false,
+        csrfToken: req.csrfToken()
       });
     }
   })
@@ -160,7 +162,7 @@ router.get('/:id', function(req, res) {
   });
 });
 
-router.get('/:id/edit', function(req, res){
+router.get('/:id/edit', csrfProtection, function(req, res){
   // ensuring user can only edit his/her own profile
   var thisId = req.params.id;
   var userEmail;
@@ -177,7 +179,8 @@ router.get('/:id/edit', function(req, res){
       // costume.updateAttributes(req.body);
       res.render('editUser', {
         page: req.url,
-        user: user
+        user: user,
+        csrfToken: req.csrfToken()
       });
     } else {
       res.send('this is not you!')
@@ -191,7 +194,7 @@ router.get('/:id/edit', function(req, res){
 
 
 // PUT /users/:id
-router.put('/:id', function(req, res) {
+router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
   db.user.find({
     where: {id: req.params.id },
     include: [{
@@ -213,7 +216,7 @@ router.put('/:id', function(req, res) {
 });
 
 // DELETE /users/:id
-router.delete('/:id', function(req, res) {
+router.delete('/:id', urlencodedParser, csrfProtection, function(req, res) {
   db.user.find({
     where: {id: req.params.id },
     include: [{

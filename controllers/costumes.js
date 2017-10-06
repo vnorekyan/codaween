@@ -38,8 +38,7 @@ router.get('/', function(req, res) {
     // res.json(costumes);
     res.render('allCostumes', {
       page: req.url,
-      costumes: costumes,
-      csrfToken: req.csrfToken()
+      costumes: costumes
     })
   })
   .catch(function(error) {
@@ -48,7 +47,7 @@ router.get('/', function(req, res) {
 });
 
 // GET costumes/create
-router.get('/create', function(req, res){
+router.get('/create', csrfProtection, function(req, res){
   res.render('newCostume', {
     page: req.url,
     message: null,
@@ -119,7 +118,7 @@ router.get('/data/:id', function(req, res) {
 });
 
 // GET /costumes/:id
-router.get('/:id', function(req, res) {
+router.get('/:id', csrfProtection, function(req, res) {
   var userEmail;
   var isMine = false;
   // grabbing and storing the user's email
@@ -144,7 +143,8 @@ router.get('/:id', function(req, res) {
     res.render('costume', {
       page: req.url,
       costume: costume,
-      mine: isMine
+      mine: isMine,
+      csrfToken: req.csrfToken()
     });
 
   })
@@ -153,7 +153,7 @@ router.get('/:id', function(req, res) {
   });
 });
 
-router.get('/:id/edit', function(req, res){
+router.get('/:id/edit', csrfProtection, function(req, res){
   // extra security to block unauthorized users from editing costumes
   var thisId = req.params.id;
   var userEmail;

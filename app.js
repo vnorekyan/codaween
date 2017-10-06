@@ -12,6 +12,7 @@ var config = require('./config/main');
 var methodOverride = require('method-override');
 var csrf = require('csurf');
 var csrfProtection = csrf({ cookie: true });
+var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 

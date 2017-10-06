@@ -10,7 +10,8 @@
     <div class="container">
        <div class="col-lg-12">
           <div class="row form">
-            <form action="https://codaween.herokuapp.com/costumes/create" method="POST" class="form login">
+            <form action="/costumes/create" method="POST" class="form login">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="col-sm-12">
 
             <div class="register-row">
