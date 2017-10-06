@@ -34,7 +34,7 @@ var updateCostumeVotes = function(id) {
       // data: {
       //   costumeVotes: newVotes
       // }
-    }).done(function() {
+    }).then(function() {
       console.log('ajax request done');
     });
   });
