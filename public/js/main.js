@@ -28,13 +28,13 @@ var updateCostumeVotes = function(id) {
     console.log('newvotes', newVotes);
 
     $.ajax({
-      url: `https://codaween.herokuapp.com/costumes/${costumeId}`,
-      type: 'PUT',
-      dataType:'json',
-      data: {
-        costumeVotes: newVotes
-      }
-    }).done(function() {
+      url: `https://codaween.herokuapp.com/costumes/data/${costumeId}`,
+      type: 'GET',
+      dataType:'json'
+      // data: {
+      //   costumeVotes: newVotes
+      // }
+    }).then(function() {
       console.log('ajax request done');
     });
   });
