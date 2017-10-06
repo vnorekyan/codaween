@@ -20,11 +20,9 @@
     <% user.costumes.forEach(function(costume) { %>
       <img src="<%=costume.costumePicture%>" alt="Costume Picture" />
       <a class="costumeLink" href="/costumes/<%= costume.id %>"><%= costume.costumeName %></a>
-      <p>
-        <%= costume.costumeDescription %>
-      </p>
+      <p><%= costume.costumeDescription %></p>
+      <p class="votes">Votes: <%= costume.costumeVotes %></p>
       <a href="<%= costume.costumeLink %>">Buy it on Amazon</a>
-      <a class="userLink transparent" href="/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
       <button class="vote" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
     <% }) %>
   <% } %>
