@@ -1,7 +1,7 @@
 console.log('sort is connected');
 var sortCostumes = function() {
   $.ajax({
-    url: `http://localhost:8080/costumes/data`,
+    url: `https://codaween.herokuapp.com/costumes/data`,
     type: 'GET',
     dataType:'json'
   }).done(function(response) {
@@ -13,7 +13,7 @@ var sortCostumes = function() {
 
     response.forEach(costume => {
       var costumeDiv = $('<div>');
-      var name = $('<a>').text(costume.costumeName).attr('href', `http://localhost:8080/costumes/${costume.id}`);
+      var name = $('<a>').text(costume.costumeName).attr('href', `https://codaween.herokuapp.com/costumes/${costume.id}`);
       var picture = $('<img>').attr('src', costume.costumePicture);
       var description = $('<p>').text(costume.costumeDescription);
       var votes = $('<h2>').text(costume.costumeVotes);
