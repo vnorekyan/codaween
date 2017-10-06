@@ -56,7 +56,7 @@ router.get('/create', function(req, res){
 });
 
 // POST /costumes
-router.post('/create', urlencodedParser, csrfProtection, function(req, res) {
+router.post('/create', function(req, res) {
   var em;
   var details;
   // calling jwt.verify again to save the user's email address
@@ -188,7 +188,7 @@ router.get('/:id/edit', function(req, res){
 
 
 // PUT /costumes/:id
-router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
+router.put('/:id', function(req, res) {
   // extra security to block unauthorized users
   var thisId = req.params.id;
   var userEmail;
@@ -225,7 +225,7 @@ router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
 
 
 // DELETE /costumes/:id
-router.delete('/:id', urlencodedParser, csrfProtection, function(req, res) {
+router.delete('/:id', function(req, res) {
   db.costume.find({
     where: {id: req.params.id },
     include: [{
