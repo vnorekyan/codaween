@@ -81,7 +81,7 @@ router.post('/create', function(req, res) {
       })
       .spread((user, created) => {
         user.addCostume(user);
-        costume.addUser(user);
+        // costume.addUser(user);
         // res.json(costume);
         res.redirect('/costumes')
       });
