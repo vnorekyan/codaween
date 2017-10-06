@@ -2,7 +2,7 @@
 
   <div class="card">
     <a href="/costumes/<%= costume.id%>">
-    <img class="card-img-top sized" src="<%=costume.costumePicture %>" alt="no photo available">
+    <img class="card-img-top" src="<%=costume.costumePicture %>" alt="no photo available">
   </a>
     <div class="card-block">
       <h3 class="card-title"><%= costume.costumeName %></h3>
@@ -14,16 +14,22 @@
       <% }) %>
       <br>
       <p class="votes">Votes: <%= costume.costumeVotes %></p>
-      <button class="vote btn btn-secondary" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
-      <% if (mine) { %>
-        <a href="/costumes/<%=costume.id%>/edit"><button id="editCostume" class="btn btn-secondary" type="button" name="Edit Costume">Edit Costume</button></a>
-        <form action="/costumes/<%= costume.id %>?_method=DELETE" method="post">
-          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-          <input class="button-delete btn btn-danger" type="submit" value="Delete costume">
-        </form>
-      <% } %>
+      <div class="button-box">
 
-    <a href="/costumes"><button class="btn btn-secondary" type="button" name="button">Back to Costumes</button></a>
+      <button class="vote btn btn-secondary" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
+
+
+        <% if (mine) { %>
+          <a href="/costumes/<%=costume.id%>/edit"><button id="editCostume" class="btn btn-secondary" type="button" name="Edit Costume">Edit Costume</button></a>
+          <form action="/costumes/<%= costume.id %>?_method=DELETE" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input class="button-delete btn btn-danger" type="submit" value="Delete costume">
+          </form>
+        <% } %>
+
+      <a href="/costumes"><button class="btn btn-secondary" type="button" name="button">Back to Costumes</button></a>
+    </div>
+
     </div>
   </div>
 

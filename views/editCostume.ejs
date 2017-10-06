@@ -5,9 +5,10 @@
   <div style="margin-top:2rem">
     <div class="container">
        <div class="col-lg-12">
-          <div class="row form">
+          <div class="row form" style="justify-content:center">
+            <img src="<%=costume.costumePicture%>" class="card-img-top edit">
 
-            <form action="/costumes/<%= costume.id %>?_method=PUT" method="post" class="form login" style="margin: 0 auto;">
+            <form action="/costumes/<%= costume.id %>?_method=PUT" method="post" class="form login">
               <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="col-sm-12">
 

@@ -2,7 +2,7 @@
 
   <div class="card">
     <a href="/groups/<%= group.id%>">
-    <img class="card-img-top sized" src="<%=group.groupPicture %>" alt="no photo available">
+    <img class="card-img-top" src="<%=group.groupPicture %>" alt="no photo available">
   </a>
     <div class="card-block">
       <h3 class="card-title"><%= group.groupName %></h3>
@@ -12,6 +12,8 @@
         <a href="/users/<%=u.id %>"><%= u.userFirstName %></a>
       <% }) %>
     </p>
+
+    <div class="button-box">
 
     <% if (mine) { %>
     <a href="/groups/<%=group.id%>/edit"><button class="btn btn-secondary" type="button" name="edit">Edit Group</button></a>
@@ -27,9 +29,9 @@
   <% } %>
 
     <a href="/groups"><button class="btn btn-secondary" type="button" name="button">Back to Groups</button></a>
+  </div>
     </div>
   </div>
-
 
 
 

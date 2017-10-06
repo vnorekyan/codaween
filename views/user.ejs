@@ -20,7 +20,7 @@
 <div class="userAssociations">
   <div class="card" style="margin-bottom:2rem;">
   <div class="card-block">
-    <h4 class="card-title">Costumes</h4>
+    <h3>Costumes</h3>
     <p>
       <% if(user.costumes.length === 0) { %>
         <p>
@@ -29,7 +29,7 @@
       <% } else { %>
         <% user.costumes.forEach(function(costume) { %>
         <a class="costumeLink" href="/costumes/<%= costume.id %>">
-            <img src="<%=costume.costumePicture%>" alt="Costume Picture" />
+            <img src="<%=costume.costumePicture%>" alt="Costume Picture" class="page-image"/>
           </a>
           <h4>
             <b><%= costume.costumeName %></b>
@@ -45,7 +45,7 @@
 
 <div class="card" style="margin-bottom:2rem;">
 <div class="card-block">
-  <h4 class="card-title">Groups</h4>
+  <h3>Groups</h3>
     <p class="card-text">
       <% if(user.groups.length === 0) { %>
         <p>
@@ -67,6 +67,8 @@
 
 
 </div>
+<div class="button-box">
+
 
 <% if (me) { %>
   <a href="/users/<%=user.id%>/edit"><button id="editUser" class="btn btn-secondary" type="button" name="Edit Profile">Edit Profile</button></a>
@@ -75,4 +77,5 @@
     <button id="deleteUser" class="btn btn-danger" type="submit" name="delete">Delete Account</button>
   </form>
 <% } %>
+</div>
 </div>
