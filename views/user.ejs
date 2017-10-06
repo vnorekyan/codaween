@@ -69,10 +69,10 @@
 </div>
 
 <% if (me) { %>
-  <a href="/users/<%=user.id%>/edit"><button id="editUser" type="button" name="Edit Profile">Edit Profile</button></a>
+  <a href="/users/<%=user.id%>/edit"><button id="editUser" class="btn btn-secondary" type="button" name="Edit Profile">Edit Profile</button></a>
   <form action="/users/<%= user.id %>?_method=DELETE" method="post">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <button id="deleteUser" type="submit" name="delete">Delete Account</button>
+    <button id="deleteUser" class="btn btn-danger" type="submit" name="delete">Delete Account</button>
   </form>
 <% } %>
 </div>
