@@ -38,7 +38,7 @@ router.get('/', function(req, res) {
     res.render('allCostumes', {
       page: req.url,
       costumes: costumes,
-      csrfToken: request.csrfToken()
+      csrfToken: req.csrfToken()
     })
   })
   .catch(function(error) {
@@ -174,7 +174,7 @@ router.get('/:id/edit', function(req, res){
       res.render('editCostume', {
         page: req.url,
         costume: costume,
-        csrfToken: request.csrfToken()
+        csrfToken: req.csrfToken()
       });
     } else {
       res.send('this is not your costume!')
