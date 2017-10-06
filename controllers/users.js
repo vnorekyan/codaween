@@ -93,7 +93,7 @@ router.get('/data/:id', function(req, res) {
 });
 
 // PUT /users/:id
-router.put('/:id', function(req, res) {
+router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
   var thisId = req.params.id;
   var em;
 
@@ -112,7 +112,7 @@ router.put('/:id', function(req, res) {
   })
   .then(function(user) {
     user.updateAttributes(req.body);
-    res.json(user);
+    res.redirect(`/users/${thisId}`);
   })
   .catch(function(error) {
     // res.json(error);
@@ -190,29 +190,6 @@ router.get('/:id/edit', csrfProtection, function(req, res){
     res.send('this is not you');
   })
 
-});
-
-
-// PUT /users/:id
-router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
-  var thisId = req.params.id;
-
-  db.user.find({
-    where: {id: req.params.id },
-    include: [{
-      model: db.group
-    },
-    {
-      model: db.costume
-    }]
-  })
-  .then(function(user) {
-    user.updateAttributes(req.body);
-    res.redirect(`/users/${thisId}`);
-  })
-  .catch(function(error) {
-    res.json(error);
-  });
 });
 
 // DELETE /users/:id
