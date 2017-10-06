@@ -31,9 +31,9 @@
         <a class="costumeLink" href="/costumes/<%= costume.id %>">
             <img src="<%=costume.costumePicture%>" alt="Costume Picture" class="page-image"/>
           </a>
-          <h4>
+
             <b><%= costume.costumeName %></b>
-          </h4>
+
           <a class="userLink transparent" href="/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
         <% }) %>
       <% } %>

@@ -73,7 +73,6 @@ app.use('/groups', require('./controllers/groups'));
 app.use('/costumes', require('./controllers/costumes'));
 app.use('/authenticate', require('./controllers/authenticate'));
 
-
 var server = app.listen(process.env.PORT || 8080, function() {
   console.log('Server started on port 8080');
 });
