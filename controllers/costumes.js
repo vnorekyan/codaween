@@ -209,14 +209,17 @@ router.put('/:id', function(req, res) {
   })
   .then(function(costume) {
     //check if user is included in costume
-    if(costume.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
+    // if(costume.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
       costume.updateAttributes(req.body);
+    }).then(function(costume) {
       res.redirect(`/costumes/${thisId}`);
+    })
 
-    } else {
-      res.send('this is not your costume!')
-    }
-  })
+
+    // } else {
+    //   res.send('this is not your costume!')
+    // }
+  
   .catch(function(error) {
     res.json(error);
 
