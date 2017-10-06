@@ -1,20 +1,20 @@
 <div class="page">
+<center><h2>Edit Group Details</h2></center>
 
-<h2>Edit Group page</hw>
 
   <div style="margin-top:2rem">
     <div class="container">
        <div class="col-lg-12">
           <div class="row form">
 
-            <form action="/groups/<%= group.id %>?_method=PUT" method="post" class="form login">
+            <form action="/groups/<%= group.id %>?_method=PUT" method="post" class="form login" style="margin: 0 auto;">
               <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="col-sm-12">
 
             <div class="register-row">
               <div class="form__field">
                 <label for="picture" class="register-label">Group Picture</label>
-                <input type="text" name="groupsPicture" class="form__input" value="<%=group.groupPicture %>" required>
+                <input type="text" name="groupPicture" class="form__input" value="<%=group.groupPicture %>" required>
               </div>
               <div class="form__field">
                 <label for="name" class="register-label">Group Name</label>

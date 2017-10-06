@@ -53,10 +53,11 @@ app.disable('x-powered-by');
 
 
 
-app.get('/', function(req, res) {
+app.get('/', csrfProtection, function(req, res) {
   res.render('index', {
     active: "home",
-    page: req.url
+    page: req.url,
+    csrfToken: req.csrfToken()
   });
   // db.user.findAll()
   // .then(function(users) {

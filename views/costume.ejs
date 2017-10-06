@@ -14,16 +14,16 @@
       <% }) %>
       <br>
       <p class="votes">Votes: <%= costume.costumeVotes %></p>
-      <button class="vote" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
+      <button class="vote btn btn-secondary" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
       <% if (mine) { %>
-        <a href="/costumes/<%=costume.id%>/edit"><button id="editCostume" type="button" name="Edit Costume">Edit Costume</button></a>
+        <a href="/costumes/<%=costume.id%>/edit"><button id="editCostume" class="btn btn-secondary" type="button" name="Edit Costume">Edit Costume</button></a>
         <form action="/costumes/<%= costume.id %>?_method=DELETE" method="post">
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-          <input class="button-delete" type="submit" value="Delete costume">
+          <input class="button-delete btn btn-danger" type="submit" value="Delete costume">
         </form>
       <% } %>
 
-    <a href="/costumes"><button class="btn btn-default" type="button" name="button">Back to Costumes</button></a>
+    <a href="/costumes"><button class="btn btn-secondary" type="button" name="button">Back to Costumes</button></a>
     </div>
   </div>
 

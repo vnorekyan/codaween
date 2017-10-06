@@ -31,12 +31,8 @@ router.get('/', function(req, res) {
 });
 
 // GET groups/create
-<<<<<<< HEAD
-router.get('/create', function(req, res){
-  console.log('groups url: ', req.url);
-=======
+
 router.get('/create', csrfProtection, function(req, res){
->>>>>>> 8a6b86d63ca6f572f6580678966870ed32a8ec45
   res.render('newGroup', {
     active: "create-group",
     page: req.url,
