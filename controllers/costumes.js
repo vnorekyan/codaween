@@ -189,7 +189,7 @@ router.get('/:id/edit', csrfProtection, function(req, res){
 
 
 // PUT /costumes/:id
-router.put('/:id', urlencodedParser, csrfProtection, function(req, res) {
+router.put('/:id', function(req, res) {
   // extra security to block unauthorized users
   var thisId = req.params.id;
   var userEmail;

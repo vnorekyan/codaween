@@ -17,12 +17,6 @@ var updateCostumeVotes = function(id) {
   var costumeId = id;
   console.log('costumeid', costumeId);
 
-  $("body").bind("ajaxSend", function(elm, xhr, s){
-   if (s.type == "POST") {
-      xhr.setRequestHeader('X-CSRF-Token', csrfToken());
-   }
- });
-
   $.ajax({
     url: `https://codaween.herokuapp.com/costumes/data/${costumeId}`,
     type: 'GET',
@@ -38,8 +32,7 @@ var updateCostumeVotes = function(id) {
       type: 'PUT',
       dataType:'json',
       data: {
-        costumeVotes: newVotes,
-        csrfToken: csrfToken()
+        costumeVotes: newVotes
       }
     }).done(function() {
       console.log('ajax request done');
