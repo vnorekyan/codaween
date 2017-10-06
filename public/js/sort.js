@@ -12,21 +12,18 @@ var sortCostumes = function() {
     });
 
     response.forEach(costume => {
-      var costumeDiv = $('<div>');
-      var name = costume.costumeName;
-      var picture = costume.costumePicture;
-      var description = costume.costumeDescription;
-      var votes = costume.costumeVotes;
-
-      $('.page').append(`
-        <div class="card" style="margin: 1rem; height: 20rem; width:20rem; display:inline-block; align:vertical-align">
-          <img class="card-img-top sized" src="${picture}" alt="no photo available">
-          <div class="card-block">
-            <h3 class="card-title">${name}</h3>
-            <p>votes: ${votes} </p>
-          </div>
-        </div>
-   `);
+      var costumeDiv = $('<div>').attr('class', 'card').attr('style', 'margin: 1rem; height: 20rem; width:20rem; display:inline-block; align:vertical-align');
+      var name = $('<a>').text(costume.costumeName).attr('href', `https://codaween.herokuapp.com/costumes/${costume.id}`);
+      var picture = $('<img>').attr('src', costume.costumePicture).attr('class', 'card-img-top sized');
+      var description = $('<p>').text(costume.costumeDescription);
+      var cardBlock = $('<div>').attr('class', 'card-block');
+      var name = $('<a>').text(costume.costumeName).attr('href', `https://codaween.herokuapp.com/costumes/${costume.id}`);
+      var votes = $('<p>').text(`Votes: ${costume.costumeVotes}`).attr('class', 'card-title');
+      cardBlock.append(name);
+      cardBlock.append(votes);
+      costumeDiv.append(picture);
+      costumeDiv.append(cardBlock);
+      $('body').append(costumeDiv);
     });
   });
 };
