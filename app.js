@@ -10,7 +10,10 @@ var validateJwt = require('express-jwt');
 var cookieParser = require('cookie-parser');
 var config = require('./config/main');
 var methodOverride = require('method-override');
-
+var csrf = require('csurf');
+var csrfProtection = csrf({ cookie: true });
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 // view engine setup
@@ -50,10 +53,11 @@ app.disable('x-powered-by');
 
 
 
-app.get('/', function(req, res) {
+app.get('/', csrfProtection, function(req, res) {
   res.render('index', {
     active: "home",
-    page: req.url
+    page: req.url,
+    csrfToken: req.csrfToken()
   });
   // db.user.findAll()
   // .then(function(users) {
