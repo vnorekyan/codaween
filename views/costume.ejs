@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="page">
 
   <div class="card">
@@ -19,35 +18,10 @@
       <% if (mine) { %>
         <a href="/costumes/<%=costume.id%>/edit"><button id="editCostume" type="button" name="Edit Costume">Edit Costume</button></a>
         <form action="/costumes/<%= costume.id %>?_method=DELETE" method="post">
-          <button class="btn btn-danger" type="submit">Delete Costume</button> 
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <input class="button-delete" type="submit" value="Delete costume">
         </form>
       <% } %>
-=======
-<img src="<%= costume.costumePicture %>" alt="Costume Picture" />
-<p>
-  Costume Name: <%= costume.costumeName %>
-  <br>
-  Description: <%= costume.costumeDescription %>
-  <br>
-  Who's Wearing This?
-  <br>
-  <% costume.users.forEach(function(user) { %>
-    <a class="userLink" href="/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
-  <% }) %>
-  <br>
-  <p class="votes">Votes: <%= costume.costumeVotes %></p>
-</p>
-<a class="costumeLink" href="<%= costume.costumeLink %>">Buy it on Amazon</a>
-
-<button class="vote" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
-<% if (mine) { %>
-  <a href="/costumes/<%=costume.id%>/edit"><button id="editCostume" type="button" name="Edit Costume">Edit Costume</button></a>
-  <form action="/costumes/<%= costume.id %>?_method=DELETE" method="post">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <input class="button-delete" type="submit" value="Delete costume">
-  </form>
-<% } %>
->>>>>>> 8a6b86d63ca6f572f6580678966870ed32a8ec45
 
     <a href="/costumes"><button class="btn btn-default" type="button" name="button">Back to Costumes</button></a>
     </div>

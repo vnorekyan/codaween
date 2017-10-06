@@ -19,24 +19,18 @@
       <button class="btn btn-secondary" type="submit" name="leave">Leave Group</button>
     </form>
     <form action="/groups/<%= group.id %>?_method=DELETE" method="post">
-      <button class="btn btn-danger" type="submit" name="delete">Delete Group</button>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <button id="deleteGroup" type="submit" name="delete">Delete Group</button>
     </form>
   <% } else { %>
     <a href="/groups/<%=group.id%>/join"><button class="btn btn-secondary" type="button" name="join">Join this group</button></a>
   <% } %>
 
-<<<<<<< HEAD
     <a href="/groups"><button class="btn btn-secondary" type="button" name="button">Back to Groups</button></a>
     </div>
   </div>
 
-=======
-  <form action="/groups/<%= group.id %>?_method=DELETE" method="post">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <button id="deleteGroup" type="submit" name="delete">Delete Group</button>
-  </form>
-<% } else { %>
-  <a href="/groups/<%=group.id%>/join"><button id="joinGroup" type="button" name="join">Join this group</button></a>
->>>>>>> 8a6b86d63ca6f572f6580678966870ed32a8ec45
+
+
 
 </div>
