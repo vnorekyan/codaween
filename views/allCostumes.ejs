@@ -1,3 +1,4 @@
+
 <div class="page">
 <% costumes.forEach(costume => { %>
   <div class="card" style="margin: 1rem; height: 20rem; width:20rem; display:inline-block; align:vertical-align">
@@ -5,8 +6,10 @@
        <img class="card-img-top sized" src="<%=costume.costumePicture %>" alt="no photo available">
      </a>
     <div class="card-block">
-      <h3 class="card-title"><%= costume.costumeName %></h3>
+      <h3 class="card-title"></h3>
     </div>
   </div>
+
+
 
 <% }) %>
