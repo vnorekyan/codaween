@@ -17,6 +17,7 @@ router.get('/', function(req, res) {
   })
   .then(function(users) {
     res.render('allUsers', {
+      active: "users",
       page: req.url,
       users: users
     });
@@ -109,7 +110,7 @@ router.put('/:id', function(req, res) {
   })
   .then(function(user) {
     user.updateAttributes(req.body);
-    res.json(user);
+    res.redirect(`/users/${req.params.id}`)
   })
   .catch(function(error) {
     // res.json(error);
@@ -140,12 +141,14 @@ router.get('/:id', function(req, res) {
     // res.json(user);
     if(user.userEmail == email){
       res.render('user', {
+        active: "users",
         page: req.url,
         user: user,
         me: true
       });
     } else {
       res.render('user', {
+        active: "users",
         page: req.url,
         user: user,
         me: false
@@ -173,6 +176,7 @@ router.get('/:id/edit', function(req, res){
     if(thisId == user.id){
       // costume.updateAttributes(req.body);
       res.render('editUser', {
+        active: "users",
         page: req.url,
         user: user
       });

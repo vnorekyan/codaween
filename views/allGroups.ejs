@@ -1,10 +1,12 @@
-<body>
-  <a href="/groups/create"><button type="button">Create new group</button></a>
+<div class="page">
 <% groups.forEach(group => { %>
-  <div class="groupbox">
-  <img src="<%= group.groupPicture %>" width="200px">
-
-  <a href="/groups/<%= group.id%>"><%= group.groupName %></a>
+<div class="card" style="margin: 1rem; height: 20rem; width:20rem; display:inline-block; align:vertical-align">
+  <a href="/groups/<%= group.id%>">
+  <img class="card-img-top sized" src="<%=group.groupPicture %>" alt="no photo available">
+  </a>
+  <div class="card-block">
+    <h4 class="card-title"><%= group.groupName %></h4>
+  </div>
 </div>
 <% }) %>
-</body>
+</div>

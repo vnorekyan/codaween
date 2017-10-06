@@ -1,48 +1,70 @@
+<div class="page">
 <div class="userInfo">
-  <img src="<%= user.userPicture %>" alt="Profile picture" />
-  <p>
-    First Name: <%= user.userFirstName %>
-    <br>
-    Last Name: <%= user.userLastName %>
-    <br>
-    Email: <%= user.userEmail %>
-    <br>
-  </p>
+
+  <div class="card" style="margin-bottom:2rem;">
+    <div class="card-block">
+      <h2>
+        <b><%= user.userFirstName %> <%= user.userLastName %></b>
+      </h2>
+        <br>
+      <h3>
+        Email: <%= user.userEmail %>
+      </h3>
+        <br>
+    </div>
+  <img class="card-img-top" src="<%= user.userPicture %>" alt="no photo available">
+</div>
+
 </div>
 
 <div class="userAssociations">
-  <h3>My Costumes</h3>
-  <% if(user.costumes.length === 0) { %>
+  <div class="card" style="margin-bottom:2rem;">
+  <div class="card-block">
+    <h4 class="card-title">Costumes</h4>
     <p>
-      You don't have any costumes yet.
+      <% if(user.costumes.length === 0) { %>
+        <p>
+          You don't have any costumes yet.
+        </p>
+      <% } else { %>
+        <% user.costumes.forEach(function(costume) { %>
+        <a class="costumeLink" href="/costumes/<%= costume.id %>">
+            <img src="<%=costume.costumePicture%>" alt="Costume Picture" />
+          </a>
+          <h4>
+            <b><%= costume.costumeName %></b>
+          </h4>
+          <a class="userLink transparent" href="http://localhost:8080/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
+        <% }) %>
+      <% } %>
     </p>
-  <% } else { %>
-    <% user.costumes.forEach(function(costume) { %>
-      <img src="<%=costume.costumePicture%>" alt="Costume Picture" />
-      <a class="costumeLink" href="http://localhost:8080/costumes/<%= costume.id %>"><%= costume.costumeName %></a>
-      <p>
-        <%= costume.costumeDescription %>
-      </p>
-      <a href="<%= costume.costumeLink %>">Buy it on Amazon</a>
-      <a class="userLink transparent" href="http://localhost:8080/users/<%= user.id %>"><%= user.userFirstName %> <%= user.userLastName %></a>
-      <button class="vote" id="<%= costume.id %>" type="button" name="Vote for Costume">Vote for Costume</button>
-    <% }) %>
-  <% } %>
 
-  <h3>My Groups</h3>
-  <% if(user.groups.length === 0) { %>
-    <p>
-      You don't have any groups yet.
-    </p>
-  <% } else { %>
-    <% user.groups.forEach(function(group) { %>
-      <img src="<%=group.groupPicture%>" alt="Group Picture" />
-      <a class="groupLink" href="http://localhost:8080/groups/<%= group.id %>"><%= group.groupName %></a>
+  </div>
+</div>
+
+
+<div class="card" style="margin-bottom:2rem;">
+<div class="card-block">
+  <h4 class="card-title">Groups</h4>
+  <p class="card-text">
+    <% if(user.groups.length === 0) { %>
       <p>
-        <%= group.groupDescription %>
+        You don't have any groups yet.
       </p>
-    <% }) %>
-  <% } %>
+    <% } else { %>
+      <% user.groups.forEach(function(group) { %>
+        <!-- <img src="<%=group.groupPicture%>" alt="Group Picture" /> -->
+        <a class="groupLink" href="/groups/<%= group.id %>"><%= group.groupName %></a>
+        <!-- <p>
+          <%= group.groupDescription %>
+        </p> -->
+      <% }) %>
+    <% } %>
+  </p>
+
+</div>
+</div>
+
 
 </div>
 
@@ -52,3 +74,4 @@
     <button id="deleteUser" type="submit" name="delete">Delete Account</button>
   </form>
 <% } %>
+</div>

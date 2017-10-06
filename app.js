@@ -45,6 +45,7 @@ app.use(validateJwt({
 
 app.get('/', function(req, res) {
   res.render('index', {
+    active: "home",
     page: req.url
   });
   // db.user.findAll()

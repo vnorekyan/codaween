@@ -32,6 +32,7 @@ router.get('/', function(req, res) {
   .then(function(costumes) {
     // res.json(costumes);
     res.render('allCostumes', {
+      active: "costumes",
       page: req.url,
       costumes: costumes
     })
@@ -44,6 +45,7 @@ router.get('/', function(req, res) {
 // GET costumes/create
 router.get('/create', function(req, res){
   res.render('newCostume', {
+    active: "create-costume",
     page: req.url,
     message: null
   });
@@ -135,6 +137,7 @@ router.get('/:id', function(req, res) {
     }
 
     res.render('costume', {
+      active: "costumes",
       page: req.url,
       costume: costume,
       mine: isMine
@@ -166,6 +169,7 @@ router.get('/:id/edit', function(req, res){
     if(costume.users.filter(u => { return u.userEmail == userEmail; }).length > 0){
       // costume.updateAttributes(req.body);
       res.render('editCostume', {
+        active: "costumes",
         page: req.url,
         costume: costume
       });

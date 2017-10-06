@@ -1,0 +1,1600 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'mdbootstrap',
+1 verbose cli   '--save' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData mdbootstrap
+8 silly fetchNamedPackageData mdbootstrap
+9 silly mapToRegistry name mdbootstrap
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry http://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'mdbootstrap',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'mdbootstrap',
+12 silly mapToRegistry   name: 'mdbootstrap',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri http://registry.npmjs.org/mdbootstrap
+14 verbose request uri http://registry.npmjs.org/mdbootstrap
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 11:02:13 PM
+17 verbose request id 4b8a15e4681283db
+18 http request GET http://registry.npmjs.org/mdbootstrap
+19 http 401 http://registry.npmjs.org/mdbootstrap
+20 verbose bad json <!DOCTYPE html>
+20 verbose bad json <HTML>
+20 verbose bad json <HEAD>
+20 verbose bad json <META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+20 verbose bad json <TITLE>Unauthorized Content</TITLE>
+20 verbose bad json <STYLE type="text/css">
+20 verbose bad json  body {
+20 verbose bad json  	  background-color: rgb(224,224,224);
+20 verbose bad json  	  font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json  	  font-size: 100%;
+20 verbose bad json  }
+20 verbose bad json  .mainbox {
+20 verbose bad json     border: 1px solid;
+20 verbose bad json     border-color: rgb(0,58,111);
+20 verbose bad json     background: rgb(255,255,255);
+20 verbose bad json     width: 600px;
+20 verbose bad json     max-width: 600px;
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 1em;
+20 verbose bad json     margin-left: auto;
+20 verbose bad json     margin-right: auto;
+20 verbose bad json  }
+20 verbose bad json  .exceptionbox {
+20 verbose bad json  	  border: 2px solid;
+20 verbose bad json  	  border-color: rgb(148,0,41);
+20 verbose bad json  	  background-color: rgb(223,231,237);
+20 verbose bad json  	  width: 450px;
+20 verbose bad json  	  max-width: 540px;
+20 verbose bad json  	  padding: 5px;
+20 verbose bad json     margin-left: auto;
+20 verbose bad json     margin-right: auto;
+20 verbose bad json  }
+20 verbose bad json  .noticetable {
+20 verbose bad json  	  width: 90%;
+20 verbose bad json  	  padding: 5px;
+20 verbose bad json     margin-left: auto;
+20 verbose bad json     margin-right: auto;
+20 verbose bad json  	}
+20 verbose bad json  .noticebox {
+20 verbose bad json  	  border-top: 1px dashed;
+20 verbose bad json  	  border-color: rgb(0,58,111);
+20 verbose bad json  	  width: 90%;
+20 verbose bad json  	  padding: 5px;
+20 verbose bad json  	  padding-bottom: 15px;
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 0.8em;
+20 verbose bad json     color: rgb(0,58,111);
+20 verbose bad json     text-decoration: none;
+20 verbose bad json  	}
+20 verbose bad json  .colornoticebox {
+20 verbose bad json  	  border-top: 1px dashed;
+20 verbose bad json  	  border-color: rgb(0,58,111);
+20 verbose bad json  	  background-color: rgb(223,231,237);
+20 verbose bad json  	  width: 90%;
+20 verbose bad json  	  padding: 5px;
+20 verbose bad json  	  padding-bottom: 15px;
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 0.8em;
+20 verbose bad json     color: rgb(0,58,111);
+20 verbose bad json     text-decoration: none;
+20 verbose bad json  	}
+20 verbose bad json  .debugbox {
+20 verbose bad json  	  border: 1px dashed;
+20 verbose bad json  	  border-color: rgb(192,192,192);
+20 verbose bad json     background: rgb(224,224,224);
+20 verbose bad json     width: 600px;
+20 verbose bad json     max-width: 600px;
+20 verbose bad json     padding: 0 1em 0.5em 1em;
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 0.7em;
+20 verbose bad json     color: rgb(192,192,192);
+20 verbose bad json     margin-left: auto;
+20 verbose bad json     margin-right: auto;
+20 verbose bad json  }
+20 verbose bad json  .blueheader {
+20 verbose bad json  	  background-color: rgb(0,58,111);
+20 verbose bad json     text-align: center;
+20 verbose bad json     vertical-align: middle;
+20 verbose bad json     height: 65px;
+20 verbose bad json     color:	rgb(255,255,255);
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json  	  font-size: 1.25em;
+20 verbose bad json     font-weight: bold;
+20 verbose bad json  }
+20 verbose bad json  .mainbody {
+20 verbose bad json  	  padding-top: 15px;
+20 verbose bad json  }
+20 verbose bad json  .redfooter {
+20 verbose bad json  	  background-color: rgb(148,0,41);
+20 verbose bad json     text-align: center;
+20 verbose bad json     vertical-align: middle;
+20 verbose bad json     height: 40px;
+20 verbose bad json     color:	rgb(255,255,255);
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json  	  font-size: 1.25em;
+20 verbose bad json     font-weight: bold;
+20 verbose bad json  }
+20 verbose bad json  h2 {
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 0.9em;
+20 verbose bad json     font-weight: bold;
+20 verbose bad json     color: rgb(0,58,111);
+20 verbose bad json     text-decoration: none;
+20 verbose bad json  }
+20 verbose bad json  h3 {
+20 verbose bad json  	  font-family: "Arial Black", Arial, Verdana, Helvetica, sans-serif;
+20 verbose bad json     font-weight: bold;
+20 verbose bad json     line-height: 50%;
+20 verbose bad json     color: rgb(148,0,41);
+20 verbose bad json  }
+20 verbose bad json  .normaltext {
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 0.8em;
+20 verbose bad json     color: rgb(0,58,111);
+20 verbose bad json     text-decoration: none;
+20 verbose bad json  }
+20 verbose bad json  .exceptionlftcol {
+20 verbose bad json  	  text-align: right;
+20 verbose bad json  	  vertical-align: top;
+20 verbose bad json  	  background-color: rgb(223,231,237);
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 0.7em;
+20 verbose bad json     text-decoration: none;
+20 verbose bad json     color: rgb(0,58,111);
+20 verbose bad json  	  font-weight: bold;
+20 verbose bad json  	  line-height: 15px;
+20 verbose bad json  }
+20 verbose bad json  .exceptionrtcol {
+20 verbose bad json  	  width: 250px;
+20 verbose bad json  	  max-width: 420px;
+20 verbose bad json  	  text-align: left;
+20 verbose bad json  	  background-color: rgb(223,231,237);
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 0.7em;
+20 verbose bad json     text-decoration: none;
+20 verbose bad json     color: rgb(0,58,111);
+20 verbose bad json  	  line-height: 15px;
+20 verbose bad json  }
+20 verbose bad json  .debugleftcol {
+20 verbose bad json  	  text-align: right;
+20 verbose bad json           vertical-align: top;
+20 verbose bad json  	  background-color: rgb(224,224,224);
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 1em;
+20 verbose bad json     font-weight: bold;
+20 verbose bad json     text-decoration: none;
+20 verbose bad json     color: rgb(176,176,176);
+20 verbose bad json  }
+20 verbose bad json  .debugrightcol {
+20 verbose bad json  	  width: 400px;
+20 verbose bad json  	  max-width: 480px;
+20 verbose bad json  	  text-align: left;
+20 verbose bad json  	  background-color: rgb(224,224,224);
+20 verbose bad json     font-family: Verdana, Arial, Helvetica, sans-serif;
+20 verbose bad json     font-size: 1em;
+20 verbose bad json     text-decoration: none;
+20 verbose bad json     color: rgb(176,176,176);
+20 verbose bad json  }
+20 verbose bad json </STYLE>
+20 verbose bad json </HEAD>
+20 verbose bad json <BODY>
+20 verbose bad json <TABLE class="mainbox">
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="blueheader">
+20 verbose bad json     Hmmm...you don&#39;t seem to have access to this site right now. If you need it, we can help.
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json 	  <TD class="mainbody">
+20 verbose bad json     <TABLE class="exceptionbox">
+20 verbose bad json       <TR>
+20 verbose bad json       	<TD class="exceptionlftcol">
+20 verbose bad json       		Request Category:
+20 verbose bad json         </TD>
+20 verbose bad json         <TD class="exceptionrtcol">
+20 verbose bad json         	"DestinationAppServers;Technology/Internet"
+20 verbose bad json         </TD>
+20 verbose bad json       </TR>
+20 verbose bad json       <TR>
+20 verbose bad json         <TD class="exceptionlftcol">
+20 verbose bad json           Exception Summary:
+20 verbose bad json         </TD>
+20 verbose bad json         <TD class="exceptionrtcol">
+20 verbose bad json           Unauthorized Content
+20 verbose bad json         </TD>
+20 verbose bad json       </TR>
+20 verbose bad json       <TR>
+20 verbose bad json       	<TD class="exceptionlftcol">
+20 verbose bad json       		Requested URL:
+20 verbose bad json         </TD>
+20 verbose bad json         <TD class="exceptionrtcol">
+20 verbose bad json         	http://registry.npmjs.org/mdbootstrap
+20 verbose bad json         </TD>
+20 verbose bad json       </TR>
+20 verbose bad json     </TABLE>
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json   	<TD>
+20 verbose bad json     <TABLE class="noticetable">
+20 verbose bad json       <TR>
+20 verbose bad json       	<TD>
+20 verbose bad json       	<H2>So sorry for the inconvenience, but you may need special approval to get to this website.<BR /><BR /> To safeguard our data, we&#39;re selective with sites that might allow information outside of the Capital One network. But if you need to get to this site, we want to help.</H2>
+20 verbose bad json         </TD>
+20 verbose bad json       </TR>
+20 verbose bad json     	<TR>
+20 verbose bad json     		<TD class="noticebox">
+20 verbose bad json         <H3>What we're doing:</H3>
+20 verbose bad json         Our web filters restrict access to sites based on &quot;categories&quot; of web content. These categories are routinely reviewed and site restrictions are modified as content categories are updated.
+20 verbose bad json         </TD>
+20 verbose bad json       </TR>
+20 verbose bad json       <TR>
+20 verbose bad json       	<TD class="colornoticebox">
+20 verbose bad json       	<H3>What you can do:</H3>
+20 verbose bad json         If you have a business need to access this website, please follow the <A HREF="https://pulse.kdc.capitalone.com/docs/DOC-60597">Access Exception process on Pulse</A> <BR /><BR /> If you have any questions, please send an email to  <A HREF="mailto:datasecurityoperations@capitalone.com?subject=Internet - Requested User Content Review&body=** Please Include A Screenshot Of The Entire Alert Message **">Data Security Operations</A> and we will investigate.
+20 verbose bad json         </TD>
+20 verbose bad json       </TR>
+20 verbose bad json       <TR>
+20 verbose bad json       	<TD class="noticebox">
+20 verbose bad json       	<H3>Please remember:</H3>
+20 verbose bad json         Accessing the Internet and using Capital One equipment with care, per the <A HREF="https://knowledgelink.kdc.capitalone.com/kl/livelink.exe?func=ll&objId=1015451335&objAction=download&viewType=1">End User Responsibilities and Acceptable Use Standard</A>, helps safeguard our company and our customers. Visit <A HREF="https://pulse.kdc.capitalone.com/community/resources/technology-resources/information-security-&-risk-management">Information Security &amp; Risk Management</A> for additional resources.
+20 verbose bad json         </TD>
+20 verbose bad json       </TR>
+20 verbose bad json     </TABLE>
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="redfooter">
+20 verbose bad json     Thank you for helping safeguard Capital One!
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json </TABLE>
+20 verbose bad json <BR />
+20 verbose bad json <TABLE class="debugbox">
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="debugleftcol">
+20 verbose bad json     Browser:
+20 verbose bad json     </TD>
+20 verbose bad json     <TD class="debugrightcol">
+20 verbose bad json     npm/3.10.10 node/v6.11.2 darwin x64
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="debugleftcol">
+20 verbose bad json     Client-IP:
+20 verbose bad json     </TD>
+20 verbose bad json     <TD class="debugrightcol">
+20 verbose bad json     10.250.67.65
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="debugleftcol">
+20 verbose bad json     Client Name:
+20 verbose bad json     </TD>
+20 verbose bad json     <TD class="debugrightcol">
+20 verbose bad json     vud950
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="debugleftcol">
+20 verbose bad json     Appliance:
+20 verbose bad json     </TD>
+20 verbose bad json     <TD class="debugrightcol">
+20 verbose bad json     kdcproxy05p (10.37.130.14)
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="debugleftcol">
+20 verbose bad json        URL Requested:
+20 verbose bad json     </TD>
+20 verbose bad json     <TD class="debugrightcol">
+20 verbose bad json        http://registry.npmjs.org/mdbootstrap
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="debugleftcol">
+20 verbose bad json        Reverse lookup:
+20 verbose bad json     </TD>
+20 verbose bad json     <TD class="debugrightcol">
+20 verbose bad json        151.101.200.162
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="debugleftcol">
+20 verbose bad json        Content Category:
+20 verbose bad json     </TD>
+20 verbose bad json     <TD class="debugrightcol">
+20 verbose bad json        DestinationAppServers;Technology/Internet
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json   <TR>
+20 verbose bad json     <TD class="debugleftcol">
+20 verbose bad json        Exception ID:
+20 verbose bad json     </TD>
+20 verbose bad json     <TD class="debugrightcol">
+20 verbose bad json        capone_exception_denied
+20 verbose bad json     </TD>
+20 verbose bad json   </TR>
+20 verbose bad json </TABLE>
+20 verbose bad json </BODY>
+20 verbose bad json </HTML>
+21 error registry error parsing json
+22 verbose headers { date: 'Fri, 06 Oct 2017 03:02:19 GMT',
+22 verbose headers   'cache-control': 'no-cache',
+22 verbose headers   pragma: 'no-cache',
+22 verbose headers   'content-type': 'text/html; charset=utf-8',
+22 verbose headers   'content-length': '8318',
+22 verbose headers   'x-cache': 'MISS from localhost',
+22 verbose headers   via: '1.1 localhost (squid/3.5.15)',
+22 verbose headers   connection: 'keep-alive' }
+23 silly get cb [ 401,
+23 silly get   { date: 'Fri, 06 Oct 2017 03:02:19 GMT',
+23 silly get     'cache-control': 'no-cache',
+23 silly get     pragma: 'no-cache',
+23 silly get     'content-type': 'text/html; charset=utf-8',
+23 silly get     'content-length': '8318',
+23 silly get     'x-cache': 'MISS from localhost',
+23 silly get     via: '1.1 localhost (squid/3.5.15)',
+23 silly get     connection: 'keep-alive' } ]
+24 silly fetchPackageMetaData SyntaxError: Unexpected token < in JSON at position 0
+24 silly fetchPackageMetaData <!DOCTYPE html>
+24 silly fetchPackageMetaData <HTML>
+24 silly fetchPackageMetaData <HEAD>
+24 silly fetchPackageMetaData <META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+24 silly fetchPackageMetaData <TITLE>Unauthorized Content</TITLE>
+24 silly fetchPackageMetaData <STYLE type="text/css">
+24 silly fetchPackageMetaData  body {
+24 silly fetchPackageMetaData  	  background-color: rgb(224,224,224);
+24 silly fetchPackageMetaData  	  font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData  	  font-size: 100%;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .mainbox {
+24 silly fetchPackageMetaData     border: 1px solid;
+24 silly fetchPackageMetaData     border-color: rgb(0,58,111);
+24 silly fetchPackageMetaData     background: rgb(255,255,255);
+24 silly fetchPackageMetaData     width: 600px;
+24 silly fetchPackageMetaData     max-width: 600px;
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 1em;
+24 silly fetchPackageMetaData     margin-left: auto;
+24 silly fetchPackageMetaData     margin-right: auto;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .exceptionbox {
+24 silly fetchPackageMetaData  	  border: 2px solid;
+24 silly fetchPackageMetaData  	  border-color: rgb(148,0,41);
+24 silly fetchPackageMetaData  	  background-color: rgb(223,231,237);
+24 silly fetchPackageMetaData  	  width: 450px;
+24 silly fetchPackageMetaData  	  max-width: 540px;
+24 silly fetchPackageMetaData  	  padding: 5px;
+24 silly fetchPackageMetaData     margin-left: auto;
+24 silly fetchPackageMetaData     margin-right: auto;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .noticetable {
+24 silly fetchPackageMetaData  	  width: 90%;
+24 silly fetchPackageMetaData  	  padding: 5px;
+24 silly fetchPackageMetaData     margin-left: auto;
+24 silly fetchPackageMetaData     margin-right: auto;
+24 silly fetchPackageMetaData  	}
+24 silly fetchPackageMetaData  .noticebox {
+24 silly fetchPackageMetaData  	  border-top: 1px dashed;
+24 silly fetchPackageMetaData  	  border-color: rgb(0,58,111);
+24 silly fetchPackageMetaData  	  width: 90%;
+24 silly fetchPackageMetaData  	  padding: 5px;
+24 silly fetchPackageMetaData  	  padding-bottom: 15px;
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.8em;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData  	}
+24 silly fetchPackageMetaData  .colornoticebox {
+24 silly fetchPackageMetaData  	  border-top: 1px dashed;
+24 silly fetchPackageMetaData  	  border-color: rgb(0,58,111);
+24 silly fetchPackageMetaData  	  background-color: rgb(223,231,237);
+24 silly fetchPackageMetaData  	  width: 90%;
+24 silly fetchPackageMetaData  	  padding: 5px;
+24 silly fetchPackageMetaData  	  padding-bottom: 15px;
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.8em;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData  	}
+24 silly fetchPackageMetaData  .debugbox {
+24 silly fetchPackageMetaData  	  border: 1px dashed;
+24 silly fetchPackageMetaData  	  border-color: rgb(192,192,192);
+24 silly fetchPackageMetaData     background: rgb(224,224,224);
+24 silly fetchPackageMetaData     width: 600px;
+24 silly fetchPackageMetaData     max-width: 600px;
+24 silly fetchPackageMetaData     padding: 0 1em 0.5em 1em;
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.7em;
+24 silly fetchPackageMetaData     color: rgb(192,192,192);
+24 silly fetchPackageMetaData     margin-left: auto;
+24 silly fetchPackageMetaData     margin-right: auto;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .blueheader {
+24 silly fetchPackageMetaData  	  background-color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-align: center;
+24 silly fetchPackageMetaData     vertical-align: middle;
+24 silly fetchPackageMetaData     height: 65px;
+24 silly fetchPackageMetaData     color:	rgb(255,255,255);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData  	  font-size: 1.25em;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .mainbody {
+24 silly fetchPackageMetaData  	  padding-top: 15px;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .redfooter {
+24 silly fetchPackageMetaData  	  background-color: rgb(148,0,41);
+24 silly fetchPackageMetaData     text-align: center;
+24 silly fetchPackageMetaData     vertical-align: middle;
+24 silly fetchPackageMetaData     height: 40px;
+24 silly fetchPackageMetaData     color:	rgb(255,255,255);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData  	  font-size: 1.25em;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  h2 {
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.9em;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  h3 {
+24 silly fetchPackageMetaData  	  font-family: "Arial Black", Arial, Verdana, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData     line-height: 50%;
+24 silly fetchPackageMetaData     color: rgb(148,0,41);
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .normaltext {
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.8em;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .exceptionlftcol {
+24 silly fetchPackageMetaData  	  text-align: right;
+24 silly fetchPackageMetaData  	  vertical-align: top;
+24 silly fetchPackageMetaData  	  background-color: rgb(223,231,237);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.7em;
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData  	  font-weight: bold;
+24 silly fetchPackageMetaData  	  line-height: 15px;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .exceptionrtcol {
+24 silly fetchPackageMetaData  	  width: 250px;
+24 silly fetchPackageMetaData  	  max-width: 420px;
+24 silly fetchPackageMetaData  	  text-align: left;
+24 silly fetchPackageMetaData  	  background-color: rgb(223,231,237);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.7em;
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData  	  line-height: 15px;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .debugleftcol {
+24 silly fetchPackageMetaData  	  text-align: right;
+24 silly fetchPackageMetaData           vertical-align: top;
+24 silly fetchPackageMetaData  	  background-color: rgb(224,224,224);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 1em;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData     color: rgb(176,176,176);
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .debugrightcol {
+24 silly fetchPackageMetaData  	  width: 400px;
+24 silly fetchPackageMetaData  	  max-width: 480px;
+24 silly fetchPackageMetaData  	  text-align: left;
+24 silly fetchPackageMetaData  	  background-color: rgb(224,224,224);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 1em;
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData     color: rgb(176,176,176);
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData </STYLE>
+24 silly fetchPackageMetaData </HEAD>
+24 silly fetchPackageMetaData <BODY>
+24 silly fetchPackageMetaData <TABLE class="mainbox">
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="blueheader">
+24 silly fetchPackageMetaData     Hmmm...you don&#39;t seem to have access to this site right now. If you need it, we can help.
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData 	  <TD class="mainbody">
+24 silly fetchPackageMetaData     <TABLE class="exceptionbox">
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD class="exceptionlftcol">
+24 silly fetchPackageMetaData       		Request Category:
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData         <TD class="exceptionrtcol">
+24 silly fetchPackageMetaData         	"DestinationAppServers;Technology/Internet"
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData         <TD class="exceptionlftcol">
+24 silly fetchPackageMetaData           Exception Summary:
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData         <TD class="exceptionrtcol">
+24 silly fetchPackageMetaData           Unauthorized Content
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD class="exceptionlftcol">
+24 silly fetchPackageMetaData       		Requested URL:
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData         <TD class="exceptionrtcol">
+24 silly fetchPackageMetaData         	http://registry.npmjs.org/mdbootstrap
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData     </TABLE>
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData   	<TD>
+24 silly fetchPackageMetaData     <TABLE class="noticetable">
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD>
+24 silly fetchPackageMetaData       	<H2>So sorry for the inconvenience, but you may need special approval to get to this website.<BR /><BR /> To safeguard our data, we&#39;re selective with sites that might allow information outside of the Capital One network. But if you need to get to this site, we want to help.</H2>
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData     	<TR>
+24 silly fetchPackageMetaData     		<TD class="noticebox">
+24 silly fetchPackageMetaData         <H3>What we're doing:</H3>
+24 silly fetchPackageMetaData         Our web filters restrict access to sites based on &quot;categories&quot; of web content. These categories are routinely reviewed and site restrictions are modified as content categories are updated.
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD class="colornoticebox">
+24 silly fetchPackageMetaData       	<H3>What you can do:</H3>
+24 silly fetchPackageMetaData         If you have a business need to access this website, please follow the <A HREF="https://pulse.kdc.capitalone.com/docs/DOC-60597">Access Exception process on Pulse</A> <BR /><BR /> If you have any questions, please send an email to  <A HREF="mailto:datasecurityoperations@capitalone.com?subject=Internet - Requested User Content Review&body=** Please Include A Screenshot Of The Entire Alert Message **">Data Security Operations</A> and we will investigate.
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD class="noticebox">
+24 silly fetchPackageMetaData       	<H3>Please remember:</H3>
+24 silly fetchPackageMetaData         Accessing the Internet and using Capital One equipment with care, per the <A HREF="https://knowledgelink.kdc.capitalone.com/kl/livelink.exe?func=ll&objId=1015451335&objAction=download&viewType=1">End User Responsibilities and Acceptable Use Standard</A>, helps safeguard our company and our customers. Visit <A HREF="https://pulse.kdc.capitalone.com/community/resources/technology-resources/information-security-&-risk-management">Information Security &amp; Risk Management</A> for additional resources.
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData     </TABLE>
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="redfooter">
+24 silly fetchPackageMetaData     Thank you for helping safeguard Capital One!
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData </TABLE>
+24 silly fetchPackageMetaData <BR />
+24 silly fetchPackageMetaData <TABLE class="debugbox">
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData     Browser:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData     npm/3.10.10 node/v6.11.2 darwin x64
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData     Client-IP:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData     10.250.67.65
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData     Client Name:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData     vud950
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData     Appliance:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData     kdcproxy05p (10.37.130.14)
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData        URL Requested:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData        http://registry.npmjs.org/mdbootstrap
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData        Reverse lookup:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData        151.101.200.162
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData        Content Category:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData        DestinationAppServers;Technology/Internet
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData        Exception ID:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData        capone_exception_denied
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData </TABLE>
+24 silly fetchPackageMetaData </BODY>
+24 silly fetchPackageMetaData </HTML>
+24 silly fetchPackageMetaData     at Object.parse (native)
+24 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:237:23)
+24 silly fetchPackageMetaData     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+24 silly fetchPackageMetaData     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+24 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+24 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+24 silly fetchPackageMetaData     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+24 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+24 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+24 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+24 silly fetchPackageMetaData  error for mdbootstrap SyntaxError: Unexpected token < in JSON at position 0
+24 silly fetchPackageMetaData <!DOCTYPE html>
+24 silly fetchPackageMetaData <HTML>
+24 silly fetchPackageMetaData <HEAD>
+24 silly fetchPackageMetaData <META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+24 silly fetchPackageMetaData <TITLE>Unauthorized Content</TITLE>
+24 silly fetchPackageMetaData <STYLE type="text/css">
+24 silly fetchPackageMetaData  body {
+24 silly fetchPackageMetaData  	  background-color: rgb(224,224,224);
+24 silly fetchPackageMetaData  	  font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData  	  font-size: 100%;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .mainbox {
+24 silly fetchPackageMetaData     border: 1px solid;
+24 silly fetchPackageMetaData     border-color: rgb(0,58,111);
+24 silly fetchPackageMetaData     background: rgb(255,255,255);
+24 silly fetchPackageMetaData     width: 600px;
+24 silly fetchPackageMetaData     max-width: 600px;
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 1em;
+24 silly fetchPackageMetaData     margin-left: auto;
+24 silly fetchPackageMetaData     margin-right: auto;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .exceptionbox {
+24 silly fetchPackageMetaData  	  border: 2px solid;
+24 silly fetchPackageMetaData  	  border-color: rgb(148,0,41);
+24 silly fetchPackageMetaData  	  background-color: rgb(223,231,237);
+24 silly fetchPackageMetaData  	  width: 450px;
+24 silly fetchPackageMetaData  	  max-width: 540px;
+24 silly fetchPackageMetaData  	  padding: 5px;
+24 silly fetchPackageMetaData     margin-left: auto;
+24 silly fetchPackageMetaData     margin-right: auto;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .noticetable {
+24 silly fetchPackageMetaData  	  width: 90%;
+24 silly fetchPackageMetaData  	  padding: 5px;
+24 silly fetchPackageMetaData     margin-left: auto;
+24 silly fetchPackageMetaData     margin-right: auto;
+24 silly fetchPackageMetaData  	}
+24 silly fetchPackageMetaData  .noticebox {
+24 silly fetchPackageMetaData  	  border-top: 1px dashed;
+24 silly fetchPackageMetaData  	  border-color: rgb(0,58,111);
+24 silly fetchPackageMetaData  	  width: 90%;
+24 silly fetchPackageMetaData  	  padding: 5px;
+24 silly fetchPackageMetaData  	  padding-bottom: 15px;
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.8em;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData  	}
+24 silly fetchPackageMetaData  .colornoticebox {
+24 silly fetchPackageMetaData  	  border-top: 1px dashed;
+24 silly fetchPackageMetaData  	  border-color: rgb(0,58,111);
+24 silly fetchPackageMetaData  	  background-color: rgb(223,231,237);
+24 silly fetchPackageMetaData  	  width: 90%;
+24 silly fetchPackageMetaData  	  padding: 5px;
+24 silly fetchPackageMetaData  	  padding-bottom: 15px;
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.8em;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData  	}
+24 silly fetchPackageMetaData  .debugbox {
+24 silly fetchPackageMetaData  	  border: 1px dashed;
+24 silly fetchPackageMetaData  	  border-color: rgb(192,192,192);
+24 silly fetchPackageMetaData     background: rgb(224,224,224);
+24 silly fetchPackageMetaData     width: 600px;
+24 silly fetchPackageMetaData     max-width: 600px;
+24 silly fetchPackageMetaData     padding: 0 1em 0.5em 1em;
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.7em;
+24 silly fetchPackageMetaData     color: rgb(192,192,192);
+24 silly fetchPackageMetaData     margin-left: auto;
+24 silly fetchPackageMetaData     margin-right: auto;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .blueheader {
+24 silly fetchPackageMetaData  	  background-color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-align: center;
+24 silly fetchPackageMetaData     vertical-align: middle;
+24 silly fetchPackageMetaData     height: 65px;
+24 silly fetchPackageMetaData     color:	rgb(255,255,255);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData  	  font-size: 1.25em;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .mainbody {
+24 silly fetchPackageMetaData  	  padding-top: 15px;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .redfooter {
+24 silly fetchPackageMetaData  	  background-color: rgb(148,0,41);
+24 silly fetchPackageMetaData     text-align: center;
+24 silly fetchPackageMetaData     vertical-align: middle;
+24 silly fetchPackageMetaData     height: 40px;
+24 silly fetchPackageMetaData     color:	rgb(255,255,255);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData  	  font-size: 1.25em;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  h2 {
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.9em;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  h3 {
+24 silly fetchPackageMetaData  	  font-family: "Arial Black", Arial, Verdana, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData     line-height: 50%;
+24 silly fetchPackageMetaData     color: rgb(148,0,41);
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .normaltext {
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.8em;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .exceptionlftcol {
+24 silly fetchPackageMetaData  	  text-align: right;
+24 silly fetchPackageMetaData  	  vertical-align: top;
+24 silly fetchPackageMetaData  	  background-color: rgb(223,231,237);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.7em;
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData  	  font-weight: bold;
+24 silly fetchPackageMetaData  	  line-height: 15px;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .exceptionrtcol {
+24 silly fetchPackageMetaData  	  width: 250px;
+24 silly fetchPackageMetaData  	  max-width: 420px;
+24 silly fetchPackageMetaData  	  text-align: left;
+24 silly fetchPackageMetaData  	  background-color: rgb(223,231,237);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 0.7em;
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData     color: rgb(0,58,111);
+24 silly fetchPackageMetaData  	  line-height: 15px;
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .debugleftcol {
+24 silly fetchPackageMetaData  	  text-align: right;
+24 silly fetchPackageMetaData           vertical-align: top;
+24 silly fetchPackageMetaData  	  background-color: rgb(224,224,224);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 1em;
+24 silly fetchPackageMetaData     font-weight: bold;
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData     color: rgb(176,176,176);
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData  .debugrightcol {
+24 silly fetchPackageMetaData  	  width: 400px;
+24 silly fetchPackageMetaData  	  max-width: 480px;
+24 silly fetchPackageMetaData  	  text-align: left;
+24 silly fetchPackageMetaData  	  background-color: rgb(224,224,224);
+24 silly fetchPackageMetaData     font-family: Verdana, Arial, Helvetica, sans-serif;
+24 silly fetchPackageMetaData     font-size: 1em;
+24 silly fetchPackageMetaData     text-decoration: none;
+24 silly fetchPackageMetaData     color: rgb(176,176,176);
+24 silly fetchPackageMetaData  }
+24 silly fetchPackageMetaData </STYLE>
+24 silly fetchPackageMetaData </HEAD>
+24 silly fetchPackageMetaData <BODY>
+24 silly fetchPackageMetaData <TABLE class="mainbox">
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="blueheader">
+24 silly fetchPackageMetaData     Hmmm...you don&#39;t seem to have access to this site right now. If you need it, we can help.
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData 	  <TD class="mainbody">
+24 silly fetchPackageMetaData     <TABLE class="exceptionbox">
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD class="exceptionlftcol">
+24 silly fetchPackageMetaData       		Request Category:
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData         <TD class="exceptionrtcol">
+24 silly fetchPackageMetaData         	"DestinationAppServers;Technology/Internet"
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData         <TD class="exceptionlftcol">
+24 silly fetchPackageMetaData           Exception Summary:
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData         <TD class="exceptionrtcol">
+24 silly fetchPackageMetaData           Unauthorized Content
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD class="exceptionlftcol">
+24 silly fetchPackageMetaData       		Requested URL:
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData         <TD class="exceptionrtcol">
+24 silly fetchPackageMetaData         	http://registry.npmjs.org/mdbootstrap
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData     </TABLE>
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData   	<TD>
+24 silly fetchPackageMetaData     <TABLE class="noticetable">
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD>
+24 silly fetchPackageMetaData       	<H2>So sorry for the inconvenience, but you may need special approval to get to this website.<BR /><BR /> To safeguard our data, we&#39;re selective with sites that might allow information outside of the Capital One network. But if you need to get to this site, we want to help.</H2>
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData     	<TR>
+24 silly fetchPackageMetaData     		<TD class="noticebox">
+24 silly fetchPackageMetaData         <H3>What we're doing:</H3>
+24 silly fetchPackageMetaData         Our web filters restrict access to sites based on &quot;categories&quot; of web content. These categories are routinely reviewed and site restrictions are modified as content categories are updated.
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD class="colornoticebox">
+24 silly fetchPackageMetaData       	<H3>What you can do:</H3>
+24 silly fetchPackageMetaData         If you have a business need to access this website, please follow the <A HREF="https://pulse.kdc.capitalone.com/docs/DOC-60597">Access Exception process on Pulse</A> <BR /><BR /> If you have any questions, please send an email to  <A HREF="mailto:datasecurityoperations@capitalone.com?subject=Internet - Requested User Content Review&body=** Please Include A Screenshot Of The Entire Alert Message **">Data Security Operations</A> and we will investigate.
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData       <TR>
+24 silly fetchPackageMetaData       	<TD class="noticebox">
+24 silly fetchPackageMetaData       	<H3>Please remember:</H3>
+24 silly fetchPackageMetaData         Accessing the Internet and using Capital One equipment with care, per the <A HREF="https://knowledgelink.kdc.capitalone.com/kl/livelink.exe?func=ll&objId=1015451335&objAction=download&viewType=1">End User Responsibilities and Acceptable Use Standard</A>, helps safeguard our company and our customers. Visit <A HREF="https://pulse.kdc.capitalone.com/community/resources/technology-resources/information-security-&-risk-management">Information Security &amp; Risk Management</A> for additional resources.
+24 silly fetchPackageMetaData         </TD>
+24 silly fetchPackageMetaData       </TR>
+24 silly fetchPackageMetaData     </TABLE>
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="redfooter">
+24 silly fetchPackageMetaData     Thank you for helping safeguard Capital One!
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData </TABLE>
+24 silly fetchPackageMetaData <BR />
+24 silly fetchPackageMetaData <TABLE class="debugbox">
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData     Browser:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData     npm/3.10.10 node/v6.11.2 darwin x64
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData     Client-IP:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData     10.250.67.65
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData     Client Name:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData     vud950
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData     Appliance:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData     kdcproxy05p (10.37.130.14)
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData        URL Requested:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData        http://registry.npmjs.org/mdbootstrap
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData        Reverse lookup:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData        151.101.200.162
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData        Content Category:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData        DestinationAppServers;Technology/Internet
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData   <TR>
+24 silly fetchPackageMetaData     <TD class="debugleftcol">
+24 silly fetchPackageMetaData        Exception ID:
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData     <TD class="debugrightcol">
+24 silly fetchPackageMetaData        capone_exception_denied
+24 silly fetchPackageMetaData     </TD>
+24 silly fetchPackageMetaData   </TR>
+24 silly fetchPackageMetaData </TABLE>
+24 silly fetchPackageMetaData </BODY>
+24 silly fetchPackageMetaData </HTML>
+24 silly fetchPackageMetaData     at Object.parse (native)
+24 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:237:23)
+24 silly fetchPackageMetaData     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+24 silly fetchPackageMetaData     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+24 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+24 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+24 silly fetchPackageMetaData     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+24 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+24 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+24 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+25 silly rollbackFailedOptional Starting
+26 silly rollbackFailedOptional Finishing
+27 silly runTopLevelLifecycles Finishing
+28 silly install printInstalled
+29 verbose stack SyntaxError: Unexpected token < in JSON at position 0
+29 verbose stack <!DOCTYPE html>
+29 verbose stack <HTML>
+29 verbose stack <HEAD>
+29 verbose stack <META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+29 verbose stack <TITLE>Unauthorized Content</TITLE>
+29 verbose stack <STYLE type="text/css">
+29 verbose stack  body {
+29 verbose stack  	  background-color: rgb(224,224,224);
+29 verbose stack  	  font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack  	  font-size: 100%;
+29 verbose stack  }
+29 verbose stack  .mainbox {
+29 verbose stack     border: 1px solid;
+29 verbose stack     border-color: rgb(0,58,111);
+29 verbose stack     background: rgb(255,255,255);
+29 verbose stack     width: 600px;
+29 verbose stack     max-width: 600px;
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 1em;
+29 verbose stack     margin-left: auto;
+29 verbose stack     margin-right: auto;
+29 verbose stack  }
+29 verbose stack  .exceptionbox {
+29 verbose stack  	  border: 2px solid;
+29 verbose stack  	  border-color: rgb(148,0,41);
+29 verbose stack  	  background-color: rgb(223,231,237);
+29 verbose stack  	  width: 450px;
+29 verbose stack  	  max-width: 540px;
+29 verbose stack  	  padding: 5px;
+29 verbose stack     margin-left: auto;
+29 verbose stack     margin-right: auto;
+29 verbose stack  }
+29 verbose stack  .noticetable {
+29 verbose stack  	  width: 90%;
+29 verbose stack  	  padding: 5px;
+29 verbose stack     margin-left: auto;
+29 verbose stack     margin-right: auto;
+29 verbose stack  	}
+29 verbose stack  .noticebox {
+29 verbose stack  	  border-top: 1px dashed;
+29 verbose stack  	  border-color: rgb(0,58,111);
+29 verbose stack  	  width: 90%;
+29 verbose stack  	  padding: 5px;
+29 verbose stack  	  padding-bottom: 15px;
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 0.8em;
+29 verbose stack     color: rgb(0,58,111);
+29 verbose stack     text-decoration: none;
+29 verbose stack  	}
+29 verbose stack  .colornoticebox {
+29 verbose stack  	  border-top: 1px dashed;
+29 verbose stack  	  border-color: rgb(0,58,111);
+29 verbose stack  	  background-color: rgb(223,231,237);
+29 verbose stack  	  width: 90%;
+29 verbose stack  	  padding: 5px;
+29 verbose stack  	  padding-bottom: 15px;
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 0.8em;
+29 verbose stack     color: rgb(0,58,111);
+29 verbose stack     text-decoration: none;
+29 verbose stack  	}
+29 verbose stack  .debugbox {
+29 verbose stack  	  border: 1px dashed;
+29 verbose stack  	  border-color: rgb(192,192,192);
+29 verbose stack     background: rgb(224,224,224);
+29 verbose stack     width: 600px;
+29 verbose stack     max-width: 600px;
+29 verbose stack     padding: 0 1em 0.5em 1em;
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 0.7em;
+29 verbose stack     color: rgb(192,192,192);
+29 verbose stack     margin-left: auto;
+29 verbose stack     margin-right: auto;
+29 verbose stack  }
+29 verbose stack  .blueheader {
+29 verbose stack  	  background-color: rgb(0,58,111);
+29 verbose stack     text-align: center;
+29 verbose stack     vertical-align: middle;
+29 verbose stack     height: 65px;
+29 verbose stack     color:	rgb(255,255,255);
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack  	  font-size: 1.25em;
+29 verbose stack     font-weight: bold;
+29 verbose stack  }
+29 verbose stack  .mainbody {
+29 verbose stack  	  padding-top: 15px;
+29 verbose stack  }
+29 verbose stack  .redfooter {
+29 verbose stack  	  background-color: rgb(148,0,41);
+29 verbose stack     text-align: center;
+29 verbose stack     vertical-align: middle;
+29 verbose stack     height: 40px;
+29 verbose stack     color:	rgb(255,255,255);
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack  	  font-size: 1.25em;
+29 verbose stack     font-weight: bold;
+29 verbose stack  }
+29 verbose stack  h2 {
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 0.9em;
+29 verbose stack     font-weight: bold;
+29 verbose stack     color: rgb(0,58,111);
+29 verbose stack     text-decoration: none;
+29 verbose stack  }
+29 verbose stack  h3 {
+29 verbose stack  	  font-family: "Arial Black", Arial, Verdana, Helvetica, sans-serif;
+29 verbose stack     font-weight: bold;
+29 verbose stack     line-height: 50%;
+29 verbose stack     color: rgb(148,0,41);
+29 verbose stack  }
+29 verbose stack  .normaltext {
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 0.8em;
+29 verbose stack     color: rgb(0,58,111);
+29 verbose stack     text-decoration: none;
+29 verbose stack  }
+29 verbose stack  .exceptionlftcol {
+29 verbose stack  	  text-align: right;
+29 verbose stack  	  vertical-align: top;
+29 verbose stack  	  background-color: rgb(223,231,237);
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 0.7em;
+29 verbose stack     text-decoration: none;
+29 verbose stack     color: rgb(0,58,111);
+29 verbose stack  	  font-weight: bold;
+29 verbose stack  	  line-height: 15px;
+29 verbose stack  }
+29 verbose stack  .exceptionrtcol {
+29 verbose stack  	  width: 250px;
+29 verbose stack  	  max-width: 420px;
+29 verbose stack  	  text-align: left;
+29 verbose stack  	  background-color: rgb(223,231,237);
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 0.7em;
+29 verbose stack     text-decoration: none;
+29 verbose stack     color: rgb(0,58,111);
+29 verbose stack  	  line-height: 15px;
+29 verbose stack  }
+29 verbose stack  .debugleftcol {
+29 verbose stack  	  text-align: right;
+29 verbose stack           vertical-align: top;
+29 verbose stack  	  background-color: rgb(224,224,224);
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 1em;
+29 verbose stack     font-weight: bold;
+29 verbose stack     text-decoration: none;
+29 verbose stack     color: rgb(176,176,176);
+29 verbose stack  }
+29 verbose stack  .debugrightcol {
+29 verbose stack  	  width: 400px;
+29 verbose stack  	  max-width: 480px;
+29 verbose stack  	  text-align: left;
+29 verbose stack  	  background-color: rgb(224,224,224);
+29 verbose stack     font-family: Verdana, Arial, Helvetica, sans-serif;
+29 verbose stack     font-size: 1em;
+29 verbose stack     text-decoration: none;
+29 verbose stack     color: rgb(176,176,176);
+29 verbose stack  }
+29 verbose stack </STYLE>
+29 verbose stack </HEAD>
+29 verbose stack <BODY>
+29 verbose stack <TABLE class="mainbox">
+29 verbose stack   <TR>
+29 verbose stack     <TD class="blueheader">
+29 verbose stack     Hmmm...you don&#39;t seem to have access to this site right now. If you need it, we can help.
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack 	  <TD class="mainbody">
+29 verbose stack     <TABLE class="exceptionbox">
+29 verbose stack       <TR>
+29 verbose stack       	<TD class="exceptionlftcol">
+29 verbose stack       		Request Category:
+29 verbose stack         </TD>
+29 verbose stack         <TD class="exceptionrtcol">
+29 verbose stack         	"DestinationAppServers;Technology/Internet"
+29 verbose stack         </TD>
+29 verbose stack       </TR>
+29 verbose stack       <TR>
+29 verbose stack         <TD class="exceptionlftcol">
+29 verbose stack           Exception Summary:
+29 verbose stack         </TD>
+29 verbose stack         <TD class="exceptionrtcol">
+29 verbose stack           Unauthorized Content
+29 verbose stack         </TD>
+29 verbose stack       </TR>
+29 verbose stack       <TR>
+29 verbose stack       	<TD class="exceptionlftcol">
+29 verbose stack       		Requested URL:
+29 verbose stack         </TD>
+29 verbose stack         <TD class="exceptionrtcol">
+29 verbose stack         	http://registry.npmjs.org/mdbootstrap
+29 verbose stack         </TD>
+29 verbose stack       </TR>
+29 verbose stack     </TABLE>
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack   	<TD>
+29 verbose stack     <TABLE class="noticetable">
+29 verbose stack       <TR>
+29 verbose stack       	<TD>
+29 verbose stack       	<H2>So sorry for the inconvenience, but you may need special approval to get to this website.<BR /><BR /> To safeguard our data, we&#39;re selective with sites that might allow information outside of the Capital One network. But if you need to get to this site, we want to help.</H2>
+29 verbose stack         </TD>
+29 verbose stack       </TR>
+29 verbose stack     	<TR>
+29 verbose stack     		<TD class="noticebox">
+29 verbose stack         <H3>What we're doing:</H3>
+29 verbose stack         Our web filters restrict access to sites based on &quot;categories&quot; of web content. These categories are routinely reviewed and site restrictions are modified as content categories are updated.
+29 verbose stack         </TD>
+29 verbose stack       </TR>
+29 verbose stack       <TR>
+29 verbose stack       	<TD class="colornoticebox">
+29 verbose stack       	<H3>What you can do:</H3>
+29 verbose stack         If you have a business need to access this website, please follow the <A HREF="https://pulse.kdc.capitalone.com/docs/DOC-60597">Access Exception process on Pulse</A> <BR /><BR /> If you have any questions, please send an email to  <A HREF="mailto:datasecurityoperations@capitalone.com?subject=Internet - Requested User Content Review&body=** Please Include A Screenshot Of The Entire Alert Message **">Data Security Operations</A> and we will investigate.
+29 verbose stack         </TD>
+29 verbose stack       </TR>
+29 verbose stack       <TR>
+29 verbose stack       	<TD class="noticebox">
+29 verbose stack       	<H3>Please remember:</H3>
+29 verbose stack         Accessing the Internet and using Capital One equipment with care, per the <A HREF="https://knowledgelink.kdc.capitalone.com/kl/livelink.exe?func=ll&objId=1015451335&objAction=download&viewType=1">End User Responsibilities and Acceptable Use Standard</A>, helps safeguard our company and our customers. Visit <A HREF="https://pulse.kdc.capitalone.com/community/resources/technology-resources/information-security-&-risk-management">Information Security &amp; Risk Management</A> for additional resources.
+29 verbose stack         </TD>
+29 verbose stack       </TR>
+29 verbose stack     </TABLE>
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack     <TD class="redfooter">
+29 verbose stack     Thank you for helping safeguard Capital One!
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack </TABLE>
+29 verbose stack <BR />
+29 verbose stack <TABLE class="debugbox">
+29 verbose stack   <TR>
+29 verbose stack     <TD class="debugleftcol">
+29 verbose stack     Browser:
+29 verbose stack     </TD>
+29 verbose stack     <TD class="debugrightcol">
+29 verbose stack     npm/3.10.10 node/v6.11.2 darwin x64
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack     <TD class="debugleftcol">
+29 verbose stack     Client-IP:
+29 verbose stack     </TD>
+29 verbose stack     <TD class="debugrightcol">
+29 verbose stack     10.250.67.65
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack     <TD class="debugleftcol">
+29 verbose stack     Client Name:
+29 verbose stack     </TD>
+29 verbose stack     <TD class="debugrightcol">
+29 verbose stack     vud950
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack     <TD class="debugleftcol">
+29 verbose stack     Appliance:
+29 verbose stack     </TD>
+29 verbose stack     <TD class="debugrightcol">
+29 verbose stack     kdcproxy05p (10.37.130.14)
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack     <TD class="debugleftcol">
+29 verbose stack        URL Requested:
+29 verbose stack     </TD>
+29 verbose stack     <TD class="debugrightcol">
+29 verbose stack        http://registry.npmjs.org/mdbootstrap
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack     <TD class="debugleftcol">
+29 verbose stack        Reverse lookup:
+29 verbose stack     </TD>
+29 verbose stack     <TD class="debugrightcol">
+29 verbose stack        151.101.200.162
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack     <TD class="debugleftcol">
+29 verbose stack        Content Category:
+29 verbose stack     </TD>
+29 verbose stack     <TD class="debugrightcol">
+29 verbose stack        DestinationAppServers;Technology/Internet
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack   <TR>
+29 verbose stack     <TD class="debugleftcol">
+29 verbose stack        Exception ID:
+29 verbose stack     </TD>
+29 verbose stack     <TD class="debugrightcol">
+29 verbose stack        capone_exception_denied
+29 verbose stack     </TD>
+29 verbose stack   </TR>
+29 verbose stack </TABLE>
+29 verbose stack </BODY>
+29 verbose stack </HTML>
+29 verbose stack     at Object.parse (native)
+29 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:237:23)
+29 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+29 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+29 verbose stack     at emitTwo (events.js:106:13)
+29 verbose stack     at Request.emit (events.js:191:7)
+29 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+29 verbose stack     at emitOne (events.js:96:13)
+29 verbose stack     at Request.emit (events.js:188:7)
+29 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+30 verbose cwd /Users/vud950/coda/codaween
+31 error Darwin 16.7.0
+32 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "mdbootstrap" "--save"
+33 error node v6.11.2
+34 error npm  v3.10.10
+35 error Unexpected token < in JSON at position 0
+35 error <!DOCTYPE html>
+35 error <HTML>
+35 error <HEAD>
+35 error <META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+35 error <TITLE>Unauthorized Content</TITLE>
+35 error <STYLE type="text/css">
+35 error  body {
+35 error  	  background-color: rgb(224,224,224);
+35 error  	  font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error  	  font-size: 100%;
+35 error  }
+35 error  .mainbox {
+35 error     border: 1px solid;
+35 error     border-color: rgb(0,58,111);
+35 error     background: rgb(255,255,255);
+35 error     width: 600px;
+35 error     max-width: 600px;
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 1em;
+35 error     margin-left: auto;
+35 error     margin-right: auto;
+35 error  }
+35 error  .exceptionbox {
+35 error  	  border: 2px solid;
+35 error  	  border-color: rgb(148,0,41);
+35 error  	  background-color: rgb(223,231,237);
+35 error  	  width: 450px;
+35 error  	  max-width: 540px;
+35 error  	  padding: 5px;
+35 error     margin-left: auto;
+35 error     margin-right: auto;
+35 error  }
+35 error  .noticetable {
+35 error  	  width: 90%;
+35 error  	  padding: 5px;
+35 error     margin-left: auto;
+35 error     margin-right: auto;
+35 error  	}
+35 error  .noticebox {
+35 error  	  border-top: 1px dashed;
+35 error  	  border-color: rgb(0,58,111);
+35 error  	  width: 90%;
+35 error  	  padding: 5px;
+35 error  	  padding-bottom: 15px;
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 0.8em;
+35 error     color: rgb(0,58,111);
+35 error     text-decoration: none;
+35 error  	}
+35 error  .colornoticebox {
+35 error  	  border-top: 1px dashed;
+35 error  	  border-color: rgb(0,58,111);
+35 error  	  background-color: rgb(223,231,237);
+35 error  	  width: 90%;
+35 error  	  padding: 5px;
+35 error  	  padding-bottom: 15px;
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 0.8em;
+35 error     color: rgb(0,58,111);
+35 error     text-decoration: none;
+35 error  	}
+35 error  .debugbox {
+35 error  	  border: 1px dashed;
+35 error  	  border-color: rgb(192,192,192);
+35 error     background: rgb(224,224,224);
+35 error     width: 600px;
+35 error     max-width: 600px;
+35 error     padding: 0 1em 0.5em 1em;
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 0.7em;
+35 error     color: rgb(192,192,192);
+35 error     margin-left: auto;
+35 error     margin-right: auto;
+35 error  }
+35 error  .blueheader {
+35 error  	  background-color: rgb(0,58,111);
+35 error     text-align: center;
+35 error     vertical-align: middle;
+35 error     height: 65px;
+35 error     color:	rgb(255,255,255);
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error  	  font-size: 1.25em;
+35 error     font-weight: bold;
+35 error  }
+35 error  .mainbody {
+35 error  	  padding-top: 15px;
+35 error  }
+35 error  .redfooter {
+35 error  	  background-color: rgb(148,0,41);
+35 error     text-align: center;
+35 error     vertical-align: middle;
+35 error     height: 40px;
+35 error     color:	rgb(255,255,255);
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error  	  font-size: 1.25em;
+35 error     font-weight: bold;
+35 error  }
+35 error  h2 {
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 0.9em;
+35 error     font-weight: bold;
+35 error     color: rgb(0,58,111);
+35 error     text-decoration: none;
+35 error  }
+35 error  h3 {
+35 error  	  font-family: "Arial Black", Arial, Verdana, Helvetica, sans-serif;
+35 error     font-weight: bold;
+35 error     line-height: 50%;
+35 error     color: rgb(148,0,41);
+35 error  }
+35 error  .normaltext {
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 0.8em;
+35 error     color: rgb(0,58,111);
+35 error     text-decoration: none;
+35 error  }
+35 error  .exceptionlftcol {
+35 error  	  text-align: right;
+35 error  	  vertical-align: top;
+35 error  	  background-color: rgb(223,231,237);
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 0.7em;
+35 error     text-decoration: none;
+35 error     color: rgb(0,58,111);
+35 error  	  font-weight: bold;
+35 error  	  line-height: 15px;
+35 error  }
+35 error  .exceptionrtcol {
+35 error  	  width: 250px;
+35 error  	  max-width: 420px;
+35 error  	  text-align: left;
+35 error  	  background-color: rgb(223,231,237);
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 0.7em;
+35 error     text-decoration: none;
+35 error     color: rgb(0,58,111);
+35 error  	  line-height: 15px;
+35 error  }
+35 error  .debugleftcol {
+35 error  	  text-align: right;
+35 error           vertical-align: top;
+35 error  	  background-color: rgb(224,224,224);
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 1em;
+35 error     font-weight: bold;
+35 error     text-decoration: none;
+35 error     color: rgb(176,176,176);
+35 error  }
+35 error  .debugrightcol {
+35 error  	  width: 400px;
+35 error  	  max-width: 480px;
+35 error  	  text-align: left;
+35 error  	  background-color: rgb(224,224,224);
+35 error     font-family: Verdana, Arial, Helvetica, sans-serif;
+35 error     font-size: 1em;
+35 error     text-decoration: none;
+35 error     color: rgb(176,176,176);
+35 error  }
+35 error </STYLE>
+35 error </HEAD>
+35 error <BODY>
+35 error <TABLE class="mainbox">
+35 error   <TR>
+35 error     <TD class="blueheader">
+35 error     Hmmm...you don&#39;t seem to have access to this site right now. If you need it, we can help.
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error 	  <TD class="mainbody">
+35 error     <TABLE class="exceptionbox">
+35 error       <TR>
+35 error       	<TD class="exceptionlftcol">
+35 error       		Request Category:
+35 error         </TD>
+35 error         <TD class="exceptionrtcol">
+35 error         	"DestinationAppServers;Technology/Internet"
+35 error         </TD>
+35 error       </TR>
+35 error       <TR>
+35 error         <TD class="exceptionlftcol">
+35 error           Exception Summary:
+35 error         </TD>
+35 error         <TD class="exceptionrtcol">
+35 error           Unauthorized Content
+35 error         </TD>
+35 error       </TR>
+35 error       <TR>
+35 error       	<TD class="exceptionlftcol">
+35 error       		Requested URL:
+35 error         </TD>
+35 error         <TD class="exceptionrtcol">
+35 error         	http://registry.npmjs.org/mdbootstrap
+35 error         </TD>
+35 error       </TR>
+35 error     </TABLE>
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error   	<TD>
+35 error     <TABLE class="noticetable">
+35 error       <TR>
+35 error       	<TD>
+35 error       	<H2>So sorry for the inconvenience, but you may need special approval to get to this website.<BR /><BR /> To safeguard our data, we&#39;re selective with sites that might allow information outside of the Capital One network. But if you need to get to this site, we want to help.</H2>
+35 error         </TD>
+35 error       </TR>
+35 error     	<TR>
+35 error     		<TD class="noticebox">
+35 error         <H3>What we're doing:</H3>
+35 error         Our web filters restrict access to sites based on &quot;categories&quot; of web content. These categories are routinely reviewed and site restrictions are modified as content categories are updated.
+35 error         </TD>
+35 error       </TR>
+35 error       <TR>
+35 error       	<TD class="colornoticebox">
+35 error       	<H3>What you can do:</H3>
+35 error         If you have a business need to access this website, please follow the <A HREF="https://pulse.kdc.capitalone.com/docs/DOC-60597">Access Exception process on Pulse</A> <BR /><BR /> If you have any questions, please send an email to  <A HREF="mailto:datasecurityoperations@capitalone.com?subject=Internet - Requested User Content Review&body=** Please Include A Screenshot Of The Entire Alert Message **">Data Security Operations</A> and we will investigate.
+35 error         </TD>
+35 error       </TR>
+35 error       <TR>
+35 error       	<TD class="noticebox">
+35 error       	<H3>Please remember:</H3>
+35 error         Accessing the Internet and using Capital One equipment with care, per the <A HREF="https://knowledgelink.kdc.capitalone.com/kl/livelink.exe?func=ll&objId=1015451335&objAction=download&viewType=1">End User Responsibilities and Acceptable Use Standard</A>, helps safeguard our company and our customers. Visit <A HREF="https://pulse.kdc.capitalone.com/community/resources/technology-resources/information-security-&-risk-management">Information Security &amp; Risk Management</A> for additional resources.
+35 error         </TD>
+35 error       </TR>
+35 error     </TABLE>
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error     <TD class="redfooter">
+35 error     Thank you for helping safeguard Capital One!
+35 error     </TD>
+35 error   </TR>
+35 error </TABLE>
+35 error <BR />
+35 error <TABLE class="debugbox">
+35 error   <TR>
+35 error     <TD class="debugleftcol">
+35 error     Browser:
+35 error     </TD>
+35 error     <TD class="debugrightcol">
+35 error     npm/3.10.10 node/v6.11.2 darwin x64
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error     <TD class="debugleftcol">
+35 error     Client-IP:
+35 error     </TD>
+35 error     <TD class="debugrightcol">
+35 error     10.250.67.65
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error     <TD class="debugleftcol">
+35 error     Client Name:
+35 error     </TD>
+35 error     <TD class="debugrightcol">
+35 error     vud950
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error     <TD class="debugleftcol">
+35 error     Appliance:
+35 error     </TD>
+35 error     <TD class="debugrightcol">
+35 error     kdcproxy05p (10.37.130.14)
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error     <TD class="debugleftcol">
+35 error        URL Requested:
+35 error     </TD>
+35 error     <TD class="debugrightcol">
+35 error        http://registry.npmjs.org/mdbootstrap
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error     <TD class="debugleftcol">
+35 error        Reverse lookup:
+35 error     </TD>
+35 error     <TD class="debugrightcol">
+35 error        151.101.200.162
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error     <TD class="debugleftcol">
+35 error        Content Category:
+35 error     </TD>
+35 error     <TD class="debugrightcol">
+35 error        DestinationAppServers;Technology/Internet
+35 error     </TD>
+35 error   </TR>
+35 error   <TR>
+35 error     <TD class="debugleftcol">
+35 error        Exception ID:
+35 error     </TD>
+35 error     <TD class="debugrightcol">
+35 error        capone_exception_denied
+35 error     </TD>
+35 error   </TR>
+35 error </TABLE>
+35 error </BODY>
+35 error </HTML>
+36 error If you need help, you may report this error at:
+36 error     <https://github.com/npm/npm/issues>
+37 verbose exit [ 1, true ]

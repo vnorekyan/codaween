@@ -1,29 +1,33 @@
-<body>
-  <div class="groupbox">
-    <h1><%= group.groupName %></h1>
+<div class="page">
 
-  <img src="<%= group.groupPicture %>" width="200px">
-  <p>Description: <%=group.groupDescription %></p>
-  <p> Members: <% group.users.forEach(u => { %>
-    <a href="/users/<%=u.id %>"><%= u.userFirstName %></a>
-  <% }) %>
-</p>
+  <div class="card">
+    <a href="/groups/<%= group.id%>">
+    <img class="card-img-top sized" src="<%=group.groupPicture %>" alt="no photo available">
+  </a>
+    <div class="card-block">
+      <h3 class="card-title"><%= group.groupName %></h3>
+      <%= group.groupDescription %><br>
+
+      <p> Members: <% group.users.forEach(u => { %>
+        <a href="/users/<%=u.id %>"><%= u.userFirstName %></a>
+      <% }) %>
+    </p>
+
+    <% if (mine) { %>
+    <a href="/groups/<%=group.id%>/edit"><button class="btn btn-secondary" type="button" name="edit">Edit Group</button></a>
+    <form action="/groups/<%= group.id %>/leave?_method=PUT" method="post">
+      <button class="btn btn-secondary" type="submit" name="leave">Leave Group</button>
+    </form>
+    <form action="/groups/<%= group.id %>?_method=DELETE" method="post">
+      <button class="btn btn-danger" type="submit" name="delete">Delete Group</button>
+    </form>
+  <% } else { %>
+    <a href="/groups/<%=group.id%>/join"><button class="btn btn-secondary" type="button" name="join">Join this group</button></a>
+  <% } %>
+
+    <a href="/groups"><button class="btn btn-secondary" type="button" name="button">Back to Groups</button></a>
+    </div>
+  </div>
+
 
 </div>
-<a href="/groups"><button type="button" name="button">Back to Groups</button></a>
-<% if (mine) { %>
-  <a href="/groups/<%=group.id%>/edit"><button id="editGroup" type="button" name="edit">Edit Group</button></a>
-
-  <form action="/groups/<%= group.id %>/leave?_method=PUT" method="post">
-    <button id="leaveGroup" type="submit" name="leave">Leave Group</button>
-  </form>
-
-  <form action="/groups/<%= group.id %>?_method=DELETE" method="post">
-    <button id="deleteGroup" type="submit" name="delete">Delete Group</button>
-
-  </form>
-<% } else { %>
-  <a href="/groups/<%=group.id%>/join"><button id="joinGroup" type="button" name="join">Join this group</button></a>
-
-<% } %>
-</body>

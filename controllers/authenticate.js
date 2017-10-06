@@ -46,10 +46,7 @@ router.post('/register', function(req, res){
             var token = jwt.sign({data}, config.secret, { expiresIn: '1h' });
             res.cookie('jwt', token);
             // res.cookie('user', data);
-            res.render('homepage', {
-              user: user,
-              page: req.url
-            });
+            res.redirect('/');
           }
         )
         .catch(err => {
@@ -89,7 +86,7 @@ router.post('/login', function(req, res){
           var data = req.body.email;
           var token = jwt.sign({data}, config.secret, { expiresIn: '1h' });
           res.cookie('jwt', token);
-          res.redirect('/authenticate/homepage');
+          res.redirect('/');
         } else {
           // username is correct but password is not
           res.render('login', {
