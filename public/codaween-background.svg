@@ -14,10 +14,9 @@
 	.st8{fill-rule:evenodd;clip-rule:evenodd;fill:#333333;}
 	.st9{fill-rule:evenodd;clip-rule:evenodd;fill:none;}
 	.st10{font-family:'NewRocker-Regular';}
-	.st11{font-size:41.0724px;}
-	.st12{font-family:'Amatic-Bold';}
-	.st13{opacity:0.3;}
-	.st14{fill:#F2F2F2;}
+	.st11{font-size:25.284px;}
+	.st12{opacity:0.3;}
+	.st13{fill:#F2F2F2;}
 </style>
 <g id="background2">
 	<g>
@@ -533,8 +532,7 @@
 		</g>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 117.7844 430.3145)" class="st2 st10 st11">CODAWEEN</text>
-		<text transform="matrix(1 0 0 1 190.3098 470.9814)" class="st2 st12 st11">Viktoria + Marita</text>
+		<text transform="matrix(1 0 0 1 11.1172 33.1777)" class="st2 st10 st11">CODAWEEN</text>
 	</g>
 </g>
 <g id="background1">
@@ -1278,14 +1276,14 @@
 			</g>
 		</g>
 		<g>
-			<text transform="matrix(1 0 0 1 836.6594 428.3145)" class="st2 st10 st11">HALLOWEEN</text>
-			<text transform="matrix(1 0 0 1 900.6594 468.9814)" class="st2 st12 st11">Background</text>
+			<text transform="matrix(1 0 0 1 836.6594 428.3145)" class="st2 st10" style="font-size:41.0724px;">HALLOWEEN</text>
+			<text transform="matrix(1 0 0 1 900.6594 468.9814)" class="st2" style="font-family:'Amatic-Bold'; font-size:41.0724px;">Background</text>
 		</g>
 	</g>
 </g>
 <g id="designed_by_freepik">
-	<g class="st13">
-		<path class="st14" d="M891.5,488.5v-0.2c-0.2,0.2-0.4,0.4-0.6,0.6c-0.2,0.2-0.4,0.3-0.7,0.4c-0.2,0.1-0.5,0.1-0.8,0.1
+	<g class="st12">
+		<path class="st13" d="M891.5,488.5v-0.2c-0.2,0.2-0.4,0.4-0.6,0.6c-0.2,0.2-0.4,0.3-0.7,0.4c-0.2,0.1-0.5,0.1-0.8,0.1
 			c-0.4,0-0.7-0.1-1.1-0.2c-0.3-0.2-0.6-0.4-0.9-0.7c-0.2-0.3-0.4-0.7-0.5-1.1c-0.1-0.4-0.2-0.8-0.2-1.3c0-1,0.2-1.8,0.7-2.3
 			c0.5-0.6,1.1-0.8,2-0.8c0.5,0,0.9,0.1,1.2,0.2c0.3,0.2,0.6,0.4,0.9,0.7v-2.4c0-0.3,0.1-0.6,0.2-0.7c0.1-0.2,0.3-0.3,0.6-0.3
 			c0.2,0,0.4,0.1,0.6,0.2c0.1,0.2,0.2,0.4,0.2,0.7v7.1c0,0.3-0.1,0.5-0.2,0.7c-0.1,0.2-0.3,0.2-0.6,0.2c-0.2,0-0.4-0.1-0.5-0.2
