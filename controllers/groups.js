@@ -3,6 +3,7 @@ var db = require('../models');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 var config = require('../config/main');
+var bodyParser = require('body-parser');
 
 // GET /groups
 router.get('/', function(req, res) {
