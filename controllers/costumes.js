@@ -217,10 +217,6 @@ router.put('/:id', function(req, res) {
     //   res.send('this is not your costume!')
     // }
   })
-  // .then(function(costume) {
-  //   res.redirect('/costumes');
-  //   // console.log('success')
-  // })
   .catch(function(error) {
     res.json(error);
 
