@@ -1,5 +1,7 @@
 console.log('main.js is connected');
 
+//get array contanining IDs of costumes that have already been clicked and disable them
+
 if(JSON.parse(localStorage.getItem('buttonArray')) === null) {
   var array = [];
   localStorage.setItem('buttonArray', JSON.stringify(array));
@@ -15,7 +17,7 @@ if (localStorage.getItem('clicked') === 'true') {
 
 var updateCostumeVotes = function(id) {
   var costumeId = id;
-  console.log('costumeid', costumeId);
+  //console.log('costumeid', costumeId);
 
   $.ajax({
     url: `https://codaween.herokuapp.com/costumes/data/${costumeId}`,
@@ -42,10 +44,11 @@ var updateCostumeVotes = function(id) {
 };
 
 $('.vote').click(function() {
-  // var oldCostumeVotes = Number($('body').find('.votes').text().split(' ')[1]);
-  // var newCostumeVotes = oldCostumeVotes + 1;
-  // $('body').find('.votes').text('Votes: ' + newCostumeVotes);
-
+  var oldCostumeVotes = Number($('body').find('.votes').text().split(' ')[1]);
+  var newCostumeVotes = oldCostumeVotes + 1;
+  $('body').find('.votes').text('Votes: ' + newCostumeVotes);
+  
+  //the ID of each costume div is the same as the ID of the costume
   updateCostumeVotes(this.id);
 
   var array = JSON.parse(localStorage.getItem('buttonArray'));
