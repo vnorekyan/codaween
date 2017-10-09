@@ -28,7 +28,7 @@ var updateCostumeVotes = function(id) {
     console.log('ajax request done');
     var oldVotes = getResponse.costumeVotes;
     var newVotes = oldVotes + 1;
-    console.log('newvotes', newVotes);
+    //console.log('newvotes', newVotes);
 
     $.ajax({
       url: `https://codaween.herokuapp.com/costumes/${costumeId}`,
