@@ -10,7 +10,7 @@ if(JSON.parse(localStorage.getItem('buttonArray')) === null) {
 if (localStorage.getItem('clicked') === 'true') {
   var buttonIds = JSON.parse(localStorage.getItem('buttonArray'));
   for (let i = 0; i < buttonIds.length; i++) {
-    console.log('buttonIds', buttonIds[i]);
+    //console.log('buttonIds', buttonIds[i]);
     $(`#${buttonIds[i]}`).attr('disabled', 'disabled');
   }
 }
