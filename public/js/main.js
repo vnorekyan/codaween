@@ -24,7 +24,8 @@ var updateCostumeVotes = function(id) {
     type: 'GET',
     dataType: 'json'
   }).then(function(getResponse) {
-    console.log('response',getResponse);
+    //console.log('response',getResponse);
+    console.log('ajax request done');
     var oldVotes = getResponse.costumeVotes;
     var newVotes = oldVotes + 1;
     console.log('newvotes', newVotes);
