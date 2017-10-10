@@ -42,5 +42,5 @@ The voting functionality doesn't always work: when the Vote for Costume button i
   
 It seems that the Leaderboard on the home page doesn't show up on some computers - if you can't see it on yours, please slack Viktoria for a demo. 
 
-http://e.lvme.me/nzu2igx.jpg
+![60% of the time, it works every time...] (http://e.lvme.me/nzu2igx.jpg)
 
