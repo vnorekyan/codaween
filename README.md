@@ -80,15 +80,15 @@ It seems that the Leaderboard on the home page doesn't show up on some computers
 ```
 /public/css
 ```
-    * box.css - some elements of page styling
-    * master.css - main CSS styling
+  * box.css - some elements of page styling
+  * master.css - main CSS styling
   
 ``` 
 /public/js
 ```
-    * jquery-3.2.1.js
-    * main.js - voting logic
-    * sort.js - sorts costumes by number of votes received in descending order on the homepage of the website (codaween.herokuapp.com)
+  * jquery-3.2.1.js
+  * main.js - voting logic
+  * sort.js - sorts costumes by number of votes received in descending order on the homepage of the website (codaween.herokuapp.com)
  
 ```
 /seeders
