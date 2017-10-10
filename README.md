@@ -38,6 +38,8 @@ We used Express.js for writing routes, Sequelize and Postgres for database creat
 
 ## Unsolved Problems
 
-The voting functionality doesn't always work: when the Vote for Costume button is pressed, a GET request is submitted to retrieve the number of votes for a costume and a PUT request is submitted to update this number - it seems that the PUT request isn't always going through, which is probably a problem with Heroku.
+The voting functionality doesn't always work: when the Vote for Costume button is pressed, a GET request is submitted to retrieve the number of votes for a costume and a PUT request is submitted to update this number - it seems that the PUT request isn't always going through, which is probably a problem with Heroku. It does work occasionally, which is how some of the votes on the leaderboard have been incremented. 
+
+It seems that the Leaderboard on the home page doesn't show up on some computers - if you can't see it on yours, please slack Viktoria for a demo. 
 
 ## Folders
