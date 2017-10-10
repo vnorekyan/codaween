@@ -34,12 +34,11 @@ We used Express.js for writing routes, Sequelize and Postgres for database creat
 
 ## Development Approach
 
-
+We began the development process with writing down user stories on a trello board and making wireframes to help visualize the end product. Then, we set up the folder structure and git repository, downloaded the necessary dependancies using npm, created the models, migrations, and seed files for the database, set up the database, wrote the back-end routes, created views, wrote the front-end logic for voting, added authentication, added CSRF protection, clickjacking protection (by denying permission to enclose the app in an i-frame), and other security features, and finally, added styling. 
 
 ## Unsolved Problems
 
 The voting functionality doesn't always work: when the Vote for Costume button is pressed, a GET request is submitted to retrieve the number of votes for a costume and a PUT request is submitted to update this number - it seems that the PUT request isn't always going through, which is probably a problem with Heroku. It does work occasionally, which is how some of the votes on the leaderboard have been incremented. 
-
+  
 It seems that the Leaderboard on the home page doesn't show up on some computers - if you can't see it on yours, please slack Viktoria for a demo. 
 
-## Folders
