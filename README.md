@@ -48,38 +48,38 @@ It seems that the Leaderboard on the home page doesn't show up on some computers
 
 ``` 
 /config 
-  - config.json - connects to remote Heroku database
-  - herokuconfig.json - used during development to store the Heroku database info while the config.json was set to a local database
-  - main.js - contains the secret for authentication
+  * config.json - connects to remote Heroku database
+  * herokuconfig.json - used during development to store the Heroku database info while the config.json was set to a local database
+  * main.js - contains the secret for authentication
 /controllers
-  - authenticate.js - contains routes for logging in, logging out, and registering new users
-  - costumes.js - contains routes for costumes
-  - groups.js - contains routes for groups
-  - users.js - contains routes for users
+  * authenticate.js - contains routes for logging in, logging out, and registering new users
+  * costumes.js - contains routes for costumes
+  * groups.js - contains routes for groups
+  * users.js - contains routes for users
 /migrations
-  - contains migrations for each of our models
+  * contains migrations for each of our models
 /models
-  - contains the models for the costume, group, and user tables, as well as the usercostume and usergroup models for the join tables
+  * contains the models for the costume, group, and user tables, as well as the usercostume and usergroup models for the join tables
 /planning
-  - trello-link.md - contains a link to the trello board with user stories
-  - wireframes.md - contains links to wireframes on wireframe.cc
+  * trello-link.md - contains a link to the trello board with user stories
+  * wireframes.md - contains links to wireframes on wireframe.cc
 /public
   /css
-    - box.css
-    - master.css - main CSS styling
+    * box.css - some elements of page styling
+    * master.css - main CSS styling
   /js
-    - jquery-3.2.1.js
-    - main.js - voting logic
-    - sort.js - sorts costumes by number of votes received in descending order on the homepage of the website (codaween.herokuapp.com)
+    * jquery-3.2.1.js
+    * main.js - voting logic
+    * sort.js - sorts costumes by number of votes received in descending order on the homepage of the website     (codaween.herokuapp.com)
 /seeders
-  - contains files to seed the costumes, users, and groups tables 
+  * contains files to seed the costumes, users, and groups tables 
 /test
-  - authentication_test.js - tests authentication
-  - costumes_test.js - used to test the costumes routes before implementing authentication 
-  - groups_test.js - used to test the groups routes before implementing authentication
-  - users_test.js - used to test the users routes before implementing authentication
+  * authentication_test.js - tests authentication
+  * costumes_test.js - used to test the costumes routes before implementing authentication 
+  * groups_test.js - used to test the groups routes before implementing authentication
+  * users_test.js - used to test the users routes before implementing authentication
 /views
-  - contains views for all rendered routes
+  * contains views for all rendered routes
 ```
 
 
