@@ -79,9 +79,6 @@ It seems that the Leaderboard on the home page doesn't show up on some computers
 
 ```
 /public
-```
-
- ```
   /css
  ```
     * box.css - some elements of page styling
