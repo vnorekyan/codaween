@@ -5,31 +5,31 @@
    <!-- <div class="card" style="margin: 1rem; height: 20rem; width:20rem; display:inline-block; align:vertical-align">
      <a href="/users/<%= user.id%>">
      <img class="card-img-top sized" src="<%=user.userPicture %>" alt="no photo available">
-   </a>
+     </a>
      <div class="card-block">
        <h3 class="card-title"><%= user.userFirstName %> <%=user.userLastName %></h3>
      </div>
    </div> -->
 
    <div class="container">
-  <div class="content">
-    <a href="/users/<%= user.id%>">
-      <div class="content-overlay"></div>
-      <% if(user.userPicture){ %>
-        <img class="content-image" src="<%=user.userPicture %>" alt="no photo available">
+    <div class="content">
+      <a href="/users/<%= user.id%>">
+        <div class="content-overlay"></div>
+        <% if(user.userPicture){ %>
+          <img class="content-image" src="<%=user.userPicture %>" alt="no photo available">
 
-      <% } else {%>
-        <img class="content-image" src="http://gallery.smartadserver.com/demo_web/image/image_placeholder.png">
+        <% } else {%>
+          <img class="content-image" src="http://gallery.smartadserver.com/demo_web/image/image_placeholder.png">
 
-     <% } %>
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title"><%= user.userFirstName %> <%= user.userLastName %></h3>
-        <h5 class="content-text"><%= user.userEmail %></h5>
-      </div>
-    </a>
-  </div>
- </div>
+       <% } %>
+        <div class="content-details fadeIn-bottom">
+          <h3 class="content-title"><%= user.userFirstName %> <%= user.userLastName %></h3>
+          <h5 class="content-text"><%= user.userEmail %></h5>
+        </div>
+      </a>
+    </div>
+   </div>
 
-<% }) %>
+ <% }) %>
 
 </div>
